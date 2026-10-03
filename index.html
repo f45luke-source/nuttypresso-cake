@@ -19,7 +19,7 @@
 <div class="field"><label>연락처 *</label><input required name="phone" inputmode="tel" placeholder="010-0000-0000"></div>
 <div class="field"><label>픽업 날짜 *</label><input required type="date" name="date" id="date"></div>
 <div class="field"><label>픽업 시간 *</label><input required type="time" name="time"></div>
-<div class="field"><label>케이크 *</label><select required name="product" id="product"><option value="37800">딥 바스크 — 37,800원</option><option value="40500">말차 — 40,500원</option><option value="45000">스트로베리 — 45,000원</option></select></div>
+<div class="field"><label>케이크 *</label><select required name="product" id="product"><option value="deep_basque" data-price="37800">딥 바스크 — 37,800원</option><option value="matcha" data-price="40500">말차 — 40,500원</option><option value="strawberry" data-price="45000">스트로베리 — 45,000원</option></select></div>
 <div class="field"><label>수량 *</label><input required type="number" min="1" max="10" value="1" name="qty" id="qty"></div>
 <div class="total full"><span>사전예약 결제 예정금액</span><span id="total">37,800원</span></div>
 <div class="field full"><label>요청사항</label><textarea name="memo" placeholder="케이크 관련 요청사항이 있다면 남겨주세요."></textarea></div>
@@ -28,8 +28,11 @@
 </form></section>
 <footer class="footer">NUTTY PRESSO · CAKE PRE-ORDER<br>사전예약 할인은 픽업 하루 전 예약 기준입니다.</footer></main>
 <script>
-const p=document.querySelector('#product'),q=document.querySelector('#qty'),t=document.querySelector('#total');
-function calc(){t.textContent=(Number(p.value)*Number(q.value||1)).toLocaleString('ko-KR')+'원'}p.onchange=calc;q.oninput=calc;
+const API='https://hpexprhlyikznqaptqww.supabase.co/rest/v1/cake_reservations';
+const KEY='sb_publishable_fJzGi38yo76T3kGgjBuvUg_BVb0RwGD';
+const p=document.querySelector('#product'),q=document.querySelector('#qty'),t=document.querySelector('#total'),form=document.querySelector('#form');
+const price=()=>Number(p.options[p.selectedIndex].dataset.price);
+function calc(){t.textContent=(price()*Number(q.value||1)).toLocaleString('ko-KR')+'원'}p.onchange=calc;q.oninput=calc;
 const d=document.querySelector('#date');let x=new Date();x.setDate(x.getDate()+1);d.min=x.toISOString().split('T')[0];
-document.querySelector('#form').onsubmit=e=>{e.preventDefault();const s=document.querySelector('#status');s.style.display='block';s.textContent='예약 저장 기능을 연결 중입니다. 현재는 사이트 디자인 확인용입니다.'}
+form.onsubmit=async e=>{e.preventDefault();const s=document.querySelector('#status'),btn=form.querySelector('button');s.style.display='block';s.textContent='예약을 접수하고 있습니다...';btn.disabled=true;const fd=new FormData(form),n=Number(fd.get('qty')),u=price();const data={customer_name:fd.get('name').trim(),phone:fd.get('phone').trim(),pickup_date:fd.get('date'),pickup_time:fd.get('time'),product:fd.get('product'),quantity:n,unit_price:u,total_price:u*n,memo:fd.get('memo').trim()||null};try{const r=await fetch(API,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data)});if(!r.ok)throw new Error(await r.text());s.innerHTML='<strong>예약 신청이 완료되었습니다.</strong><br>너티프레소에서 예약 내용을 확인할 예정입니다.';form.reset();q.value=1;calc()}catch(err){console.error(err);s.textContent='예약 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'}finally{btn.disabled=false}}
 </script></body></html>
