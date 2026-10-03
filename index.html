@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NUTTY PRESSO — Cake Reservation</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f0e6;color:#171717;font-family:Arial,"Apple SD Gothic Neo",sans-serif}.wrap{max-width:1100px;margin:auto;padding:24px}.nav{display:flex;justify-content:space-between;border-bottom:2px solid #171717;padding:10px 0;font-weight:800}.hero{padding:70px 0 40px}.eyebrow{font-size:13px;letter-spacing:.18em}.hero h1{font-size:clamp(54px,10vw,118px);line-height:.82;margin:15px 0 25px;letter-spacing:-.07em}.hero p{max-width:560px;font-size:18px;line-height:1.55}.badge{display:inline-block;background:#d8ff4f;border:2px solid #171717;border-radius:99px;padding:10px 16px;font-weight:800}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0 60px}.card{border:2px solid #171717;background:#fff;padding:14px}.photo{height:300px;background:#ddd8ce;display:grid;place-items:center;color:#777;font-size:13px}.card h2{font-size:25px;margin:17px 0 8px}.desc{min-height:45px;color:#555}.old{text-decoration:line-through;color:#777}.sale{font-size:24px;font-weight:900;margin-left:8px}.reserve{border-top:2px solid #171717;padding:55px 0 80px;display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}.reserve h2{font-size:48px;line-height:.95;margin:0}.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}label{font-size:13px;font-weight:800}input,select,textarea{font:inherit;padding:15px;border:1.5px solid #171717;background:#fff;border-radius:0}textarea{min-height:90px}button{padding:17px;background:#171717;color:#fff;border:0;font-weight:800;font-size:16px;cursor:pointer}.notice{font-size:12px;color:#666;line-height:1.5}.total{padding:16px;border:1.5px solid #171717;background:#d8ff4f;font-weight:800;display:flex;justify-content:space-between}.footer{border-top:2px solid #171717;padding:20px 0 40px;font-size:12px}.status{display:none;padding:14px;border:1px solid #171717;background:#fff}
+@media(max-width:760px){.products{grid-template-columns:1fr}.photo{height:360px}.reserve{grid-template-columns:1fr;gap:28px}.form{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding-top:45px}}
+</style></head>
+<body><main class="wrap">
+<div class="nav"><span>NUTTY PRESSO</span><span>CAKE RESERVATION</span></div>
+<section class="hero"><span class="badge">PRE-ORDER 10% OFF</span><h1>CAKE,<br>READY FOR YOU.</h1><p>너티프레소의 홀케이크를 미리 예약해 주세요. 하루 전 사전 예약 시 10% 할인된 가격으로 준비해드립니다.</p></section>
+<section class="products">
+<div class="card"><div class="photo">IMAGE COMING SOON</div><h2>DEEP BASQUE</h2><p class="desc">진하고 묵직한 치즈 풍미의 딥 바스크 케이크.</p><span class="old">42,000원</span><span class="sale">37,800원</span></div>
+<div class="card"><div class="photo">IMAGE COMING SOON</div><h2>MATCHA</h2><p class="desc">말차의 깊은 풍미를 담은 너티프레소 말차 케이크.</p><span class="old">45,000원</span><span class="sale">40,500원</span></div>
+<div class="card"><div class="photo">IMAGE COMING SOON</div><h2>STRAWBERRY</h2><p class="desc">스트로베리의 산뜻함을 담은 시즌 케이크.</p><span class="old">50,000원</span><span class="sale">45,000원</span></div>
+</section>
+<section class="reserve"><div><span class="eyebrow">PRE-ORDER</span><h2>예약하고<br>10% OFF.</h2><p>원하는 케이크와 픽업 일정을 남겨주세요. 예약 접수 후 매장에서 확인할 수 있도록 준비 중입니다.</p></div>
+<form class="form" id="form">
+<div class="field"><label>이름 *</label><input required name="name" placeholder="예약자 성함"></div>
+<div class="field"><label>연락처 *</label><input required name="phone" inputmode="tel" placeholder="010-0000-0000"></div>
+<div class="field"><label>픽업 날짜 *</label><input required type="date" name="date" id="date"></div>
+<div class="field"><label>픽업 시간 *</label><input required type="time" name="time"></div>
+<div class="field"><label>케이크 *</label><select required name="product" id="product"><option value="37800">딥 바스크 — 37,800원</option><option value="40500">말차 — 40,500원</option><option value="45000">스트로베리 — 45,000원</option></select></div>
+<div class="field"><label>수량 *</label><input required type="number" min="1" max="10" value="1" name="qty" id="qty"></div>
+<div class="total full"><span>사전예약 결제 예정금액</span><span id="total">37,800원</span></div>
+<div class="field full"><label>요청사항</label><textarea name="memo" placeholder="케이크 관련 요청사항이 있다면 남겨주세요."></textarea></div>
+<label class="notice full"><input required type="checkbox"> 예약 확인을 위한 이름, 연락처 및 예약정보 수집에 동의합니다.</label>
+<button class="full" type="submit">예약 신청하기 →</button><div class="status full" id="status"></div>
+</form></section>
+<footer class="footer">NUTTY PRESSO · CAKE PRE-ORDER<br>사전예약 할인은 픽업 하루 전 예약 기준입니다.</footer></main>
+<script>
+const p=document.querySelector('#product'),q=document.querySelector('#qty'),t=document.querySelector('#total');
+function calc(){t.textContent=(Number(p.value)*Number(q.value||1)).toLocaleString('ko-KR')+'원'}p.onchange=calc;q.oninput=calc;
+const d=document.querySelector('#date');let x=new Date();x.setDate(x.getDate()+1);d.min=x.toISOString().split('T')[0];
+document.querySelector('#form').onsubmit=e=>{e.preventDefault();const s=document.querySelector('#status');s.style.display='block';s.textContent='예약 저장 기능을 연결 중입니다. 현재는 사이트 디자인 확인용입니다.'}
+</script></body></html>
