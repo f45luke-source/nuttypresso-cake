@@ -8,7 +8,7 @@ This directory is independent of the existing NUTTY PRESSO root website.
 
 Supabase project: hpexprhlyikznqaptqww (Seoul)
 Table: public.halfhouse_inquiries
-Dashboard: https://supabase.com/dashboard/project/hpexprhlyikznqaptqww/editor/16545
+Dashboard: https://supabase.com/dashboard/project/hpexprhlyikznqaptqww/editor/17662
 Sign in with the existing project administrator account. This link is not a public customer listing.
 
 service: venue (대관), bulk (단체주문), gifts (선물세트), popup (팝업·협업), group (단체예약), cake (홀케이크).
