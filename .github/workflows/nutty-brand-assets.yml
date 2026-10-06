@@ -1,0 +1,62 @@
+name: Nutty brand assets
+on:
+  push:
+    paths:
+      - '.github/workflows/nutty-brand-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pymupdf pillow gdown
+      - name: Prepare official brand artwork
+        shell: bash
+        run: |
+          python - <<'PY'
+          import pathlib, tempfile, fitz, gdown
+          from PIL import Image
+          out=pathlib.Path('assets'); out.mkdir(exist_ok=True)
+          temp=pathlib.Path(tempfile.mkdtemp())
+          def load(file_id, name):
+              p=temp/name
+              result=gdown.download(id=file_id,output=str(p),quiet=False)
+              if not result: raise RuntimeError('Could not fetch approved brand source: '+name)
+              return p
+          def svg(source, index, target, crop=None):
+              doc=fitz.open(source); page=doc[index]
+              if crop is None:
+                  crop=fitz.Rect()
+                  for drawing in page.get_drawings(): crop |= drawing['rect']
+                  crop=fitz.Rect(crop.x0-2,crop.y0-2,crop.x1+2,crop.y1+2)&page.rect
+              page.set_cropbox(crop)
+              (out/target).write_text(page.get_svg_image(text_as_path=True),encoding='utf-8')
+          logo=load('1tS9k-1DtkrOTepQiCBYCcYQfsEa5FBI5','logo.ai')
+          svg(logo,1,'nutty-logo.svg')
+          svg(logo,1,'nutty-wordmark.svg',fitz.Rect(167,262,675,433))
+          mascot=load('1A2F4zIkrtVOq6YDp5RSG9I2lPzK8TKrE','mascot.ai')
+          svg(mascot,0,'nutty-mascot.svg')
+          pattern=load('1QyLB4SavTrJ7lQDOQ_hbkYxJ86WTJYP6','pattern.ai')
+          doc=fitz.open(pattern); pix=doc[0].get_pixmap(matrix=fitz.Matrix(.8,.8))
+          Image.frombytes('RGB',[pix.width,pix.height],pix.samples).save(out/'nutty-pattern.webp',quality=90)
+          archive=load('1P2zGXf1_8LQCbS1kgrT641a3Fys227tO','archive.jpg')
+          im=Image.open(archive).convert('RGB')
+          w,h=im.size; im=im.crop((int(w*.015),int(h*.28),int(w*.985),int(h*.77)))
+          im.thumbnail((1400,1200)); im.save(out/'nutty-atelier.webp',quality=88)
+          print('Created:',[p.name for p in out.iterdir()])
+          PY
+      - name: Commit optimized artwork only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/nutty-logo.svg assets/nutty-wordmark.svg assets/nutty-mascot.svg assets/nutty-pattern.webp assets/nutty-atelier.webp
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add official Nutty Presso logo, mascot, pattern and atelier photo'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
