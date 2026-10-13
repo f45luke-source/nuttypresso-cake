@@ -1,42 +1,44 @@
-# HALF HOUSE official website
+# HALF HOUSE website — November 2026
 
 Public site: https://f45luke-source.github.io/nuttypresso-cake/halfhouse/
+Only this directory changes. The NUTTY PRESSO root website is independent.
 
-This directory is independent of the existing NUTTY PRESSO root website.
+## Customer journeys
 
-## Inquiry management
+Space and brunch → store directions. Panini and bakery → bulk inquiry. Gifts → gifts inquiry. Whole cake → cake inquiry. Real event cases → venue, group, or popup inquiry.
+`inquiry.html?service=bulk&product=panini#contact` preselects the relevant type and product. Service keys: venue, bulk, gifts, popup, group, cake. Only known product/occasion values are accepted.
 
-Supabase project: hpexprhlyikznqaptqww (Seoul)
-Table: public.halfhouse_inquiries
-Dashboard: https://supabase.com/dashboard/project/hpexprhlyikznqaptqww/editor/17662
-Sign in with the existing project administrator account. This link is not a public customer listing.
+The form is a **consultation request**, not a confirmed booking, order, or payment. A valid HH receipt is required before showing success. Staff must confirm availability, composition, price, fulfilment and cancellation conditions.
 
-service: venue (대관), bulk (단체주문), gifts (선물세트), popup (팝업·협업), group (단체예약), cake (홀케이크).
-status: new (신규), contacted (연락완료), quoted (견적전달), confirmed (확정), closed (종료), spam (스팸).
-Use staff_note for staff notes. Sort created_at descending to see latest requests.
+## Inquiry operation
 
-A successful form response includes an HH receipt. An inquiry is NOT a confirmed booking or payment. Contact the customer to confirm schedule, items, price and cancellation conditions. Automatic SMS/email alerts are not configured; check the dashboard for new inquiries.
+Supabase project: hpexprhlyikznqaptqww (Seoul). Table: public.halfhouse_inquiries.
+Administrator dashboard: https://supabase.com/dashboard/project/hpexprhlyikznqaptqww/editor/17662
+This requires the project administrator's existing account. It is not a public customer listing.
 
-## Advertisement links
+Sort created_at descending. Use status new → contacted → quoted → confirmed; close or mark spam where appropriate. Keep receipt and staff_note with the corresponding internal order record. No payment processor or revenue amount integration is installed.
+**Automatic email/SMS notifications are not configured. Staff need to check the dashboard.**
 
-Append ?service=venue, ?service=bulk or ?service=gifts to preselect the inquiry type. UTM fields utm_source, utm_medium, utm_campaign, utm_content and utm_term are saved with the inquiry. Add #contact to land directly on the form.
+Server protections remain unchanged: explicit consent, server validation, honeypot, body limits, hashed rate-limit identifiers, atomic idempotency and allowed origins. Direct anonymous table access is denied. Only a publishable key is shipped in JavaScript. Inquiry retention is 90 days, with the existing hourly cleanup job. Do not weaken RLS or publish any service-role key.
 
-The page emits inquiry_cta_click and generate_lead into a local dataLayer. No Meta Pixel, GA4 ID, GTM container or paid advertising campaign is installed. The generate_lead event occurs only after the server confirms a receipt. Do not send customer names, phone numbers or message bodies into ad analytics.
+## Campaign attribution
 
-## Backend and safeguards
+Use utm_source, utm_medium, utm_campaign, utm_content, utm_term. A first-party session entry (2-hour TTL) preserves the campaign across the homepage and inquiry page, and UTM values also travel in internal inquiry links. Attribution is sent with an inquiry only after consent. No names, phone numbers or message text enter tracking events.
 
-Public Edge Function: halfhouse-inquiry. The frontend contains only a publishable key, never a service-role key. Server-side validation, explicit consent, body length limits, a honeypot, hashed rate-limit identifiers, atomic idempotency and a restrictive CORS allowlist are enabled. Anonymous/authenticated clients cannot read or directly insert into the inquiries table. The Edge Function uses its environment service key for the restricted database function.
+Local dataLayer events provide an integration point, **not an installed analytics service**. There is no Meta Pixel, GA4 ID or GTM container configured. A click is not a sale; generate_lead fires only after a confirmed API receipt. Actual sales must be reconciled to the internal order record.
 
-An hourly retention job removes inquiry records older than 90 days and rate-limit records older than 24 hours. Changing the displayed retention policy requires changing that job too. A new custom domain must be added to the Edge Function CORS allowlist before accepting submissions from it.
+## Publication basis
 
-## Brand and editorial notes
+Real space, bakery and event photographs are supplied by HALF HOUSE in its Drive archive. New WebP assets have 640px and up-to-1600px variants, with metadata removed. Event labels are based on the actual corresponding source folders and images. Do not substitute an unrelated event picture or a generated product image.
 
-The wordmark and bakery characters are vectorized from the owner's supplied HALF HOUSE artwork. Illustrations are not product photographs. Colors: indigo #332de5, cyan #2dfffe, warm off-white. English type: Josefin Sans via Google Fonts. Korean type: Happiness Sans via a public webfont CDN. This page uses Hyundai Department Store's Happiness Sans typeface. Typeface ownership remains with its respective creators; no font binaries are distributed in this repository.
+Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Review links go to Naver/Google Maps to find the business's reviews; **no review text, stars or count was verifiable for republishing**, and none is invented.
 
-Cake prebooking 10% discount is displayed as PLANNED. No start date, final price or payment integration is implied. November 2026 Hyundai Pangyo popup is shown as upcoming, with exact dates to follow through the brand's official channel. That notice hides automatically from December 2026 onward.
+Brand artwork and the existing Josefin font remain in place; the Korean Happiness webfont is loaded from the existing public CDN with system fallbacks. The bakery character is an illustration, not a cake photo.
 
-## Tests performed
+November campaign values follow the owner's latest instructions: Nov 1–30 store stamp event; 10,000 KRW per stamp; rewards at 10/20/30 are a choice of three baguettes / HALF HOUSE BAG / whole Basque cake. Do not imply combined or popup stamp redemption conditions that were not confirmed.
+Pangyo popup: Nov 6–26; daily 11:00 first 100 purchasing customers receive one chocolate mochi, while supply lasts. Prices in its accordion are **Pangyo popup prices only**, not main-store prices. Precise popup counter location is not claimed. The homepage hides expired November promotion links after Nov 30 KST.
+Cake 10% prebooking discount is still described as planned, not currently guaranteed.
 
-Local in-memory browser tests: desktop 1440px; mobile 390px and 360px; no horizontal overflow; six conditional inquiry types; invalid phone rejection; failure and retry handling; same retry token; receipt display; conversion emitted only after success; reset clears consent. These are local UI tests, not a live full-browser network test.
+## Validation
 
-Production endpoint tests: health response, bulk and cake submissions stored successfully, consent rejection, duplicate submission returns the original receipt, anonymous table read denied, RLS and direct read/write privilege restrictions checked. Test fixtures are removed before handover.
+Release validation covers responsive widths, local image integrity, menu and gallery keyboard interaction, homepage→inquiry attribution, six conditional form types, consent, receipt-only success and failure handling. Live endpoint health and a clearly marked synthetic inquiry are checked separately from mocked UI tests; test fixtures must be removed afterward.

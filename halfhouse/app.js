@@ -20,9 +20,9 @@
   const quantityInput = form.elements.quantity;
   let sending = false, pending = null;
   const params = new URLSearchParams(location.search);
-  const attribution = { landing_path: location.pathname.slice(0, 200) };
+  const attribution = window.HHJourney ? window.HHJourney.getAttribution() : { landing_path: location.pathname.slice(0, 200) };
   ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(key => { if (params.has(key)) attribution[key] = params.get(key).slice(0, 200); });
-  try { if (document.referrer) attribution.referrer_host = new URL(document.referrer).hostname; } catch (_) {}
+  try { if (document.referrer && new URL(document.referrer).hostname !== location.hostname) attribution.referrer_host = new URL(document.referrer).hostname; } catch (_) {}
   // Local event interface only. No ad pixels or analytics IDs are silently installed.
   window.dataLayer = window.dataLayer || [];
   function event(name, service) { window.dataLayer.push({ event: name, inquiry_type: service }); }
@@ -35,6 +35,11 @@
     if (!types.includes(type) || sending) return;
     form.querySelector('input[name="service"][value="' + type + '"]').checked = true;
     document.querySelector('#service-hint').textContent = hints[type];
+    const titles = {venue:'좋은 만남을 위한 대관',bulk:'함께 먹을 빵, 단체주문',gifts:'마음을 전하는 선물',popup:'브랜드의 다음 만남',group:'여럿이 함께하는 시간',cake:'특별한 날의 홀케이크'};
+    const previews = {venue:['assets/photos/toss-conversation.webp','하프하우스에서 열린 토스플레이스 간담회'],bulk:['assets/photos/space-39.webp','하프하우스의 빵과 커피'],gifts:['assets/photos/archive-011.webp','하프하우스의 매장 굿즈'],popup:['assets/photos/space-35.webp','하프하우스의 매장 공간'],group:['assets/photos/archive-014.webp','함께 앉기 좋은 하프하우스의 좌석'],cake:['assets/bakery.webp','하프하우스 베이커리 진열']};
+    const title = document.querySelector('#request-title'); if(title) title.textContent=titles[type];
+    const preview = document.querySelector('#request-photo'); if(preview){preview.src=previews[type][0];preview.alt=previews[type][1];}
+    const caption = document.querySelector('#request-caption'); if(caption) caption.textContent=previews[type][1];
     document.querySelectorAll('[data-fields]').forEach(group => {
       const active = group.dataset.fields.split(' ').includes(type);
       group.hidden = !active;
@@ -52,6 +57,18 @@
   }
   fields.disabled = false;
   selectType(types.includes(params.get('service')) ? params.get('service') : 'bulk');
+  // Only known menu and occasion keys may prefill the form; never inject URL text as HTML.
+  const seed = params.get('product');
+  const selected = form.querySelector('input[name="service"]:checked').value;
+  const products = {panini:'수제 사워도우 파니니 · 구성 상담',bakery:'베이커리 단체주문 · 구성 상담',giftbox:'베이커리 선물세트 · 구성 및 포장 상담'};
+  const activeProduct = form.querySelector('[name="product"]:not(:disabled)');
+  if(activeProduct && ['bulk','gifts'].includes(selected) && products[seed]) activeProduct.value=products[seed];
+  if(activeProduct && selected==='cake' && ['basque','matcha','consult'].includes(seed)) activeProduct.value=seed;
+  const occasions = {networking:'기업 간담회·네트워킹',community:'커뮤니티·단체모임','brand-pop-up':'브랜드 팝업·제품 협업','outdoor-event':'외부 행사·F&B 운영'};
+  const occasion = form.querySelector('[name="occasion"]:not(:disabled)');
+  if(occasion && occasions[params.get('occasion')]) occasion.value=occasions[params.get('occasion')];
+  let started=false;
+  form.addEventListener('input',()=>{if(!started){started=true;event('begin_inquiry',form.querySelector('input[name="service"]:checked').value);}}, {passive:true});
   form.querySelectorAll('input[name="service"]').forEach(input => input.addEventListener('change', () => selectType(input.value)));
   document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
     if (successBox.hidden === false && !sending) resetForm(false);
