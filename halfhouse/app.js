@@ -30,7 +30,7 @@
   dateInput.min = kstToday();
   dateInput.addEventListener('focus', () => { dateInput.min = kstToday(); });
   document.querySelector('#year').textContent = String(new Date().getFullYear());
-  if (kstToday() >= '2026-12-01') document.querySelector('#upcoming').hidden = true;
+  const upcoming=document.querySelector('#upcoming'); if (upcoming && kstToday() >= '2026-12-01') upcoming.hidden = true;
   function selectType(type, scroll = false) {
     if (!types.includes(type) || sending) return;
     form.querySelector('input[name="service"][value="' + type + '"]').checked = true;
