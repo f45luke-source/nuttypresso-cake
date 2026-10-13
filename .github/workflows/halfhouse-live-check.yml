@@ -1,0 +1,61 @@
+name: Verify published HALF HOUSE
+on:
+  push:
+    branches: [halfhouse-november-20261014]
+    paths: ['.github/workflows/halfhouse-live-check.yml']
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests beautifulsoup4 Pillow
+      - name: Verify published pages match the browser-tested source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          from urllib.parse import urljoin
+          from concurrent.futures import ThreadPoolExecutor
+          from io import BytesIO
+          import time,json
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          base='https://f45luke-source.github.io/nuttypresso-cake/halfhouse/'
+          root=Path('halfhouse')
+          report={'url':base,'expected_release':'2026-10-14-sales-1','assets':[]}
+          for attempt in range(30):
+            response=requests.get(base,timeout=20,headers={'Cache-Control':'no-cache'})
+            if response.status_code==200 and '2026-10-14-sales-1' in response.text:break
+            time.sleep(5)
+          assert response.status_code==200 and '2026-10-14-sales-1' in response.text,'New release not yet available'
+          report['homepage_status']=response.status_code
+          soup=BeautifulSoup(response.text,'html.parser')
+          assert soup.h1 and '빵 먹고' in soup.h1.get_text()
+          sources=['index.html','inquiry.html','journey.js','home.js','app.js','editorial.css','inquiry-updates.css']
+          for path in sources:
+            r=requests.get(base+path,timeout=25)
+            assert r.status_code==200,(path,r.status_code)
+            assert sha256(r.content).hexdigest()==sha256((root/path).read_bytes()).hexdigest(),('Source mismatch',path)
+            report['assets'].append({'path':path,'status':r.status_code,'sha256_match':True})
+          images=sorted(set(i['src'] for i in soup.select('img[src]') if not i['src'].startswith('data:')))
+          def check_image(path):
+            r=requests.get(urljoin(base,path),timeout=25)
+            assert r.status_code==200,(path,r.status_code)
+            im=Image.open(BytesIO(r.content));im.verify()
+            return {'path':path,'status':r.status_code,'bytes':len(r.content)}
+          report['photos']=list(ThreadPoolExecutor(max_workers=4).map(check_image,images))
+          report['result']='passed'
+          Path('live-verification.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
+          print(json.dumps(report,indent=2,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: halfhouse-live-verification
+          path: live-verification.json
