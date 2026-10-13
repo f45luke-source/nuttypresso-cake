@@ -18,8 +18,9 @@ for name in ['index.html','inquiry.html']:
   href=a['href']
   if href.startswith('#'):assert href[1:] in ids,(name,href)
   elif not href.startswith(('https:','http:','tel:','mailto:')):
-   target=href.split('?')[0].split('#')[0]
-   assert (ROOT/target).is_file(),(name,href)
+   target=ROOT/href.split('?')[0].split('#')[0]
+   if target.is_dir():target=target/'index.html'
+   assert target.is_file(),(name,href)
 
 def settle(page):
  page.evaluate("async()=>{document.documentElement.style.scrollBehavior='auto';for(const i of document.images){if(i.id!=='viewer-image')i.loading='eager';}await Promise.all([...document.images].filter(i=>i.id!=='viewer-image').map(i=>i.decode().catch(()=>{})));for(let y=0;y<document.body.scrollHeight;y+=800){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,25));}window.scrollTo(0,0)}")
@@ -56,6 +57,8 @@ with sync_playwright() as p:
  assert page.evaluate('document.documentElement.scrollWidth')==390
  payloads=[]
  def mock(route):
+  if route.request.method=='OPTIONS':
+   route.fulfill(status=204,headers={'Access-Control-Allow-Origin':'http://127.0.0.1:8765','Access-Control-Allow-Methods':'POST,OPTIONS','Access-Control-Allow-Headers':'content-type,apikey'});return
   payloads.append(route.request.post_data_json)
   route.fulfill(status=200,content_type='application/json',headers={'Access-Control-Allow-Origin':'http://127.0.0.1:8765'},body=json.dumps({'ok':True,'receipt':'HH-261014-ABCDEF1234'}))
  page.route(API,mock)
