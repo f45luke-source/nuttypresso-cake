@@ -25,8 +25,42 @@ function updateMinimum(){
 }
 function calc(){const n=Number(qty.value);total.textContent=Number.isInteger(n)&&n>=1&&n<=10?won(PRODUCTS[product.value].price*n):'수량을 확인해주세요'}
 function showStatus(message,error=false){statusBox.hidden=false;statusBox.classList.toggle('error',error);statusBox.textContent=message}
-updateMinimum();calc();product.addEventListener('change',()=>{updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc()});qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
-document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>{product.value=link.dataset.cake;updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc()}));
+updateMinimum();calc();product.addEventListener('change',()=>{updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc();previewCake(product.value,{syncForm:false})});qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
+// The image, highlighted flavor and reservation selector always refer to the same cake.
+const CAKE_PREVIEWS={
+ deep_basque:{src:'assets/basque-real.webp',alt:'딥 바스크 치즈케이크 홀케이크 실제 사진',caption:'딥 바스크 · 홀케이크 실제 사진'},
+ matcha:{src:'assets/matcha-basque-slice.webp',alt:'말차 바스크 치즈케이크 실제 단면 사진',caption:'말차 바스크 · 실제 단면 사진'},
+ strawberry:{src:'assets/strawberry-basque-slice.webp',alt:'딸기 바스크 치즈케이크 실제 단면 사진. 홀케이크는 생딸기 토핑이 올라갑니다.',caption:'딸기 바스크 · 실제 단면 사진 (홀케이크 생딸기 토핑)'}
+};
+const mainCakeImage=document.getElementById('cake-main-image');
+const mainCakeCaption=document.getElementById('cake-main-caption');
+function previewCake(flavor,{syncForm=true}={}){
+ const selected=CAKE_PREVIEWS[flavor];
+ if(!selected||!mainCakeImage)return;
+ if(syncForm&&product.value!==flavor){
+  product.value=flavor;updateMinimum();
+  if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';
+  calc();
+ }
+ if(mainCakeImage.getAttribute('src')!==selected.src){
+  mainCakeImage.src=selected.src;
+ }
+ mainCakeImage.alt=selected.alt;
+ if(mainCakeCaption)mainCakeCaption.textContent=selected.caption;
+ document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.classList.toggle('is-active',row.dataset.preview===flavor));
+ document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>{
+  const active=button.dataset.preview===flavor;
+  button.classList.toggle('is-active',active);
+  button.setAttribute('aria-pressed',String(active));
+ });
+}
+document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>button.addEventListener('click',()=>previewCake(button.dataset.preview)));
+document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.addEventListener('click',event=>{
+ if(event.target.closest('a[data-cake]'))return;
+ previewCake(row.dataset.preview);
+}));
+document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>previewCake(link.dataset.cake)));
+previewCake(product.value,{syncForm:false});
 let sending=false;
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(sending)return;updateMinimum();
@@ -44,7 +78,7 @@ form.addEventListener('submit',async event=>{
  try{
   const response=await fetch(API,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data),signal:controller.signal});
   if(!response.ok){showStatus('예약 신청을 접수하지 못했습니다. 입력 정보를 확인하거나 매장에 문의해주세요.',true);return}
-  form.reset();qty.value=1;calc();updateMinimum();
+  form.reset();qty.value=1;calc();updateMinimum();previewCake(product.value,{syncForm:false});
   showStatus('예약 신청이 접수되었습니다.\n'+summary+'\n결제 예정금액 '+won(data.total_price)+'\n매장에서 제작 가능 여부와 운영시간 내 픽업 일정을 확인한 뒤 예약을 확정해드립니다.');
  }catch(error){showStatus('접수 여부를 확인하지 못했습니다. 중복 예약을 방지하기 위해, 다시 신청하기 전 매장에 접수 여부를 확인해주세요.',true)}
  finally{clearTimeout(timer);sending=false;submit.disabled=false;submit.textContent='10% 혜택으로 예약 신청하기 ↗'}

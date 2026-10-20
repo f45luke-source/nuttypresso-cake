@@ -40,3 +40,25 @@
 .gift-ticket p strong{color:var(--ink);font-weight:800}
 .gift-image-note{margin-top:18px;margin-bottom:-4px}
 @media(max-width:720px){.hero .hero-3flavors{aspect-ratio:1.12}.gift-ticket .gift-photo{aspect-ratio:4/3}.gift-ticket .gift-photo img{height:100%;aspect-ratio:4/3}.gift-photo-tag{font-size:12px}}
+
+/* 2026-10-20 — flavor-selector interaction, retaining original brand styling */
+.cake-image-stage{position:relative;min-height:295px;display:flex;align-items:center;justify-content:center}
+.cake-image-stage>img{width:100%;height:auto;aspect-ratio:1.15;object-fit:contain;object-position:center;transition:opacity .16s ease}
+.cake-image-stage>img.is-changing{opacity:.35}
+.cake-image-caption{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);white-space:normal;text-align:center;max-width:calc(100% - 22px);background:rgba(250,246,238,.94);color:var(--ink);font-size:12px;font-weight:650;line-height:1.5;padding:6px 12px}
+.cake-row[data-preview]{cursor:pointer;transition:background .2s ease,box-shadow .2s ease}
+.cake-row[data-preview]:hover{background:rgba(233,219,199,.32)}
+.cake-row.is-active{background:linear-gradient(90deg,rgba(233,219,199,.53),rgba(233,219,199,0) 94%);box-shadow:inset 3px 0 0 var(--gold)}
+.slice-gallery .slice-choice{display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-width:0;width:100%;background:#faf6ee;border:1px solid #e5d9c9;padding:6px;cursor:pointer;color:var(--ink);font:inherit;transition:border-color .2s ease,background .2s ease}
+.slice-gallery .slice-choice:hover{background:#f0e7d9;border-color:var(--gold)}
+.slice-gallery .slice-choice.is-active{border:2px solid var(--gold);background:#f6ecda;padding:5px}
+.slice-gallery .slice-choice img{width:100%;height:76px;aspect-ratio:auto;object-fit:contain}
+.slice-gallery .slice-choice span{font-size:11px;line-height:1.5;font-weight:700;margin-top:2px}
+.preview-instruction{padding-top:7px!important;font-size:12px!important;color:var(--muted)!important}
+@media(max-width:720px){
+.cake-image-stage{min-height:230px}
+.cake-image-caption{font-size:11px}
+.slice-gallery .slice-choice img{height:65px}
+.slice-gallery .slice-choice span{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.cake-image-stage>img,.cake-row[data-preview],.slice-gallery .slice-choice{transition:none}}
