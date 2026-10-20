@@ -42,3 +42,14 @@ Cake 10% prebooking discount is still described as planned, not currently guaran
 ## Validation
 
 Release validation covers responsive widths, local image integrity, menu and gallery keyboard interaction, homepage→inquiry attribution, six conditional form types, consent, receipt-only success and failure handling. Live endpoint health and a clearly marked synthetic inquiry are checked separately from mocked UI tests; test fixtures must be removed afterward.
+
+
+## Release — 2026-10-20 (customer-first menu & popup conversion)
+
+- Kept the authentic HALF HOUSE blue visual identity, original logo, Josefin/Happiness fonts and verified space/event photos.
+- Updated in-store product lineup to the latest requested representative ranges: five sourdough paninis, two salt breads, three baguettes (chocolate, pistachio, chestnut), two campagnes (chocolate, red bean & mochi), Basque + matcha Basque, blueberry cheese scone cake.
+- Added a concise "what to choose" guide by visit intent, and rewrote the same-building B2 bakery story in consumer-benefit language.
+- Added an event-season Pangyo entry banner (automatically hidden from 2026-11-27 KST) and explicit pop-up-only panini + soup set prices.
+- Added a truthful prior Chuseok gift-box sales proof point (300 sets, owner-provided).
+- Product-specific cutaway photographs are not in this repository yet; do NOT substitute generic venue/event pictures as specific product photos. Integrate approved genuine product images when supplied.
+- Existing inquiry API and Supabase consent/security rules were not changed. This release does not add a shopping cart, online payment, or automated staff notifications.
