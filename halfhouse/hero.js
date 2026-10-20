@@ -3,7 +3,9 @@
   const tour = document.querySelector('.hero-tour');
   if (!tour) return;
   const slides = [
-    {src:'assets/space.webp',thumb:'assets/space.webp',name:'2층',caption:'2층 — 조금 더 머물고 싶은 자리',alt:'큰 창과 나무 좌석이 있는 하프하우스 2층'},
+    {src:'assets/photos/hero-17.webp',thumb:'assets/photos/hero-17-640.webp',name:'2층 전경',caption:'2층 전경 — 혼자도, 여럿도 편안하게',alt:'창가 좌석과 긴 테이블, 안쪽 좌석까지 보이는 하프하우스 2층 전경'},
+    {src:'assets/photos/hero-16.webp',thumb:'assets/photos/hero-16-640.webp',name:'2층 좌석',caption:'2층 좌석 — 편안하게 마주 앉는 시간',alt:'하프하우스 2층 안쪽 소파와 테이블 좌석'},
+    {src:'assets/photos/hero-22.webp',thumb:'assets/photos/hero-22-640.webp',name:'내려다본 뷰',caption:'2층에서 1층으로 — 시선이 이어지는 공간',alt:'하프하우스 2층 계단 쪽에서 내려다본 1층 커피 바와 매장 입구'},
     {src:'assets/photos/hero-33.webp',thumb:'assets/photos/hero-33-640.webp',name:'야외',caption:'야외 — 햇살 아래 커피 한 잔',alt:'하프하우스 야외 테이블과 열린 매장 전면'},
     {src:'assets/photos/hero-31.webp',thumb:'assets/photos/hero-31-640.webp',name:'외관',caption:'외관 — 오늘의 여유가 시작되는 곳',alt:'하프하우스 유리 입구와 베이커리가 보이는 외관'},
     {src:'assets/photos/space-35.webp',thumb:'assets/photos/space-35-640.webp',name:'1층',caption:'1층 — 빵과 커피를 고르는 즐거움',alt:'하프하우스 1층의 베이커리 진열과 창가 좌석'}
@@ -29,7 +31,7 @@
       if(token!==request)return;
       index=target;main.src=s.src;main.alt=s.alt;
       document.getElementById('hero-main-caption').textContent=s.caption;
-      document.getElementById('hero-count').textContent=`0${index+1} / 04`;
+      document.getElementById('hero-count').textContent=`${String(index+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
       tabs.forEach((t,i)=>t.setAttribute('aria-pressed',String(i===index)));
       previews.forEach((b,i)=>{const n=(index+i+1)%slides.length,p=slides[n];b.dataset.target=n;b.setAttribute('aria-label',p.name+' 사진 보기');b.querySelector('img').src=p.thumb;b.querySelector('img').alt=p.alt;b.querySelector('span').textContent=p.caption;});
       if(manual)document.getElementById('hero-announcement').textContent=s.caption;

@@ -53,3 +53,9 @@ Release validation covers responsive widths, local image integrity, menu and gal
 - Added a truthful prior Chuseok gift-box sales proof point (300 sets, owner-provided).
 - Product-specific cutaway photographs are not in this repository yet; do NOT substitute generic venue/event pictures as specific product photos. Integrate approved genuine product images when supplied.
 - Existing inquiry API and Supabase consent/security rules were not changed. This release does not add a shopping cart, online payment, or automated staff notifications.
+
+## Release — 2026-10-20 (second-floor photo expansion)
+
+- Owner-requested expansion of hero and space photographs only. Six-view hero opens with second-floor wide view (samul-17), seating (16), and view down to first-floor coffee bar (22).
+- Added six zoomable space images: window seats (19), lounge (20), downstairs view (22), first-floor bakery (26), outdoor tables (33), entrance (31). All come from owner-provided HALF HOUSE Drive > 매장 내외부 사진 > 고화질, folder 1JPbNwZNWfAjqr2n8ZGoWqsC2-NFYUKS_.
+- Original filename pattern: halfhouse_samul-N.jpg; published assets: hero-N.webp with 640px variants. No third-party review photos downloaded or republished. No claim that seats are reservable; capacity remains unverified and unpublished.
