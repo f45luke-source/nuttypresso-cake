@@ -6,18 +6,34 @@ const PRODUCTS={deep_basque:{price:37800,name:'딥 바스크 치즈케이크'},m
 const form=document.getElementById('form'),product=document.getElementById('product'),qty=document.getElementById('qty'),total=document.getElementById('total'),date=document.getElementById('date'),phone=document.getElementById('phone'),statusBox=document.getElementById('status'),submit=document.getElementById('submit');
 const won=value=>value.toLocaleString('ko-KR')+'원';
 function tomorrowKST(){return new Date(Date.now()+9*3600000+86400000).toISOString().slice(0,10)}
-function updateMinimum(){date.min=tomorrowKST()}
+function strawberrySeasonWindow(earliest){
+ const year=Number(earliest.slice(0,4));
+ const month=Number(earliest.slice(5,7));
+ // Pickup is available only within the next November-January strawberry season.
+ let first,last;
+ if(month===1){first=earliest;last=year+'-01-31'}
+ else if(month>=11){first=earliest;last=(year+1)+'-01-31'}
+ else{first=year+'-11-01';last=(year+1)+'-01-31'}
+ return{first,last};
+}
+function updateMinimum(){
+ const earliest=tomorrowKST();
+ if(product.value==='strawberry'){
+  const season=strawberrySeasonWindow(earliest);
+  date.min=season.first;date.max=season.last;
+ }else{date.min=earliest;date.removeAttribute('max')}
+}
 function calc(){const n=Number(qty.value);total.textContent=Number.isInteger(n)&&n>=1&&n<=10?won(PRODUCTS[product.value].price*n):'수량을 확인해주세요'}
 function showStatus(message,error=false){statusBox.hidden=false;statusBox.classList.toggle('error',error);statusBox.textContent=message}
-updateMinimum();calc();product.addEventListener('change',calc);qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
-document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>{product.value=link.dataset.cake;calc()}));
+updateMinimum();calc();product.addEventListener('change',()=>{updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc()});qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
+document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>{product.value=link.dataset.cake;updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc()}));
 let sending=false;
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(sending)return;updateMinimum();
  const name=document.getElementById('name'),digits=phone.value.replace(/\D/g,'');
  name.setCustomValidity(name.value.trim()?'':'예약자 성함을 입력해주세요.');
  phone.setCustomValidity(digits.length>=9&&digits.length<=15?'':'연락 가능한 전화번호를 확인해주세요.');
- date.setCustomValidity(date.value>=date.min?'':'한국 시간 기준 다음 날 이후를 선택해주세요.');
+ date.setCustomValidity(date.value>=date.min&&(!date.max||date.value<=date.max)?'':product.value==='strawberry'?'딸기 바스크는 11월부터 1월까지만 예약할 수 있습니다.':'한국 시간 기준 다음 날 이후를 선택해주세요.');
  if(!form.reportValidity())return;
  const n=Number(qty.value),choice=PRODUCTS[product.value];
  if(!choice||!Number.isInteger(n)||n<1||n>10){showStatus('케이크 종류와 수량을 확인해주세요.',true);return}
