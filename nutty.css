@@ -29,3 +29,14 @@
 .gift-ticket .gift-number{margin-top:12px}
 @media(max-width:1000px){.trust-layout{gap:30px}.trust-photo{padding:19px}}
 @media(max-width:720px){.hero-benefits{font-size:13px!important}.slice-gallery img{height:65px}.slice-gallery figcaption{font-size:10px}.trust-layout{grid-template-columns:1fr;gap:24px}.trust-copy h2{font-size:34px}.trust-lead{font-size:16px}.trust-photo{max-width:500px;width:100%;margin:0 auto}.trust-photo img{max-height:310px}.trust-points p{font-size:14px}.seasonal-tag{font-size:10px;padding:4px 7px}.gift-photo{min-height:215px}.gift-photo img{height:208px}}
+
+/* 2026-10-20: plain cake reservation message and larger product images */
+.hero .hero-3flavors{width:100%;aspect-ratio:1.1;object-fit:cover;object-position:center;padding:0;background:#f5eadb}
+.hero-photo{background:#f4ebdf}
+.cake-feature>p{font-weight:600;line-height:1.7}
+.gift-ticket .gift-photo{position:relative;display:block;overflow:hidden;aspect-ratio:4/3;min-height:0;margin-top:15px;padding:0;background:#f3e9dc}
+.gift-ticket .gift-photo img{display:block;width:100%;height:100%;min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center}
+.gift-photo-tag{position:absolute;left:13px;bottom:13px;background:#50312e;color:#fff9ed;padding:6px 12px;font-size:13px;font-weight:700;letter-spacing:.02em}
+.gift-ticket p strong{color:var(--ink);font-weight:800}
+.gift-image-note{margin-top:18px;margin-bottom:-4px}
+@media(max-width:720px){.hero .hero-3flavors{aspect-ratio:1.12}.gift-ticket .gift-photo{aspect-ratio:4/3}.gift-ticket .gift-photo img{height:100%;aspect-ratio:4/3}.gift-photo-tag{font-size:12px}}
