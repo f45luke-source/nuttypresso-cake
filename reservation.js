@@ -27,13 +27,16 @@ function calc(){const n=Number(qty.value);total.textContent=Number.isInteger(n)&
 function showStatus(message,error=false){statusBox.hidden=false;statusBox.classList.toggle('error',error);statusBox.textContent=message}
 updateMinimum();calc();product.addEventListener('change',()=>{updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc();previewCake(product.value,{syncForm:false})});qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
 // The image, highlighted flavor and reservation selector always refer to the same cake.
+// Product photography is intentionally empty until real whole-cake photos arrive.
+// To add real photos later, put the image under assets/ and fill in the src for its flavor.
 const CAKE_PREVIEWS={
- deep_basque:{src:'assets/basque-real.webp',alt:'딥 바스크 치즈케이크 홀케이크 실제 사진',caption:'딥 바스크 · 홀케이크 실제 사진'},
- matcha:{src:'assets/matcha-basque-slice.webp',alt:'말차 바스크 치즈케이크 실제 단면 사진',caption:'말차 바스크 · 실제 단면 사진'},
- strawberry:{src:'assets/strawberry-basque-slice.webp',alt:'딸기 바스크 치즈케이크 실제 단면 사진. 홀케이크는 생딸기 토핑이 올라갑니다.',caption:'딸기 바스크 · 실제 단면 사진 (홀케이크 생딸기 토핑)'}
+ deep_basque:{name:'딥 바스크',src:null},
+ matcha:{name:'말차 바스크',src:null},
+ strawberry:{name:'딸기 바스크',src:null}
 };
 const mainCakeImage=document.getElementById('cake-main-image');
-const mainCakeCaption=document.getElementById('cake-main-caption');
+const cakePhotoPlaceholder=document.getElementById('cake-image-placeholder');
+const placeholderName=document.getElementById('cake-placeholder-name');
 function previewCake(flavor,{syncForm=true}={}){
  const selected=CAKE_PREVIEWS[flavor];
  if(!selected||!mainCakeImage)return;
@@ -42,11 +45,21 @@ function previewCake(flavor,{syncForm=true}={}){
   if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';
   calc();
  }
- if(mainCakeImage.getAttribute('src')!==selected.src){
-  mainCakeImage.src=selected.src;
+ if(selected.src){
+  if(mainCakeImage.getAttribute('src')!==selected.src)mainCakeImage.src=selected.src;
+  mainCakeImage.alt=selected.name+' 홀케이크 실사 사진';
+  mainCakeImage.hidden=false;
+  if(cakePhotoPlaceholder)cakePhotoPlaceholder.hidden=true;
+ }else{
+  mainCakeImage.hidden=true;
+  mainCakeImage.removeAttribute('src');
+  mainCakeImage.alt='';
+  if(cakePhotoPlaceholder){
+   cakePhotoPlaceholder.hidden=false;
+   cakePhotoPlaceholder.setAttribute('aria-label',selected.name+' 홀케이크 실사 사진 준비 중');
+  }
+  if(placeholderName)placeholderName.textContent=selected.name;
  }
- mainCakeImage.alt=selected.alt;
- if(mainCakeCaption)mainCakeCaption.textContent=selected.caption;
  document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.classList.toggle('is-active',row.dataset.preview===flavor));
  document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>{
   const active=button.dataset.preview===flavor;

@@ -62,3 +62,11 @@
 .slice-gallery .slice-choice span{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.cake-image-stage>img,.cake-row[data-preview],.slice-gallery .slice-choice{transition:none}}
+
+/* 2026-10-20: intentionally leave whole-cake photo space blank until authentic photos arrive. */
+.cake-image-stage{min-height:295px;align-items:stretch}
+.cake-image-placeholder{width:100%;min-height:295px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px 15px;background:#eee6d9;color:var(--ink);border:1px solid #e0d5c5;text-align:center}
+.cake-photo-label{font:600 11px/1.6 Arial,sans-serif;letter-spacing:.13em;color:var(--gold)}
+.cake-image-placeholder strong{font-size:clamp(24px,3vw,35px);letter-spacing:-.045em;font-weight:750}
+.cake-photo-status{font-size:13px;color:var(--muted);font-weight:500}
+@media(max-width:720px){.cake-image-stage,.cake-image-placeholder{min-height:250px}}
