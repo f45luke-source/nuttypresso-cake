@@ -18,6 +18,8 @@
     document.querySelector('[data-popup-state]').textContent=today>'2026-11-26'?'팝업 종료':today>='2026-11-06'?'판교 팝업 진행 중':'COMING SOON';
     if(today>'2026-11-26') document.querySelector('.mochi-note').hidden=true;
   }
+  const popupRibbon=document.querySelector('[data-popup-banner]');
+  if(popupRibbon && today>'2026-11-26') popupRibbon.hidden=true;
   const dialog=document.querySelector('#photo-viewer'),image=document.querySelector('#viewer-image'),caption=document.querySelector('#viewer-caption'),count=document.querySelector('#viewer-count');
   const tiles=[...document.querySelectorAll('[data-photo]')];
   let index=0,origin=null;
