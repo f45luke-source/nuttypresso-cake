@@ -42,3 +42,18 @@
 
 /* Preserve three intentional brand headline lines on small screens. */
 @media(max-width:720px){.hero-home h1 br:first-of-type{display:inline}}
+
+/* Mobile-first photo reveal: retain desktop layout, show the space tour after the headline on small screens. */
+.hero-intro,.hero-detail{width:100%}
+.hero-detail .hero-review-link{display:inline-block}
+@media(max-width:720px){
+.hero-home{display:flex;flex-direction:column}
+.hero-home .hero-copy{display:contents}
+.hero-intro{order:1;padding:29px 23px 14px}
+.hero-detail{order:3;padding:20px 23px 28px}
+.hero-home .hero-tour{order:2}
+.hero-intro .eyebrow{margin-bottom:18px}
+.hero-home .hero-detail .hero-description{margin:0 0 18px}
+.hero-home .hero-detail .hero-capacity{margin-top:0}
+.hero-home .hero-detail .hero-address{margin-top:17px}
+}
