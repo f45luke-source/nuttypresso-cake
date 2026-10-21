@@ -243,6 +243,14 @@
   .nutty-home .cake-row h3{font-size:25px}
   .nutty-home .cake-row .price strong{font-size:23px}
 }
+@media(max-width:1050px) and (min-width:721px){
+  /* The 4-column menu must retain compact tablet typography. */
+  .nutty-home .header nav{font-size:14px}
+  .nutty-home .quick.group-quick span{font-size:15px}
+}
+@media(max-width:820px) and (min-width:721px){
+  .nutty-home .header nav{font-size:13px}
+}
 @media(max-width:900px) and (min-width:721px){
   .nutty-home .cake-selection{grid-template-columns:1fr;gap:30px}
   .nutty-home .cake-feature{width:min(100%,620px);margin-inline:auto}
