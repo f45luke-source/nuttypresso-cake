@@ -15,6 +15,55 @@
 <link rel="stylesheet" href="nutty.css?v=20261020-5">
 <link rel="stylesheet" href="group-order.css?v=20261014-1">
 <link rel="stylesheet" href="nutty-polish.css?v=20261021-1">
+<style id="reservation-form-layout-20261021">
+/* 2026-10-21: keep native date/time controls inside the reservation form. */
+.nutty-home #reserve .reserve-grid > *{min-width:0}
+.nutty-home #form{
+  box-sizing:border-box;
+  min-width:0;
+  max-width:100%;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+}
+.nutty-home #form > *,
+.nutty-home #form .field{min-width:0;max-width:100%}
+.nutty-home #form .field input,
+.nutty-home #form .field select,
+.nutty-home #form .field textarea{
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  inline-size:100%;
+  min-inline-size:0;
+  max-inline-size:100%;
+  font-size:16px;
+}
+.nutty-home #form .field input,
+.nutty-home #form .field select{height:54px}
+.nutty-home #form input[type="date"],
+.nutty-home #form input[type="time"]{
+  -webkit-appearance:none;
+  appearance:none;
+  text-align:left;
+}
+.nutty-home #form input[type="date"]::-webkit-date-and-time-value,
+.nutty-home #form input[type="time"]::-webkit-date-and-time-value{
+  min-height:1.5em;
+  text-align:left;
+}
+.nutty-home #form input[type="date"]::-webkit-datetime-edit,
+.nutty-home #form input[type="time"]::-webkit-datetime-edit{padding:0;min-width:0}
+.nutty-home #form .field-help{overflow-wrap:anywhere}
+.nutty-home #form .total{flex-wrap:wrap;row-gap:8px}
+/* Narrow columns on tablets need the same treatment as phone screens. */
+@media(max-width:1100px){
+  .nutty-home #form{grid-template-columns:minmax(0,1fr);gap:22px}
+  .nutty-home #form > .field,
+  .nutty-home #form > .full{grid-column:1 / -1}
+}
+</style>
 </head><body class="nutty-home"><a class="skip" href="#main">본문으로 이동</a><div class="notice">홀케이크 · 하루 전 예약 10% 할인</div><header class="header wrap"><a href="#main" aria-label="너티프레소 홈"><img class="wordmark" src="assets/nutty-wordmark.svg" alt="Nutty Presso" width="210" height="75"></a><nav aria-label="주 메뉴"><a href="#cakes">홀케이크</a><a href="#gifts">선물세트</a><a href="#brand">우리의 커피</a><a href="group-order/">그룹오더</a></nav><a href="#reserve" class="button small">케이크 예약 ↗</a><button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">☰</button></header><nav id="mobile-menu" class="mobile-menu" hidden aria-label="모바일 메뉴"><a href="#cakes">홀케이크</a><a href="#gifts">선물세트</a><a href="#brand">우리의 커피</a><a href="group-order/">그룹오더</a></nav><main id="main"><section class="hero wrap"><div class="hero-copy"><span class="eyebrow">NUTTY PRESSO · WHOLE CAKE RESERVATION</span><h1>너티프레소<br>홀케이크 예약</h1><p>바스크 치즈케이크 3종을<br>미리 예약하고 매장에서 픽업하세요.</p><p class="hero-benefits">전문 파티셰 직접 제조 · 하루 전 예약 10% 할인</p><div class="actions"><a class="button" href="#cakes">홀케이크 고르기 ↗</a><a class="text-link" href="#gifts">가볍게 선물하기 →</a></div></div><figure class="hero-photo"><span class="photo-heading">BASQUE CHEESECAKE · 3 FLAVORS</span><img class="hero-3flavors" src="assets/basque-three-slices.webp" alt="딥·말차·딸기 바스크 치즈케이크 3종의 단면을 보여주는 연출 이미지" width="1254" height="1254" fetchpriority="high"><figcaption><span>3가지 맛의 단면 연출 이미지</span><span>하루 전 예약 <b>−10%</b></span></figcaption></figure></section>
 <nav class="quick wrap group-quick" aria-label="원하는 메뉴 바로가기"><a href="#cakes"><small>01 / WHOLE CAKES</small><span>기념일을 준비해요 <b>↗</b></span></a><a href="#gifts"><small>02 / SMALL GIFTS</small><span>고마움을 전해요 <b>↗</b></span></a><a href="#brand"><small>03 / OUR COFFEE</small><span>커피가 궁금해요 <b>↗</b></span></a><a href="group-order/"><small>04 / GROUP ORDER</small><span>함께 마실 커피를 준비해요 <b>↗</b></span></a></nav>
 <section class="cakes wrap section" id="cakes"><div class="section-heading"><div><span class="eyebrow">WHOLE CAKES</span><h2>바스크 홀케이크<br>3가지 맛</h2></div><p>바스크 홀케이크 3종.<br><strong>하루 전 예약하면 10% 할인.</strong></p></div><div class="cake-selection"><div class="cake-feature"><div class="cake-image-stage" aria-live="polite" aria-atomic="true"><img id="cake-main-image" alt="" loading="lazy" hidden><div class="cake-image-placeholder" id="cake-image-placeholder" role="img" aria-label="딥 바스크 홀케이크 실사 사진 준비 중"><span class="cake-photo-label">NUTTY PRESSO · WHOLE CAKE</span><strong id="cake-placeholder-name">딥 바스크</strong><span class="cake-photo-status">홀케이크 실사 사진 준비 중</span></div></div><p>필라델피아 크림치즈 사용 · 밀가루와 오일 무첨가 레시피</p>
@@ -25,7 +74,7 @@
 </div><p class="preview-instruction">케이크를 선택하면 예약 상품과 사진 준비 안내가 함께 변경됩니다.</p></div><div class="cake-list">
 <article class="cake-row is-active" data-preview="deep_basque"><div class="flavor-number">01</div><div><span class="eyebrow">DEEP BASQUE</span><h3>딥 바스크</h3><p>치즈의 진한 풍미를 그대로.</p><div class="price"><del>42,000원</del><strong>37,800원</strong></div></div><a class="select-cake" href="#reserve" data-cake="deep_basque" aria-label="딥 바스크 예약하기">예약 ↗</a></article>
 <article class="cake-row matcha" data-preview="matcha"><div class="flavor-number">02</div><div><span class="eyebrow">MATCHA BASQUE</span><h3>말차 바스크</h3><p>말차의 쌉싸름한 여운.</p><div class="price"><del>45,000원</del><strong>40,500원</strong></div></div><a class="select-cake" href="#reserve" data-cake="matcha" aria-label="말차 바스크 예약하기">예약 ↗</a></article>
-<article class="cake-row strawberry" data-preview="strawberry"><div class="flavor-number">03</div><div><span class="eyebrow">STRAWBERRY BASQUE</span><h3>딸기 바스크 <span class="seasonal-tag">11월~1월 한정</span></h3><p>딸기의 산뜻한 풍미, 홀케이크 위에는 <strong>생딸기 토핑</strong>을 올립니다.</p><div class="price"><del>50,000원</del><strong>45,000원</strong></div></div><a class="select-cake" href="#reserve" data-cake="strawberry" aria-label="딸기 바스크 예약하기">예약 ↗</a></article>
+<article class="cake-row strawberry"><div class="flavor-number">03</div><div><span class="eyebrow">STRAWBERRY BASQUE</span><h3>딸기 바스크 <span class="seasonal-tag">11월~1월 한정</span></h3><p>딸기의 산뜻한 풍미, 홀케이크 위에는 <strong>생딸기 토핑</strong>을 올립니다.</p><div class="price"><del>50,000원</del><strong>45,000원</strong></div></div><a class="select-cake" href="#reserve" data-cake="strawberry" aria-label="딸기 바스크 예약하기">예약 ↗</a></article>
 </div></div><p class="fine">홀케이크는 2호 사이즈입니다. 위 단면 사진은 맛과 식감을 보여주는 사진이며, 딸기 바스크 홀케이크에는 실제 생딸기가 올라갑니다. 딸기 바스크는 매년 11월~1월 한정으로 준비합니다.</p></section>
 <section class="trust-section section" id="why-nutty" aria-labelledby="trust-title"><div class="wrap trust-layout"><div class="trust-copy">
 <span class="eyebrow">MADE NEARBY · GIFT READY</span>
