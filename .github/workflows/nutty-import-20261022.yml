@@ -1,42 +1,101 @@
-name: Stage Nutty Presso photos and mobile layout
+name: Verify Nutty Presso public website
 on:
   push:
     branches: [nutty-mobile-photos-20261022]
     paths: [.github/workflows/nutty-import-20261022.yml]
 permissions:
-  contents: write
+  contents: read
 jobs:
-  import:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 6
     steps:
-      - uses: actions/checkout@v4
-      - name: Import only the verified public website files
-        env:
-          PACKAGE_URL: 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-42fc-8209-82ce-5bb82289eef3/raw?se=2026-10-22T01%3A13%3A21Z&sp=r&sv=2026-02-06&sr=b&scid=1c345f37-22c8-5fb0-bd95-d01ec199c24e&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-21T23%3A04%3A34Z&ske=2026-10-22T23%3A04%3A34Z&sks=b&skv=2026-02-06&sig=XGZ5hKzEPOBrOyp%2BizOeFxx67neYcycW1IeCE2jTNCo%3D'
+      - name: Check live HTML, scripts and every product image
         run: |
           python - <<'PY'
-          import os, io, hashlib, json, zipfile, urllib.request, pathlib, subprocess
-          assert subprocess.check_output(['git','hash-object','index.html']).decode().strip() == 'eaea22454c07fc5378a278f0e922fee39c8eea16'
-          assert subprocess.check_output(['git','hash-object','reservation.js']).decode().strip() == '39d94e09192a99dc6b0ae56aa8f7bf794358a537'
-          data=urllib.request.urlopen(os.environ['PACKAGE_URL'],timeout=60).read()
-          assert hashlib.sha256(data).hexdigest() == 'f8cf615b1629f6ccec88108e043d9acce288b538f9d5fb763615dfdc040b6940'
-          allowed={'index.html','reservation.js','nutty-mobile.css','assets/deep-basque-box-20261022.webp','assets/matcha-basque-box-20261022.webp','assets/strawberry-basque-box-20261022.webp'}
-          with zipfile.ZipFile(io.BytesIO(data)) as z:
-              assert set(z.namelist()) == allowed | {'manifest.json'}
-              manifest=json.loads(z.read('manifest.json'))
-              assert set(manifest)==allowed
-              for name in sorted(allowed):
-                  content=z.read(name)
-                  assert hashlib.sha256(content).hexdigest()==manifest[name]
-                  dest=pathlib.Path(name)
-                  dest.parent.mkdir(parents=True,exist_ok=True)
-                  dest.write_bytes(content)
-                  print(name, len(content), subprocess.check_output(['git','hash-object',name]).decode().strip())
+          import urllib.request, hashlib, time, json
+          base='https://f45luke-source.github.io/nuttypresso-cake/'
+          expected={
+            'reservation.js':'d628819882cc336aaba6607d119770ee82fe440330423090398b4d042bb51059',
+            'nutty-mobile.css':'e1bd8f4067ea07958b59b8320184d2d05d89aba3297b919335b7b021e612d6af',
+            'assets/deep-basque-box-20261022.webp':'857e8ad36be544a4263ef940981a2392135a6b59823596a0859f053b5870075d',
+            'assets/matcha-basque-box-20261022.webp':'21661d3d725332778f6ec66120cbb882dd04f541e6b5099bff00ed30b33fdfd5',
+            'assets/strawberry-basque-box-20261022.webp':'6182310aa7291bd96a9fc14dae1af9c7a9997ee2d7bd6dc236236b3613eda893'
+          }
+          for attempt in range(18):
+              try:
+                  query='?verify=d741215-'+str(attempt)
+                  html=urllib.request.urlopen(base+query,timeout=20).read().decode()
+                  assert 'nutty-mobile.css?v=20261022-1' in html
+                  assert 'assets/deep-basque-box-20261022.webp' in html
+                  assert 'reservation-form-layout-20261021' in html
+                  for path,digest in expected.items():
+                      content=urllib.request.urlopen(base+path+query,timeout=20).read()
+                      assert hashlib.sha256(content).hexdigest()==digest,path
+                  print('LIVE_HTTP_VERIFIED',json.dumps(list(expected),ensure_ascii=False))
+                  break
+              except Exception as e:
+                  if attempt==17: raise
+                  print('Deployment propagation check',attempt+1,type(e).__name__)
+                  time.sleep(5)
           PY
-          node --check reservation.js
-          git add index.html reservation.js nutty-mobile.css assets/deep-basque-box-20261022.webp assets/matcha-basque-box-20261022.webp assets/strawberry-basque-box-20261022.webp
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Add supplied whole-cake photos and comfortable mobile spacing'
-          git push origin HEAD:nutty-mobile-photos-20261022
+      - name: Install browser test client
+        run: python -m pip install --quiet playwright
+      - name: Test the live page at phone, tablet and desktop widths
+        run: |
+          mkdir -p qa
+          python - <<'PY'
+          import json,pathlib,shutil
+          from playwright.sync_api import sync_playwright
+          executable=shutil.which('google-chrome') or shutil.which('chromium')
+          assert executable,'No Chromium executable on runner'
+          records=[]
+          with sync_playwright() as p:
+              browser=p.chromium.launch(executable_path=executable,headless=True,args=['--no-sandbox'])
+              for width in [320,390,768,1440]:
+                  page=browser.new_page(viewport={'width':width,'height':900},device_scale_factor=1)
+                  errors=[];posts=[]
+                  page.on('pageerror',lambda err:errors.append(str(err)))
+                  page.on('request',lambda req:posts.append(req.url) if req.method=='POST' else None)
+                  page.route('**/*.supabase.co/**',lambda route:route.abort())
+                  page.goto('https://f45luke-source.github.io/nuttypresso-cake/?v=20261022-1',wait_until='networkidle')
+                  page.evaluate('document.querySelectorAll("img").forEach(i=>i.loading="eager")')
+                  page.wait_for_function('Array.from(document.images).filter(i=>!i.hidden && i.src).every(i=>i.complete && i.naturalWidth>0)')
+                  assert page.evaluate('document.documentElement.scrollWidth')<=width
+                  assert page.locator('#cake-image-placeholder').is_hidden()
+                  if width<=720: assert page.locator('.quick a').first.evaluate('(e)=>parseFloat(getComputedStyle(e).paddingLeft)')>=20
+                  for flavor,price in [('matcha','40,500원'),('strawberry','45,000원'),('deep_basque','37,800원')]:
+                      page.locator('.slice-choice[data-preview="'+flavor+'"]').click()
+                      assert page.locator('#product').input_value()==flavor
+                      assert page.locator('#total').inner_text()==price
+                      page.wait_for_function('document.querySelector("#cake-main-image").complete && document.querySelector("#cake-main-image").naturalWidth>0')
+                      assert ('deep' if flavor=='deep_basque' else flavor)+'-basque-box' in page.locator('#cake-main-image').get_attribute('src')
+                  page.locator('.cake-row[data-preview="strawberry"] h3').click()
+                  assert page.locator('#product').input_value()=='strawberry'
+                  assert page.locator('#date').get_attribute('min')=='2026-11-01'
+                  page.locator('#product').select_option('matcha')
+                  page.locator('#qty').fill('2')
+                  assert page.locator('#total').inner_text()=='81,000원'
+                  page.locator('#qty').fill('1')
+                  page.locator('#product').select_option('deep_basque')
+                  overflow=page.evaluate('''() => [...document.querySelectorAll('#form .field input,#form select,#form textarea')].filter(e=>{const a=e.getBoundingClientRect(),b=e.parentElement.getBoundingClientRect();return a.right>b.right+.5||a.left<b.left-.5}).map(e=>e.id)''')
+                  assert not overflow,overflow
+                  assert not errors,errors
+                  assert not posts,posts
+                  if width in [390,1440]:
+                      page.add_style_tag(content='.mobile-cta{visibility:hidden!important}')
+                      page.locator('.quick').screenshot(path='qa/menu-'+str(width)+'.png')
+                      page.locator('#cakes').screenshot(path='qa/cakes-'+str(width)+'.png')
+                      page.locator('#form').screenshot(path='qa/form-'+str(width)+'.png')
+                  records.append({'width':width,'overflow':False,'photos':'pass','selection':'pass','totals':'pass','season':'pass','bookingPosts':len(posts)})
+                  page.close()
+              browser.close()
+          pathlib.Path('qa/results.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))
+          print('LIVE_BROWSER_VERIFIED',json.dumps(records,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nutty-live-qa-20261022
+          path: qa/
+          retention-days: 3
