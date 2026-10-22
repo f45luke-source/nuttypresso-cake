@@ -1,0 +1,42 @@
+name: Stage Nutty Presso photos and mobile layout
+on:
+  push:
+    branches: [nutty-mobile-photos-20261022]
+    paths: [.github/workflows/nutty-import-20261022.yml]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import only the verified public website files
+        env:
+          PACKAGE_URL: 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-42fc-8209-82ce-5bb82289eef3/raw?se=2026-10-22T01%3A13%3A21Z&sp=r&sv=2026-02-06&sr=b&scid=1c345f37-22c8-5fb0-bd95-d01ec199c24e&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-21T23%3A04%3A34Z&ske=2026-10-22T23%3A04%3A34Z&sks=b&skv=2026-02-06&sig=XGZ5hKzEPOBrOyp%2BizOeFxx67neYcycW1IeCE2jTNCo%3D'
+        run: |
+          python - <<'PY'
+          import os, io, hashlib, json, zipfile, urllib.request, pathlib, subprocess
+          assert subprocess.check_output(['git','hash-object','index.html']).decode().strip() == 'eaea22454c07fc5378a278f0e922fee39c8eea16'
+          assert subprocess.check_output(['git','hash-object','reservation.js']).decode().strip() == '39d94e09192a99dc6b0ae56aa8f7bf794358a537'
+          data=urllib.request.urlopen(os.environ['PACKAGE_URL'],timeout=60).read()
+          assert hashlib.sha256(data).hexdigest() == 'f8cf615b1629f6ccec88108e043d9acce288b538f9d5fb763615dfdc040b6940'
+          allowed={'index.html','reservation.js','nutty-mobile.css','assets/deep-basque-box-20261022.webp','assets/matcha-basque-box-20261022.webp','assets/strawberry-basque-box-20261022.webp'}
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              assert set(z.namelist()) == allowed | {'manifest.json'}
+              manifest=json.loads(z.read('manifest.json'))
+              assert set(manifest)==allowed
+              for name in sorted(allowed):
+                  content=z.read(name)
+                  assert hashlib.sha256(content).hexdigest()==manifest[name]
+                  dest=pathlib.Path(name)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(content)
+                  print(name, len(content), subprocess.check_output(['git','hash-object',name]).decode().strip())
+          PY
+          node --check reservation.js
+          git add index.html reservation.js nutty-mobile.css assets/deep-basque-box-20261022.webp assets/matcha-basque-box-20261022.webp assets/strawberry-basque-box-20261022.webp
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add supplied whole-cake photos and comfortable mobile spacing'
+          git push origin HEAD:nutty-mobile-photos-20261022
