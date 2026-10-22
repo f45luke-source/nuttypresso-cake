@@ -8,7 +8,7 @@
 .nutty-home .cake-selection{align-items:start;gap:32px;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
 .nutty-home .cake-feature{padding:18px;overflow:visible}
 .nutty-home .cake-image-stage{display:block;min-height:0;overflow:hidden;border-radius:14px;background:#fff}
-.nutty-home #cake-main-image{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:contain;padding:0;border-radius:14px}
+.nutty-home #cake-main-image{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:contain;padding:7%;border-radius:14px}
 .nutty-home .cake-feature .cake-photo-name{font-size:17px;line-height:1.65;color:var(--ink);font-weight:700;margin:18px 0 0;padding:0}
 .nutty-home .cake-feature .cake-ingredients{display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:5px;font-size:14px;line-height:1.8;font-weight:500;margin:10px 0 0;padding:0;color:var(--muted)}
 .nutty-home .cake-ingredients span{display:block}
