@@ -1,0 +1,86 @@
+/* NUTTY PRESSO · 2026-10-22
+   Roomier mobile reading + user-supplied cake photos.
+   Homepage-only: booking fields and group-order remain intact. */
+.nutty-home .quick.group-quick a{padding:24px;min-width:0;gap:10px}
+.nutty-home .quick.group-quick a span{position:relative;display:block;padding-right:28px;line-height:1.65}
+.nutty-home .quick.group-quick a span b{position:absolute;right:0;top:0;font-weight:400}
+.nutty-home .quick.group-quick small{line-height:1.65;letter-spacing:.09em}
+.nutty-home .cake-selection{align-items:start;gap:32px;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.nutty-home .cake-feature{padding:18px;overflow:visible}
+.nutty-home .cake-image-stage{display:block;min-height:0;overflow:hidden;border-radius:14px;background:#fff}
+.nutty-home #cake-main-image{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:contain;padding:0;border-radius:14px}
+.nutty-home .cake-feature .cake-photo-name{font-size:17px;line-height:1.65;color:var(--ink);font-weight:700;margin:18px 0 0;padding:0}
+.nutty-home .cake-feature .cake-ingredients{display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:5px;font-size:14px;line-height:1.8;font-weight:500;margin:10px 0 0;padding:0;color:var(--muted)}
+.nutty-home .cake-ingredients span{display:block}
+.nutty-home .slice-gallery{margin:22px 0 0;gap:10px}
+.nutty-home .slice-gallery .slice-choice{padding:10px 7px;min-height:106px;border:2px solid #e5d9c9}
+.nutty-home .slice-gallery .slice-choice.is-active{padding:10px 7px;border-color:var(--gold)}
+.nutty-home .slice-gallery .slice-choice span{margin-top:8px;font-size:13px;line-height:1.6}
+.nutty-home .cake-feature .preview-instruction{font-size:14px!important;font-weight:400;line-height:1.8;margin:20px 4px 2px;padding:0!important}
+.nutty-home #cakes>.fine{margin-top:24px;line-height:1.9}
+.nutty-home #cakes>.fine>span{display:block}
+.nutty-home .cake-row p{line-height:1.8}
+.nutty-home .cake-row .price{margin-top:18px;row-gap:5px}
+.nutty-home .cake-row .seasonal-tag{vertical-align:middle}
+@media(max-width:1050px) and (min-width:721px){
+ .nutty-home .quick.group-quick a{padding:21px 16px}
+ .nutty-home .quick.group-quick span{font-size:15px}
+ .nutty-home .quick.group-quick small{font-size:11px}
+}
+@media(max-width:960px){
+ .nutty-home .cake-selection{grid-template-columns:minmax(0,1fr);gap:26px}
+ .nutty-home .cake-feature{width:100%;max-width:620px;margin-inline:auto}
+}
+@media(max-width:720px){
+ .nutty-home{font-size:17px;line-height:1.8;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+ .nutty-home .wrap{width:calc(100% - 40px)}
+ .nutty-home .section{padding-block:58px}
+ .nutty-home .section-heading{margin-bottom:30px}
+ .nutty-home .section-heading h2{font-size:32px;line-height:1.35;letter-spacing:-.035em}
+ .nutty-home .section-heading>p{margin-top:18px;font-size:17px;line-height:1.9}
+ .nutty-home .quick.group-quick{border-radius:18px;margin-top:8px}
+ .nutty-home .quick.group-quick a{padding:24px 22px;gap:9px;min-height:104px}
+ .nutty-home .quick.group-quick a span{font-size:17px;line-height:1.7;padding-right:30px}
+ .nutty-home .quick.group-quick small{font-size:12px;line-height:1.7}
+ .nutty-home .cake-feature{padding:14px 14px 20px;border-radius:18px}
+ .nutty-home .cake-feature .cake-photo-name{margin-top:18px;font-size:17px}
+ .nutty-home .cake-feature .cake-ingredients{display:block;margin-top:10px;font-size:14px;line-height:1.85}
+ .nutty-home .slice-gallery{margin-top:22px;gap:8px}
+ .nutty-home .slice-gallery .slice-choice,.nutty-home .slice-gallery .slice-choice.is-active{min-height:102px;padding:9px 5px;border-radius:13px}
+ .nutty-home .slice-gallery .slice-choice img{height:56px;max-height:56px;object-fit:contain}
+ .nutty-home .slice-gallery .slice-choice span{font-size:12px;margin-top:9px;line-height:1.6}
+ .nutty-home .cake-feature .preview-instruction{margin:19px 2px 0;font-size:13px!important;line-height:1.85}
+ .nutty-home .cake-row,.nutty-home .cake-row:last-child{grid-template-columns:34px minmax(0,1fr);gap:14px 13px;padding:22px 18px;min-height:0;margin-bottom:14px;border-radius:18px}
+ .nutty-home .cake-row .flavor-number{grid-column:1;grid-row:1;align-self:start;margin-top:1px}
+ .nutty-home .cake-row>div:nth-child(2){grid-column:2;grid-row:1}
+ .nutty-home .cake-row .select-cake{grid-column:2;grid-row:2;justify-self:end;min-height:44px;padding:11px 20px;font-size:14px}
+ .nutty-home .cake-row .eyebrow{font-size:11px;line-height:1.7;letter-spacing:.09em}
+ .nutty-home .cake-row h3{font-size:25px;line-height:1.35;margin:8px 0 13px;letter-spacing:-.035em}
+ .nutty-home .cake-row p{font-size:16px;line-height:1.8}
+ .nutty-home .cake-row .price{margin-top:18px;column-gap:12px;row-gap:4px}
+ .nutty-home .cake-row .price del{font-size:14px}
+ .nutty-home .cake-row .price strong{font-size:24px}
+ .nutty-home .cake-row .seasonal-tag{margin-top:8px;font-size:11px;padding:6px 9px}
+ .nutty-home #cakes>.fine{font-size:14px;line-height:1.9;margin-top:23px;padding-inline:3px}
+ .nutty-home #cakes>.fine>span+span{margin-top:8px}
+ .nutty-home .trust-lead,.nutty-home .trust-points p{line-height:1.9}
+ .nutty-home .trust-points>div{padding-block:23px}
+ .nutty-home .gift-ticket{padding:25px 22px}
+ .nutty-home .gift-ticket p{line-height:1.85}
+ .nutty-home .gift-bottom{flex-wrap:wrap;row-gap:12px}
+ .nutty-home .group-home-copy>p,.nutty-home .brand-points p,.nutty-home .faq details>p{line-height:1.9}
+ .nutty-home .mobile-menu{padding:22px 24px;gap:17px}
+ .nutty-home .mobile-cta{padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));gap:20px}
+ .nutty-home .mobile-cta a{min-height:48px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+ .nutty-home .mobile-cta span{line-height:1.65}
+}
+@media(max-width:360px){
+ .nutty-home .wrap{width:calc(100% - 32px)}
+ .nutty-home .quick.group-quick a{padding:23px 20px}
+ .nutty-home .cake-row,.nutty-home .cake-row:last-child{grid-template-columns:30px minmax(0,1fr);column-gap:10px;padding:20px 15px}
+ .nutty-home .cake-row h3{font-size:23px}
+ .nutty-home .cake-row .price strong{font-size:22px}
+ .nutty-home .cake-row .price del{font-size:13px}
+ .nutty-home .mobile-cta{padding-inline:16px;gap:12px}
+ .nutty-home .mobile-cta a{padding-inline:18px}
+}

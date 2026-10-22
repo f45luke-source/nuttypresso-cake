@@ -27,12 +27,11 @@ function calc(){const n=Number(qty.value);total.textContent=Number.isInteger(n)&
 function showStatus(message,error=false){statusBox.hidden=false;statusBox.classList.toggle('error',error);statusBox.textContent=message}
 updateMinimum();calc();product.addEventListener('change',()=>{updateMinimum();if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';calc();previewCake(product.value,{syncForm:false})});qty.addEventListener('input',calc);date.addEventListener('focus',updateMinimum);window.addEventListener('focus',updateMinimum);date.addEventListener('input',()=>date.setCustomValidity(''));phone.addEventListener('input',()=>phone.setCustomValidity(''));document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
 // The image, highlighted flavor and reservation selector always refer to the same cake.
-// Product photography is intentionally empty until real whole-cake photos arrive.
-// To add real photos later, put the image under assets/ and fill in the src for its flavor.
+// User-supplied whole-cake-on-box photographs, matched to each flavor.
 const CAKE_PREVIEWS={
- deep_basque:{name:'딥 바스크',src:null},
- matcha:{name:'말차 바스크',src:null},
- strawberry:{name:'딸기 바스크',src:null}
+ deep_basque:{name:'딥 바스크',src:'assets/deep-basque-box-20261022.webp'},
+ matcha:{name:'말차 바스크',src:'assets/matcha-basque-box-20261022.webp'},
+ strawberry:{name:'딸기 바스크',src:'assets/strawberry-basque-box-20261022.webp'}
 };
 const mainCakeImage=document.getElementById('cake-main-image');
 const cakePhotoPlaceholder=document.getElementById('cake-image-placeholder');
@@ -47,7 +46,7 @@ function previewCake(flavor,{syncForm=true}={}){
  }
  if(selected.src){
   if(mainCakeImage.getAttribute('src')!==selected.src)mainCakeImage.src=selected.src;
-  mainCakeImage.alt=selected.name+' 홀케이크 실사 사진';
+  mainCakeImage.alt='너티프레소 전용 박스 위에 놓인 '+selected.name+' 홀케이크';
   mainCakeImage.hidden=false;
   if(cakePhotoPlaceholder)cakePhotoPlaceholder.hidden=true;
  }else{
@@ -60,6 +59,8 @@ function previewCake(flavor,{syncForm=true}={}){
   }
   if(placeholderName)placeholderName.textContent=selected.name;
  }
+ const photoName=document.getElementById('cake-photo-name');
+ if(photoName)photoName.textContent=selected.name+' · 홀케이크';
  document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.classList.toggle('is-active',row.dataset.preview===flavor));
  document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>{
   const active=button.dataset.preview===flavor;
