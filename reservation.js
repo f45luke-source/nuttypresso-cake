@@ -130,6 +130,21 @@ document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.addEventLi
 }));
 document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>previewCake(link.dataset.cake)));
 previewCake(product.value,{syncForm:false});
+const successDialog=document.getElementById('reservation-success-modal');
+const successClose=document.getElementById('reservation-success-close');
+if(successDialog&&successClose){
+ successClose.addEventListener('click',()=>successDialog.close());
+ successDialog.addEventListener('click',event=>{if(event.target===successDialog)successDialog.close()});
+}
+function showReservationSuccess(summary){
+ const details=document.getElementById('reservation-success-summary');
+ if(details)details.textContent=summary;
+ if(successDialog&&typeof successDialog.showModal==='function'){
+  if(!successDialog.open)successDialog.showModal();
+ }else{
+  window.alert('예약 신청이 완료되었습니다.\n매장에서 연락이 갈 예정입니다!\n감사합니다.');
+ }
+}
 let sending=false;
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(sending)return;updateMinimum();
@@ -148,7 +163,8 @@ form.addEventListener('submit',async event=>{
   const response=await fetch(API,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data),signal:controller.signal});
   if(!response.ok){showStatus('예약 신청을 접수하지 못했습니다. 입력 정보를 확인하거나 매장에 문의해주세요.',true);return}
   form.reset();qty.value=1;calc();updateMinimum();previewCake(product.value,{syncForm:false});
-  showStatus('예약 신청이 접수되었습니다.\n'+summary+'\n결제 예정금액 '+won(data.total_price)+'\n매장에서 제작 가능 여부와 평일 08:00~16:30 픽업 일정을 확인한 뒤 예약을 확정해드립니다.');
+  showStatus('예약 신청이 완료되었습니다.\n매장에서 연락이 갈 예정입니다!\n감사합니다.');
+  showReservationSuccess(summary+' · '+won(data.total_price));
  }catch(error){showStatus('접수 여부를 확인하지 못했습니다. 중복 예약을 방지하기 위해, 다시 신청하기 전 매장에 접수 여부를 확인해주세요.',true)}
  finally{clearTimeout(timer);sending=false;submit.disabled=false;submit.textContent='10% 혜택으로 예약 신청하기 ↗'}
 });
