@@ -22,7 +22,7 @@ function isPickupTime(value){
  const [hour,minute]=value.split(':').map(Number);
  if(hour>23||minute>59)return false;
  const minutes=hour*60+minute;
- return minutes>=8*60&&minutes<=16*60+30;
+ return minutes>=8*60&&minutes<=16*60+30&&minutes%10===0;
 }
 function strawberrySeasonWindow(earliest){
  const year=Number(earliest.slice(0,4));
@@ -60,10 +60,10 @@ function validatePickupDate(){
  return !message;
 }
 function validatePickupTime(){
- const message=time.value&&!isPickupTime(time.value)?'픽업 가능한 시간은 평일 08:00~16:30입니다.':'';
+ const message=time.value&&!isPickupTime(time.value)?'픽업 시간은 평일 08:00~16:30 사이 10분 간격으로 선택해주세요.':'';
  time.setCustomValidity(message);
  const help=document.getElementById('pickup-time-help');
- if(help){help.textContent=message||'평일 오전 8시부터 오후 4시 30분까지 픽업 가능합니다.';help.classList.toggle('field-help-error',Boolean(message))}
+ if(help){help.textContent=message||'월~금요일 08:00~16:30 · 10분 간격으로 선택할 수 있어요.';help.classList.toggle('field-help-error',Boolean(message))}
  return !message;
 }
 updateMinimum();calc();
