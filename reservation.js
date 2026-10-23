@@ -100,4 +100,4 @@ form.addEventListener('submit',async event=>{
 
 const menuButton=document.querySelector('.nav-toggle'); const menu=document.querySelector('#mobile-menu'); menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menu.hidden=!open;}); menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.hidden=true;menuButton.setAttribute('aria-expanded','false')})); document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.hidden=true;menuButton.setAttribute('aria-expanded','false')}});
 document.querySelectorAll('a[href="#gift-guide"]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('gift-guide').open=true}));
-if('IntersectionObserver' in window){const cta=document.querySelector('.mobile-cta');new IntersectionObserver(entries=>{cta.classList.toggle('away',entries[0].isIntersecting)},{threshold:0}).observe(document.getElementById('reserve'));}
+// The floating cake reservation link stays available even while viewing the booking form.
