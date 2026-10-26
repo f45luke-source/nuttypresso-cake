@@ -11,10 +11,431 @@
 <meta content="https://f45luke-source.github.io/nuttypresso-cake/assets/basque-three-slices.webp" property="og:image"/>
 <link href="https://f45luke-source.github.io/nuttypresso-cake/" rel="canonical"/>
 <link href="assets/nutty-mascot.svg" rel="icon" type="image/svg+xml"/>
-<link as="image" href="assets/nutty-logo.svg" rel="preload"/>
-<link rel="stylesheet" href="nutty.css?v=20261020-5">
-<link rel="stylesheet" href="group-order.css?v=20261014-1">
-<link rel="stylesheet" href="nutty-polish.css?v=20261021-1">
+<link as="image" href="assets/nutty-wordmark.svg" rel="preload"/>
+<style data-source="nutty.css">
+:root{--ink:#50312e;--paper:#faf6ee;--line:#cfc1ad;--gold:#977536;--muted:#75655f;--white:#fffdf8;--sans:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 var(--sans);word-break:keep-all;-webkit-font-smoothing:antialiased}h1,h2,h3,p,figure{margin:0}h1,h2,h3{line-height:1.2;letter-spacing:-.05em}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto}button,input,select,textarea{font:inherit}button,a,input,select,textarea,summary{-webkit-tap-highlight-color:transparent}button,summary{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:5px}[hidden]{display:none!important}.wrap{width:min(1240px,calc(100% - 96px));margin-inline:auto}.skip{position:absolute;top:-100px;left:20px;background:white;padding:12px;z-index:100}.skip:focus{top:8px}.notice{background:var(--ink);color:var(--paper);text-align:center;padding:9px 20px;font-size:14px}.header{display:flex;align-items:center;justify-content:space-between;gap:26px;min-height:100px;position:relative;border-bottom:1px solid var(--line)}.wordmark{width:184px;height:68px;object-fit:contain}.header nav{display:flex;gap:34px;font-size:16px}.header nav a:hover,.text-link:hover{color:var(--gold)}.button{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);padding:17px 24px;min-height:56px;border:1px solid var(--ink);font-size:16px;font-weight:700}.button:hover,.submit:hover{background:#715048}.button.small{min-height:46px;padding:11px 20px;font-size:15px}.nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:46px;height:46px;font-size:23px}.mobile-menu{padding:20px;display:grid;gap:14px;border-bottom:1px solid var(--line)}.eyebrow{display:block;font:600 12px/1.5 Arial,sans-serif;letter-spacing:.13em;color:var(--gold)}.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center;padding-top:56px;padding-bottom:58px}.hero h1{font-size:clamp(38px,4.4vw,62px);font-weight:750;line-height:1.22;margin:24px 0}.hero h1 em{font-style:normal;font-weight:450}.hero p{font-size:19px;color:var(--muted);line-height:1.7}.actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:28px}.text-link{font-size:16px;font-weight:700;border-bottom:1px solid;padding:8px 0}.hero-photo{background:#e8dbc2;position:relative;overflow:hidden;padding:25px 22px 18px}.photo-heading{font:italic 21px Georgia,serif;text-align:center;display:block}.hero-photo img{width:100%;aspect-ratio:1.1;object-fit:contain;padding:16px 0}.hero-photo figcaption{border-top:1px solid #bba789;padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:12px}.hero-photo figcaption>b{font-size:22px}.quick{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.quick a{padding:23px 22px;display:grid;gap:8px}.quick a+ a{border-left:1px solid var(--line)}.quick small{font-size:11px;letter-spacing:.1em;color:var(--muted)}.quick span{display:flex;justify-content:space-between;font-size:18px;font-weight:700}.quick a:hover{background:#ede4d5}.section{padding-top:92px;padding-bottom:92px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:40px}.section-heading h2{font-size:clamp(34px,3.6vw,48px);margin-top:17px}.section-heading>p{font-size:17px;color:var(--muted)}.section-heading strong{color:var(--ink);font-weight:600}.cake-selection{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}.cake-feature{background:#f0e9dd;padding:20px 16px;text-align:center}.cake-feature img{width:100%;aspect-ratio:1.15;object-fit:contain}.cake-feature p{font-size:14px;color:var(--muted);padding-top:8px}.cake-row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:20px;border-top:1px solid var(--line);padding:28px 0}.cake-row:last-child{border-bottom:1px solid var(--line)}.flavor-number{align-self:start;font:italic 20px Georgia,serif;color:var(--gold);padding-top:5px}.cake-row .eyebrow{font-size:11px;letter-spacing:.1em}.cake-row h3{font-size:26px;margin:6px 0 8px}.cake-row p{font-size:16px;color:var(--muted)}.cake-row.matcha .eyebrow{color:#607045}.cake-row.strawberry .eyebrow{color:#a14450}.price{display:flex;gap:14px;align-items:baseline;margin-top:12px;flex-wrap:wrap}.price del{font-size:14px;color:var(--muted)}.price strong{font-size:24px;letter-spacing:-.035em}.select-cake{font-size:15px;border-bottom:1px solid;padding:12px 0;font-weight:700;white-space:nowrap}.fine{font-size:13px;color:var(--muted);margin-top:18px}.gifts{background:#eee5d7}.gift-pair{display:grid;grid-template-columns:1fr 1fr;gap:30px}.gift-ticket{background:var(--white);border-top:6px solid var(--ink);padding:35px}.gift-ticket:nth-child(2){border-color:var(--gold)}.gift-number{font:700 clamp(60px,7vw,98px)/1.1 Georgia,serif;letter-spacing:-.07em;margin:30px 0 20px}.gift-number span{font:400 30px var(--sans);letter-spacing:-.02em;padding:0 8px}.gift-ticket h3{font-size:29px}.gift-ticket p{font-size:17px;color:var(--muted);margin:10px 0 24px}.gift-bottom{display:flex;align-items:end;justify-content:space-between;border-top:1px solid var(--line);padding-top:16px;gap:14px}.gift-guide{border-block:1px solid #c8bba5;margin-top:25px}.gift-guide p{max-width:850px}.brand{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.brand-heading{position:relative}.brand-heading>img{position:absolute;right:10px;top:0;width:120px;height:100px;object-fit:contain;opacity:.85}.brand-heading .eyebrow{margin-top:100px}.brand-heading h2{font-size:42px;margin-top:20px}.brand-points>div{border-bottom:1px solid var(--line);padding:23px 0}.brand-points b{font-size:22px}.brand-points p{font-size:17px;color:var(--muted);margin-top:7px}.reserve{background:var(--ink);color:var(--paper)}.reserve-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}.reserve .eyebrow{color:#ddc396}.reserve h2{font-size:38px;margin:20px 0}.reserve-intro>p{font-size:17px;color:#e1d3be}.reserve ol{list-style:decimal-leading-zero;padding-left:30px;margin:35px 0;font-size:18px}.reserve li{padding:15px 0;border-bottom:1px solid #8c6a5d}.reservation-note{font-size:15px;color:#e1d3be}.form{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;background:var(--white);color:var(--ink);padding:32px}.field{min-width:0}.field label{display:block;font-size:15px;font-weight:700;margin-bottom:8px}.field input,.field select,.field textarea{width:100%;min-width:0;border:1px solid #cabdab;background:#fffdf9;min-height:50px;padding:11px 12px;border-radius:0;color:var(--ink);font-size:16px}.field textarea{min-height:94px;resize:vertical}.full{grid-column:1/-1}.field-help{font-size:13px;color:var(--muted);line-height:1.6;margin:6px 0 0}.total{display:flex;justify-content:space-between;gap:15px;align-items:center;border-block:1px solid var(--line);padding:18px 0}.total>span{font-size:14px}.total small{font-size:12px;color:var(--muted)}.total strong{font-size:28px;white-space:nowrap}.consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.7}.consent input{width:20px;height:20px;flex-shrink:0;accent-color:var(--ink);margin-top:2px}.submit{border:0;background:var(--ink);color:white;min-height:57px;padding:15px;font-size:17px;font-weight:700;cursor:pointer}.submit:disabled{opacity:.65;cursor:wait}.status{white-space:pre-line;padding:20px;background:#edf1e7;font-size:15px;color:#344426}.status.error{background:#fff0e8;color:#892c23}.faq{max-width:1000px}.faq h2{font-size:36px;margin:18px 0 28px}.faq details{border-top:1px solid var(--line)}.faq details:last-child{border-bottom:1px solid var(--line)}summary{padding:21px 0;font-size:17px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:18px}summary::after{content:'+';font-size:22px;line-height:1}details[open]>summary::after{content:'−'}details>p{font-size:16px;color:var(--muted);padding-bottom:22px;line-height:1.8}.footer{border-top:1px solid var(--line);padding-top:32px;padding-bottom:38px;display:flex;align-items:center;justify-content:space-between;gap:30px}.footer>img{width:180px}.footer p{font-size:14px;color:var(--muted)}.mobile-cta{display:none}
+@media(max-width:1000px){.wrap{width:calc(100% - 56px)}.hero,.cake-selection{gap:30px}.hero h1{font-size:43px}.brand{gap:36px}.reserve-grid{gap:30px;grid-template-columns:1fr 1.2fr}.reserve h2{font-size:31px}.form{padding:25px}.header nav{gap:20px}.quick span{font-size:16px}}
+@media(max-width:720px){html{scroll-padding-top:24px}.wrap{width:calc(100% - 40px)}body{font-size:16px;padding-bottom:72px}.notice{font-size:12px}.header{min-height:80px;gap:12px}.header nav{display:none}.wordmark{width:130px;height:55px}.header .button.small{margin-left:auto;font-size:13px;padding:10px 12px;min-height:44px}.nav-toggle{display:block;width:42px;height:44px;font-size:21px}.hero{grid-template-columns:1fr;padding-top:36px;gap:30px;padding-bottom:35px}.hero h1{font-size:clamp(34px,8.4vw,49px);margin:19px 0;line-height:1.22}.hero p{font-size:17px}.hero .eyebrow{font-size:10px}.hero-photo{padding:20px 18px 16px}.hero-photo img{aspect-ratio:1.2}.photo-heading{font-size:19px}.hero-photo figcaption{font-size:10px}.actions{margin-top:22px;gap:20px}.button{font-size:15px;padding:15px 18px}.text-link{font-size:15px}.quick{grid-template-columns:1fr}.quick a{padding:17px 0;gap:3px}.quick a+a{border-left:0;border-top:1px solid var(--line)}.quick span{font-size:17px}.quick small{font-size:10px}.section{padding-top:62px;padding-bottom:62px}.section-heading{display:block;margin-bottom:27px}.section-heading h2{font-size:35px;margin-top:14px}.section-heading>p{font-size:16px;margin-top:18px}.cake-selection{grid-template-columns:1fr;gap:22px}.cake-feature{padding:10px 15px 15px}.cake-feature img{max-height:300px;aspect-ratio:1.6}.cake-row{gap:12px;padding:23px 0;grid-template-columns:24px 1fr auto}.cake-row h3{font-size:24px}.cake-row p{font-size:15px}.price strong{font-size:22px}.select-cake{font-size:14px}.gift-pair{grid-template-columns:1fr;gap:22px}.gift-ticket{padding:26px}.gift-number{margin:20px 0 15px;font-size:76px}.gift-ticket h3{font-size:26px}.gift-ticket p{font-size:16px}.gift-bottom .text-link{font-size:14px}.gift-bottom .price{gap:8px}.gift-guide summary{font-size:15px}.brand{grid-template-columns:1fr;gap:22px}.brand-heading .eyebrow{margin-top:24px;max-width:170px}.brand-heading>img{width:85px;height:70px;top:-20px;right:0}.brand-heading h2{font-size:34px}.brand-points>div{padding:19px 0}.brand-points b{font-size:21px}.brand-points p{font-size:16px}.reserve-grid{grid-template-columns:1fr;gap:30px}.reserve h2{font-size:31px}.reserve ol{margin:24px 0;font-size:16px}.reserve li{padding:10px 0}.reservation-note{font-size:14px}.form{padding:24px 19px;gap:19px 13px}.field label{font-size:14px}.field input,.field select,.field textarea{font-size:16px;padding:10px 9px}.field-help{font-size:12px}.total strong{font-size:25px}.total span{font-size:13px}.consent{font-size:12px}.submit{font-size:15px}.faq h2{font-size:29px}.faq summary{font-size:16px}.faq details p{font-size:15px}.footer{display:grid;grid-template-columns:1fr auto;gap:22px}.footer>img{width:150px}.footer p{grid-column:1/-1;grid-row:2;font-size:13px}.footer>a{font-size:14px}.mobile-cta{position:fixed;inset:auto 0 0;display:flex;align-items:center;justify-content:space-between;background:var(--paper);border-top:1px solid var(--line);padding:11px 20px calc(11px + env(safe-area-inset-bottom));z-index:50;gap:16px}.mobile-cta span{font-size:12px}.mobile-cta b{display:block;font-size:15px}.mobile-cta a{background:var(--ink);color:var(--paper);padding:12px 19px;font-size:14px;font-weight:700}.mobile-cta.away{display:none}}
+@media(max-width:370px){.wrap{width:calc(100% - 32px)}.form{grid-template-columns:1fr}.full{grid-column:auto}.hero h1{font-size:34px}.header{gap:8px}.wordmark{width:112px}.header .button.small{font-size:12px;padding:10px}.cake-row{gap:8px}.price{gap:8px}.price strong{font-size:21px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* 2026-10-20: same original layout, real product photography and checkout reassurance */
+.hero-benefits{margin-top:13px!important;font-size:14px!important;color:var(--ink)!important;font-weight:650;line-height:1.65!important}
+.slice-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:17px 1px 4px}
+.slice-gallery figure{min-width:0;background:#faf6ee;border:1px solid #e5d9c9;padding:6px}
+.slice-gallery img{width:100%;height:76px;object-fit:contain}
+.slice-gallery figcaption{font-size:11px;line-height:1.5;color:var(--ink);font-weight:700;margin-top:2px}
+.seasonal-tag{display:inline-block;vertical-align:middle;background:#f3e6e0;border:1px solid #d2aaa0;color:#914c4a;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:0;padding:5px 9px;white-space:nowrap}
+.cake-row p strong{color:var(--ink)}
+.trust-section{background:#f5ede0;border-top:1px solid #e0cfbb;border-bottom:1px solid #e0cfbb}
+.trust-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:65px;align-items:center}
+.trust-copy h2{font-size:clamp(31px,3.7vw,47px);margin:18px 0 24px}
+.trust-lead{font-size:18px;color:var(--ink);line-height:1.85;max-width:620px}
+.trust-points{margin:24px 0}
+.trust-points>div{border-top:1px solid #d4c4b0;padding:16px 0}
+.trust-points>div:last-child{border-bottom:1px solid #d4c4b0}
+.trust-points b{font-size:17px}
+.trust-points p{margin-top:4px;color:var(--muted);font-size:15px}
+.trust-photo{background:#ebe0d3;border:1px solid #dacdbb;padding:27px 22px 17px;text-align:center}
+.trust-photo img{width:100%;max-height:420px;aspect-ratio:1.05;object-fit:contain}
+.trust-photo figcaption{font-size:12px;font-weight:600;color:var(--muted);padding-top:11px;border-top:1px solid #d4c4b0}
+.gift-photo{background:#f5efe5;min-height:235px;padding:12px;display:grid;place-items:center;margin-top:15px}
+.gift-photo img{width:100%;height:225px;object-fit:contain}
+.gift-ticket .gift-number{margin-top:12px}
+@media(max-width:1000px){.trust-layout{gap:30px}.trust-photo{padding:19px}}
+@media(max-width:720px){.hero-benefits{font-size:13px!important}.slice-gallery img{height:65px}.slice-gallery figcaption{font-size:10px}.trust-layout{grid-template-columns:1fr;gap:24px}.trust-copy h2{font-size:34px}.trust-lead{font-size:16px}.trust-photo{max-width:500px;width:100%;margin:0 auto}.trust-photo img{max-height:310px}.trust-points p{font-size:14px}.seasonal-tag{font-size:10px;padding:4px 7px}.gift-photo{min-height:215px}.gift-photo img{height:208px}}
+
+/* 2026-10-20: plain cake reservation message and larger product images */
+.hero .hero-3flavors{width:100%;aspect-ratio:1.1;object-fit:cover;object-position:center;padding:0;background:#f5eadb}
+.hero-photo{background:#f4ebdf}
+.cake-feature>p{font-weight:600;line-height:1.7}
+.gift-ticket .gift-photo{position:relative;display:block;overflow:hidden;aspect-ratio:4/3;min-height:0;margin-top:15px;padding:0;background:#f3e9dc}
+.gift-ticket .gift-photo img{display:block;width:100%;height:100%;min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center}
+.gift-photo-tag{position:absolute;left:13px;bottom:13px;background:#50312e;color:#fff9ed;padding:6px 12px;font-size:13px;font-weight:700;letter-spacing:.02em}
+.gift-ticket p strong{color:var(--ink);font-weight:800}
+.gift-image-note{margin-top:18px;margin-bottom:-4px}
+@media(max-width:720px){.hero .hero-3flavors{aspect-ratio:1.12}.gift-ticket .gift-photo{aspect-ratio:4/3}.gift-ticket .gift-photo img{height:100%;aspect-ratio:4/3}.gift-photo-tag{font-size:12px}}
+
+/* 2026-10-20 — flavor-selector interaction, retaining original brand styling */
+.cake-image-stage{position:relative;min-height:295px;display:flex;align-items:center;justify-content:center}
+.cake-image-stage>img{width:100%;height:auto;aspect-ratio:1.15;object-fit:contain;object-position:center;transition:opacity .16s ease}
+.cake-image-stage>img.is-changing{opacity:.35}
+.cake-image-caption{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);white-space:normal;text-align:center;max-width:calc(100% - 22px);background:rgba(250,246,238,.94);color:var(--ink);font-size:12px;font-weight:650;line-height:1.5;padding:6px 12px}
+.cake-row[data-preview]{cursor:pointer;transition:background .2s ease,box-shadow .2s ease}
+.cake-row[data-preview]:hover{background:rgba(233,219,199,.32)}
+.cake-row.is-active{background:linear-gradient(90deg,rgba(233,219,199,.53),rgba(233,219,199,0) 94%);box-shadow:inset 3px 0 0 var(--gold)}
+.slice-gallery .slice-choice{display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-width:0;width:100%;background:#faf6ee;border:1px solid #e5d9c9;padding:6px;cursor:pointer;color:var(--ink);font:inherit;transition:border-color .2s ease,background .2s ease}
+.slice-gallery .slice-choice:hover{background:#f0e7d9;border-color:var(--gold)}
+.slice-gallery .slice-choice.is-active{border:2px solid var(--gold);background:#f6ecda;padding:5px}
+.slice-gallery .slice-choice img{width:100%;height:76px;aspect-ratio:auto;object-fit:contain}
+.slice-gallery .slice-choice span{font-size:11px;line-height:1.5;font-weight:700;margin-top:2px}
+.preview-instruction{padding-top:7px!important;font-size:12px!important;color:var(--muted)!important}
+@media(max-width:720px){
+.cake-image-stage{min-height:230px}
+.cake-image-caption{font-size:11px}
+.slice-gallery .slice-choice img{height:65px}
+.slice-gallery .slice-choice span{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.cake-image-stage>img,.cake-row[data-preview],.slice-gallery .slice-choice{transition:none}}
+
+/* 2026-10-20: intentionally leave whole-cake photo space blank until authentic photos arrive. */
+.cake-image-stage{min-height:295px;align-items:stretch}
+.cake-image-placeholder{width:100%;min-height:295px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px 15px;background:#eee6d9;color:var(--ink);border:1px solid #e0d5c5;text-align:center}
+.cake-photo-label{font:600 11px/1.6 Arial,sans-serif;letter-spacing:.13em;color:var(--gold)}
+.cake-image-placeholder strong{font-size:clamp(24px,3vw,35px);letter-spacing:-.045em;font-weight:750}
+.cake-photo-status{font-size:13px;color:var(--muted);font-weight:500}
+@media(max-width:720px){.cake-image-stage,.cake-image-placeholder{min-height:250px}}
+
+</style>
+<style data-source="group-order.css">
+/* Group Order extends the existing Nutty Presso brand system. */
+.header nav{gap:24px}.header nav [aria-current="page"]{border-bottom:1px solid var(--ink);font-weight:700}
+.group-home{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.group-home-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center}
+.group-home h2{font-size:clamp(34px,3.7vw,48px);margin:18px 0 22px;line-height:1.25}
+.group-home-copy>p{color:var(--muted);font-size:18px;line-height:1.85}
+.group-home-copy .group-home-note{font-size:14px;margin-top:18px}
+.group-home-ticket{background:#eee5d7;padding:36px;border-top:5px solid var(--ink)}
+.group-home-ticket strong{display:block;font-size:29px;line-height:1.45;letter-spacing:-.04em;margin:12px 0}
+.group-home-ticket p{font-size:15px;color:var(--muted);line-height:1.8}
+.group-home-ticket .group-home-dessert{border-top:1px dashed var(--gold);margin-top:25px;padding-top:20px;font-size:15px;color:var(--ink)}
+.quick.group-quick{grid-template-columns:repeat(4,minmax(0,1fr))}.quick.group-quick a{padding-inline:18px}.quick.group-quick span{font-size:17px}
+.group-hero{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;padding-block:48px 64px}
+.group-back{display:inline-block;color:var(--muted);font-size:13px;margin-bottom:36px}.group-back:hover{text-decoration:underline}
+.group-hero h1{font-size:clamp(40px,4.3vw,59px);line-height:1.25;letter-spacing:-.055em;margin:20px 0 26px}
+.group-hero h1 em{font-weight:450;font-style:normal}.group-hero-copy>p{font-size:18px;line-height:1.9;color:var(--muted)}
+.group-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.group-tags span{border:1px solid var(--line);padding:5px 12px;font-size:13px}
+.group-ticket{padding:32px 36px 24px;background:#eee5d7;border-top:6px solid var(--ink);position:relative}
+.group-ticket-top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:88px}.group-ticket-top .eyebrow{font-size:10px}.group-ticket-top img{width:100px;height:78px;object-fit:contain}
+.group-big-number{font:700 108px/1.1 Georgia,serif;letter-spacing:-.07em;margin:5px 0 12px}.group-big-number span{font:600 23px/1.4 var(--sans);letter-spacing:-.035em;padding-left:15px;display:inline-block}
+.group-ticket h2{font-size:28px;line-height:1.4;margin-bottom:12px}.group-ticket-copy{font-size:16px;line-height:1.9;color:var(--muted)}
+.group-delivery{border-top:1px dashed var(--gold);margin-top:28px;padding-top:24px}.group-delivery strong{font-size:25px;line-height:1.45;letter-spacing:-.035em}.group-delivery p{font-size:13px;color:var(--muted);margin-top:9px}
+.group-ticket-foot{border-top:1px solid var(--line);padding-top:16px;margin-top:24px;font-size:11px;color:var(--muted)}
+.group-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--ink);margin-bottom:64px}.group-steps>div{padding:25px 22px}.group-steps>div+div{border-left:1px solid var(--line)}.group-steps small{display:block;font:11px/1.5 Arial,sans-serif;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}.group-steps strong{font-size:17px}
+.group-form-section{background:var(--ink);color:var(--paper)}.group-form-intro .eyebrow{color:#ddc396;font-size:11px}.group-form-intro h2{font-size:37px;line-height:1.3;margin:19px 0 22px}.group-form-intro>p{font-size:16px;color:#e1d3be;line-height:1.9}
+.group-dessert-note{padding:27px 0;border-block:1px solid #8c6a5d;margin:32px 0}.group-dessert-note h3{font-size:25px;line-height:1.4;margin:13px 0}.group-dessert-note p{font-size:16px;line-height:1.9;color:#e1d3be}.group-dessert-note a{display:inline-block;margin-top:13px}
+.group-form-intro .group-fine{font-size:14px;line-height:1.9}.group-optional{font-size:12px;color:var(--muted);font-weight:400;margin-left:5px}
+.group-delivery-fields{padding:20px;border:1px solid var(--line);background:var(--paper)}.group-delivery-fields>.consent{margin-top:16px}
+.group-honeypot{position:absolute!important;left:-10000px!important;top:auto;width:1px;height:1px;overflow:hidden}
+.group-page .status{overflow-wrap:anywhere}.group-page .form{position:relative}.group-page .footer>a:first-child{border:0}.group-page .field textarea{min-height:104px}
+@media(max-width:1050px){.header nav{gap:16px;font-size:14px}.header{gap:18px}.group-home-grid,.group-hero{gap:38px}.group-home-ticket{padding:28px}.group-ticket{padding:24px}.group-hero h1{font-size:44px}.group-hero-copy>p{font-size:16px}.group-form-intro h2{font-size:31px}.quick.group-quick a{padding-inline:12px}.quick.group-quick span{font-size:15px}}
+@media(max-width:820px) and (min-width:721px){.header .wordmark{width:145px}.header .button.small{font-size:12px;padding:10px}.header nav{gap:12px;font-size:13px}.header{gap:12px}.group-hero{gap:24px}.group-hero h1{font-size:39px}.group-ticket{padding:22px}.group-ticket-top img{width:75px}.group-big-number{font-size:92px}.group-big-number span{font-size:19px;padding-left:10px}.group-ticket h2{font-size:25px}.group-delivery strong{font-size:22px}.group-steps strong{font-size:15px}.group-steps>div{padding-inline:14px}}
+@media(max-width:720px){.group-home-grid,.group-hero{grid-template-columns:1fr;gap:28px}.group-home h2{font-size:33px;margin-bottom:18px}.group-home-copy>p{font-size:16px}.group-home-ticket{padding:26px}.group-home-ticket strong{font-size:26px}.quick.group-quick{grid-template-columns:1fr}.quick.group-quick a{padding-inline:0}.quick.group-quick span{font-size:17px}.group-hero{padding-block:26px 36px}.group-back{margin-bottom:26px}.group-hero h1{font-size:clamp(34px,9vw,48px);margin:16px 0 20px}.group-hero-copy>p{font-size:16px}.group-hero .eyebrow{font-size:11px}.group-tags{margin-top:18px}.group-tags span{font-size:12px}.group-ticket{padding:24px 26px}.group-ticket-top{min-height:60px}.group-ticket-top img{width:85px;height:66px}.group-big-number{font-size:94px}.group-big-number span{font-size:21px}.group-ticket h2{font-size:27px}.group-ticket-copy{font-size:15px}.group-delivery{margin-top:23px;padding-top:20px}.group-delivery strong{font-size:24px}.group-steps{grid-template-columns:1fr;margin-bottom:36px}.group-steps>div{padding:17px 0;display:flex;align-items:center;gap:15px;justify-content:space-between}.group-steps>div+div{border-left:0;border-top:1px solid var(--line)}.group-steps small{margin:0;font-size:10px}.group-steps strong{font-size:15px}.group-form-intro h2{font-size:31px}.group-form-intro>p{font-size:15px}.group-dessert-note{margin:25px 0;padding:22px 0}.group-dessert-note h3{font-size:24px}.group-delivery-fields{padding:16px}.group-page .footer img{width:145px}.group-page .header .button.small{font-size:12px;padding-inline:10px}}
+@media(max-width:370px){.group-page .wordmark{width:104px}.group-page .header{gap:7px}.group-page .header .button.small{padding-inline:8px;font-size:11px}.group-ticket{padding:22px}.group-big-number span{font-size:19px}.group-steps strong{font-size:14px}}
+
+</style>
+<style data-source="nutty-polish.css">
+/* NUTTY PRESSO · October 2026 polish
+   Homepage-only design layer. Original brand colors, forms and booking logic stay intact.
+   Group-order has its own page and is intentionally unaffected. */
+.nutty-home{
+  --soft-line:#dacbb8;
+  --round-card:18px;
+  --round-input:11px;
+  font-size:18px;
+  line-height:1.72;
+}
+.nutty-home .header nav{font-size:17px}
+.nutty-home .eyebrow{font-size:12px;line-height:1.65}
+.nutty-home .button,
+.nutty-home .submit,
+.nutty-home .mobile-cta a{
+  border-radius:13px;
+  transition:background-color .2s ease,transform .2s ease;
+}
+.nutty-home .button:hover,
+.nutty-home .submit:not(:disabled):hover{transform:translateY(-1px)}
+.nutty-home .button.small,
+.nutty-home .select-cake{
+  border-radius:999px;
+}
+.nutty-home .text-link{font-size:17px}
+.nutty-home .hero-photo{border-radius:20px}
+.nutty-home .hero-copy>p{font-size:19px}
+.nutty-home .quick{
+  border:1px solid var(--soft-line);
+  border-radius:16px;
+  overflow:hidden;
+}
+.nutty-home .quick.group-quick span{font-size:18px}
+.nutty-home .quick small{font-size:12px}
+.nutty-home .section-heading>p{font-size:18px;line-height:1.8}
+.nutty-home .cake-selection{align-items:center}
+.nutty-home .cake-feature{
+  border-radius:var(--round-card);
+  background:#f0e8dc;
+  overflow:hidden;
+  padding:19px 17px 17px;
+}
+.nutty-home .cake-image-placeholder{
+  border:1px solid #e0d2bc;
+  border-radius:14px;
+  background:#f5eddf;
+}
+.nutty-home .cake-image-placeholder strong{font-size:clamp(27px,3vw,37px)}
+.nutty-home .cake-photo-status{font-size:14px}
+.nutty-home .cake-feature>p{
+  font-size:16px;
+  line-height:1.75;
+  margin-top:9px;
+}
+.nutty-home .preview-instruction{font-size:13px!important;line-height:1.65}
+.nutty-home .slice-gallery{gap:9px}
+.nutty-home .slice-gallery .slice-choice{
+  border-radius:11px;
+  overflow:hidden;
+}
+.nutty-home .slice-gallery .slice-choice span{font-size:12px}
+/* Three independent, aligned choice cards (remove the older offset vertical accent). */
+.nutty-home .cake-list{min-width:0}
+.nutty-home .cake-row,
+.nutty-home .cake-row:last-child{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  border:1px solid var(--soft-line);
+  border-radius:17px;
+  padding:23px 22px;
+  margin:0 0 13px;
+  min-height:184px;
+  background:transparent;
+  box-shadow:none;
+  transition:background-color .2s ease,border-color .2s ease;
+}
+.nutty-home .cake-row:last-child{margin-bottom:0}
+.nutty-home .cake-row.is-active{
+  background:#f4eadd;
+  border-color:#a88c56;
+  box-shadow:none;
+}
+.nutty-home .cake-row:hover{background:#f6eee3}
+.nutty-home .cake-row.is-active:hover{background:#f3e7d7}
+.nutty-home .cake-row>div:nth-child(2){min-width:0}
+.nutty-home .flavor-number{
+  width:40px;
+  height:40px;
+  align-self:start;
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  padding:0;
+  margin-top:0;
+  border:1px solid #d4bf97;
+  background:#fbf5ea;
+  font:italic 19px/1 Georgia,serif;
+  color:#987435;
+  letter-spacing:-.04em;
+}
+.nutty-home .cake-row .eyebrow{font-size:12px}
+.nutty-home .cake-row h3{font-size:28px;margin:8px 0 10px;line-height:1.27}
+.nutty-home .cake-row p{font-size:17px;line-height:1.62}
+.nutty-home .cake-row .price{gap:13px;margin-top:15px}
+.nutty-home .cake-row .price del{font-size:15px}
+.nutty-home .cake-row .price strong{font-size:25px}
+.nutty-home .cake-row .seasonal-tag{font-size:11px}
+.nutty-home .select-cake{
+  border:1px solid #c7b298;
+  background:#fffaf3;
+  padding:9px 14px;
+  font-size:15px;
+  line-height:1.4;
+  font-weight:700;
+  white-space:nowrap;
+  transition:background-color .2s ease;
+}
+.nutty-home .select-cake:hover{background:#eadcc8;color:var(--ink)}
+.nutty-home .fine{font-size:14px;line-height:1.8}
+/* Softer gift + bakery-lab composition with a restrained icon gift row. */
+.nutty-home .trust-copy h2{line-height:1.35}
+.nutty-home .trust-lead{font-size:19px;line-height:1.85}
+.nutty-home .trust-points{border-top:1px solid var(--soft-line)}
+.nutty-home .trust-points>div{
+  border-top:0;
+  border-bottom:1px solid var(--soft-line);
+  padding:19px 0;
+}
+.nutty-home .trust-points>div:last-child{border-bottom:1px solid var(--soft-line)}
+.nutty-home .trust-points b{font-size:19px}
+.nutty-home .trust-points p{font-size:17px;line-height:1.77;margin-top:6px}
+.nutty-home .trust-photo{
+  border-radius:20px;
+  padding:12px;
+  background:#f7f0df;
+  border:1px solid #dccdb9;
+  overflow:hidden;
+}
+.nutty-home .trust-photo img{
+  width:100%;
+  height:auto;
+  max-height:450px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:13px;
+}
+.nutty-home .trust-photo figcaption{
+  font-size:13px;
+  border:0;
+  padding:12px 6px 4px;
+}
+.nutty-home .gift-kit{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
+}
+.nutty-home .gift-kit-item{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 11px 6px 7px;
+  border:1px solid #dcc7ae;
+  border-radius:999px;
+  background:#fbf5e9;
+  font-size:13px;
+  font-weight:700;
+  color:var(--ink);
+}
+.nutty-home .gift-kit-icon{
+  width:30px;
+  height:30px;
+  flex:none;
+  border-radius:50%;
+  background:#efe2cc;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.nutty-home .gift-kit-icon svg{
+  display:block;
+  width:21px;
+  height:21px;
+}
+.nutty-home .gift-ticket{
+  border-radius:19px;
+  overflow:hidden;
+  box-shadow:0 5px 22px rgba(78,49,42,.045);
+}
+.nutty-home .gift-ticket h3{font-size:30px}
+.nutty-home .gift-ticket p{font-size:18px}
+.nutty-home .gift-ticket .gift-photo{border-radius:13px}
+.nutty-home .gift-photo-tag{border-radius:999px}
+.nutty-home .gift-guide{border-color:var(--soft-line)}
+.nutty-home .group-home-ticket{
+  border-radius:19px;
+  overflow:hidden;
+}
+.nutty-home .group-home-copy>p{font-size:19px}
+.nutty-home .group-home-copy .group-home-note{font-size:16px}
+.nutty-home .group-home-ticket p{font-size:16px}
+.nutty-home .brand-points p{font-size:18px}
+/* Reserve form: easy to read and consistently rounded, without changing field semantics. */
+.nutty-home .reserve-intro>p{font-size:18px}
+.nutty-home .reserve ol{font-size:18px}
+.nutty-home .reservation-note{font-size:16px}
+.nutty-home .form{
+  border-radius:21px;
+  padding:33px;
+  box-shadow:0 12px 35px rgba(27,13,10,.12);
+}
+.nutty-home .field label{font-size:16px;margin-bottom:9px}
+.nutty-home .field input,
+.nutty-home .field select,
+.nutty-home .field textarea{
+  border-radius:var(--round-input);
+  padding:13px 14px;
+  min-height:53px;
+  line-height:1.5;
+}
+.nutty-home .field textarea{min-height:108px}
+.nutty-home .field-help{font-size:14px;line-height:1.7}
+.nutty-home .total>span{font-size:15px}
+.nutty-home .total small{font-size:13px}
+.nutty-home .total strong{font-size:29px}
+.nutty-home .consent{font-size:14px;line-height:1.7}
+.nutty-home .submit{font-size:17px;min-height:59px}
+.nutty-home .status{border-radius:12px}
+.nutty-home .faq h2{line-height:1.35}
+.nutty-home .faq summary{font-size:18px}
+.nutty-home .faq details>p{font-size:17px}
+.nutty-home .mobile-cta a{border-radius:999px}
+.nutty-home .nav-toggle{border-radius:11px}
+@media(max-width:1050px){
+  .nutty-home .cake-row,
+  .nutty-home .cake-row:last-child{gap:12px;padding:21px 17px;grid-template-columns:38px minmax(0,1fr) auto}
+  .nutty-home .flavor-number{width:37px;height:37px}
+  .nutty-home .cake-row h3{font-size:25px}
+  .nutty-home .cake-row .price strong{font-size:23px}
+}
+@media(max-width:1050px) and (min-width:721px){
+  /* The 4-column menu must retain compact tablet typography. */
+  .nutty-home .header nav{font-size:14px}
+  .nutty-home .quick.group-quick span{font-size:15px}
+}
+@media(max-width:820px) and (min-width:721px){
+  .nutty-home .header nav{font-size:13px}
+}
+@media(max-width:900px) and (min-width:721px){
+  .nutty-home .cake-selection{grid-template-columns:1fr;gap:30px}
+  .nutty-home .cake-feature{width:min(100%,620px);margin-inline:auto}
+  .nutty-home .trust-layout{grid-template-columns:1fr;gap:32px}
+  .nutty-home .trust-photo{width:min(100%,540px);margin-inline:auto}
+}
+@media(max-width:720px){
+  .nutty-home{font-size:17px}
+  .nutty-home .hero-copy>p{font-size:18px}
+  .nutty-home .hero-photo{border-radius:16px}
+  .nutty-home .quick.group-quick span{font-size:17px}
+  .nutty-home .section-heading>p{font-size:17px}
+  .nutty-home .cake-feature{padding:13px;border-radius:16px}
+  .nutty-home .cake-feature>p{font-size:14px}
+  .nutty-home .cake-row,
+  .nutty-home .cake-row:last-child{grid-template-columns:34px minmax(0,1fr) auto;gap:10px;padding:19px 13px;margin-bottom:11px;min-height:162px;border-radius:15px}
+  .nutty-home .flavor-number{width:33px;height:33px;font-size:16px}
+  .nutty-home .cake-row .eyebrow{font-size:10px}
+  .nutty-home .cake-row h3{font-size:24px;line-height:1.35;margin:5px 0 8px}
+  .nutty-home .cake-row p{font-size:15px;line-height:1.58}
+  .nutty-home .cake-row .price{gap:9px;margin-top:12px}
+  .nutty-home .cake-row .price strong{font-size:22px}
+  .nutty-home .cake-row .price del{font-size:13px}
+  .nutty-home .cake-row .seasonal-tag{font-size:10px}
+  .nutty-home .select-cake{font-size:13px;padding:8px 10px}
+  .nutty-home .slice-gallery .slice-choice span{font-size:11px}
+  .nutty-home .trust-lead{font-size:17px}
+  .nutty-home .trust-points b{font-size:18px}
+  .nutty-home .trust-points p{font-size:16px}
+  .nutty-home .trust-photo{padding:10px}
+  .nutty-home .gift-kit-item{font-size:12px}
+  .nutty-home .gift-ticket h3{font-size:28px}
+  .nutty-home .gift-ticket p{font-size:17px}
+  .nutty-home .group-home-copy>p{font-size:17px}
+  .nutty-home .group-home-copy .group-home-note{font-size:15px}
+  .nutty-home .reserve-intro>p{font-size:17px}
+  .nutty-home .reserve ol{font-size:17px}
+  .nutty-home .form{padding:24px 20px;border-radius:18px}
+  .nutty-home .field label{font-size:15px}
+  .nutty-home .field-help{font-size:13px}
+  .nutty-home .consent{font-size:13px}
+  .nutty-home .total strong{font-size:25px}
+  .nutty-home .faq summary{font-size:17px}
+  .nutty-home .faq details>p{font-size:16px}
+}
+@media(max-width:370px){
+  .nutty-home .cake-row,
+  .nutty-home .cake-row:last-child{grid-template-columns:30px minmax(0,1fr) auto;gap:8px;padding:16px 10px}
+  .nutty-home .flavor-number{width:30px;height:30px;font-size:15px}
+  .nutty-home .cake-row h3{font-size:22px}
+  .nutty-home .cake-row .price strong{font-size:20px}
+  .nutty-home .select-cake{font-size:12px;padding:7px 9px}
+  .nutty-home .form{padding:21px 15px}
+}
+@media(prefers-reduced-motion:reduce){
+  .nutty-home .button,.nutty-home .submit,.nutty-home .cake-row{transition:none;transform:none!important}
+}
+</style>
 <style id="reservation-form-layout-20261021">
 /* 2026-10-21: keep native date/time controls inside the reservation form. */
 .nutty-home #reserve .reserve-grid > *{min-width:0}
@@ -64,7 +485,95 @@
   .nutty-home #form > .full{grid-column:1 / -1}
 }
 </style>
-<link rel="stylesheet" href="nutty-mobile.css?v=20261022-1">
+<style data-source="nutty-mobile.css">
+/* NUTTY PRESSO · 2026-10-22
+   Roomier mobile reading + user-supplied cake photos.
+   Homepage-only: booking fields and group-order remain intact. */
+.nutty-home .quick.group-quick a{padding:24px;min-width:0;gap:10px}
+.nutty-home .quick.group-quick a span{position:relative;display:block;padding-right:28px;line-height:1.65}
+.nutty-home .quick.group-quick a span b{position:absolute;right:0;top:0;font-weight:400}
+.nutty-home .quick.group-quick small{line-height:1.65;letter-spacing:.09em}
+.nutty-home .cake-selection{align-items:start;gap:32px;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.nutty-home .cake-feature{padding:18px;overflow:visible}
+.nutty-home .cake-image-stage{display:block;min-height:0;overflow:hidden;border-radius:14px;background:#fff}
+.nutty-home #cake-main-image{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1;object-fit:contain;padding:7%;border-radius:14px}
+.nutty-home .cake-feature .cake-photo-name{font-size:17px;line-height:1.65;color:var(--ink);font-weight:700;margin:18px 0 0;padding:0}
+.nutty-home .cake-feature .cake-ingredients{display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:5px;font-size:14px;line-height:1.8;font-weight:500;margin:10px 0 0;padding:0;color:var(--muted)}
+.nutty-home .cake-ingredients span{display:block}
+.nutty-home .slice-gallery{margin:22px 0 0;gap:10px}
+.nutty-home .slice-gallery .slice-choice{padding:10px 7px;min-height:106px;border:2px solid #e5d9c9}
+.nutty-home .slice-gallery .slice-choice.is-active{padding:10px 7px;border-color:var(--gold)}
+.nutty-home .slice-gallery .slice-choice span{margin-top:8px;font-size:13px;line-height:1.6}
+.nutty-home .cake-feature .preview-instruction{font-size:14px!important;font-weight:400;line-height:1.8;margin:20px 4px 2px;padding:0!important}
+.nutty-home #cakes>.fine{margin-top:24px;line-height:1.9}
+.nutty-home #cakes>.fine>span{display:block}
+.nutty-home .cake-row p{line-height:1.8}
+.nutty-home .cake-row .price{margin-top:18px;row-gap:5px}
+.nutty-home .cake-row .seasonal-tag{vertical-align:middle}
+@media(max-width:1050px) and (min-width:721px){
+ .nutty-home .quick.group-quick a{padding:21px 16px}
+ .nutty-home .quick.group-quick span{font-size:15px}
+ .nutty-home .quick.group-quick small{font-size:11px}
+}
+@media(max-width:960px){
+ .nutty-home .cake-selection{grid-template-columns:minmax(0,1fr);gap:26px}
+ .nutty-home .cake-feature{width:100%;max-width:620px;margin-inline:auto}
+}
+@media(max-width:720px){
+ .nutty-home{font-size:17px;line-height:1.8;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+ .nutty-home .wrap{width:calc(100% - 40px)}
+ .nutty-home .section{padding-block:58px}
+ .nutty-home .section-heading{margin-bottom:30px}
+ .nutty-home .section-heading h2{font-size:32px;line-height:1.35;letter-spacing:-.035em}
+ .nutty-home .section-heading>p{margin-top:18px;font-size:17px;line-height:1.9}
+ .nutty-home .quick.group-quick{border-radius:18px;margin-top:8px}
+ .nutty-home .quick.group-quick a{padding:24px 22px;gap:9px;min-height:104px}
+ .nutty-home .quick.group-quick a span{font-size:17px;line-height:1.7;padding-right:30px}
+ .nutty-home .quick.group-quick small{font-size:12px;line-height:1.7}
+ .nutty-home .cake-feature{padding:14px 14px 20px;border-radius:18px}
+ .nutty-home .cake-feature .cake-photo-name{margin-top:18px;font-size:17px}
+ .nutty-home .cake-feature .cake-ingredients{display:block;margin-top:10px;font-size:14px;line-height:1.85}
+ .nutty-home .slice-gallery{margin-top:22px;gap:8px}
+ .nutty-home .slice-gallery .slice-choice,.nutty-home .slice-gallery .slice-choice.is-active{min-height:102px;padding:9px 5px;border-radius:13px}
+ .nutty-home .slice-gallery .slice-choice img{height:56px;max-height:56px;object-fit:contain}
+ .nutty-home .slice-gallery .slice-choice span{font-size:12px;margin-top:9px;line-height:1.6}
+ .nutty-home .cake-feature .preview-instruction{margin:19px 2px 0;font-size:13px!important;line-height:1.85}
+ .nutty-home .cake-row,.nutty-home .cake-row:last-child{grid-template-columns:34px minmax(0,1fr);gap:14px 13px;padding:22px 18px;min-height:0;margin-bottom:14px;border-radius:18px}
+ .nutty-home .cake-row .flavor-number{grid-column:1;grid-row:1;align-self:start;margin-top:1px}
+ .nutty-home .cake-row>div:nth-child(2){grid-column:2;grid-row:1}
+ .nutty-home .cake-row .select-cake{grid-column:2;grid-row:2;justify-self:end;min-height:44px;padding:11px 20px;font-size:14px}
+ .nutty-home .cake-row .eyebrow{font-size:11px;line-height:1.7;letter-spacing:.09em}
+ .nutty-home .cake-row h3{font-size:25px;line-height:1.35;margin:8px 0 13px;letter-spacing:-.035em}
+ .nutty-home .cake-row p{font-size:16px;line-height:1.8}
+ .nutty-home .cake-row .price{margin-top:18px;column-gap:12px;row-gap:4px}
+ .nutty-home .cake-row .price del{font-size:14px}
+ .nutty-home .cake-row .price strong{font-size:24px}
+ .nutty-home .cake-row .seasonal-tag{margin-top:8px;font-size:11px;padding:6px 9px}
+ .nutty-home #cakes>.fine{font-size:14px;line-height:1.9;margin-top:23px;padding-inline:3px}
+ .nutty-home #cakes>.fine>span+span{margin-top:8px}
+ .nutty-home .trust-lead,.nutty-home .trust-points p{line-height:1.9}
+ .nutty-home .trust-points>div{padding-block:23px}
+ .nutty-home .gift-ticket{padding:25px 22px}
+ .nutty-home .gift-ticket p{line-height:1.85}
+ .nutty-home .gift-bottom{flex-wrap:wrap;row-gap:12px}
+ .nutty-home .group-home-copy>p,.nutty-home .brand-points p,.nutty-home .faq details>p{line-height:1.9}
+ .nutty-home .mobile-menu{padding:22px 24px;gap:17px}
+ .nutty-home .mobile-cta{padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));gap:20px}
+ .nutty-home .mobile-cta a{min-height:48px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+ .nutty-home .mobile-cta span{line-height:1.65}
+}
+@media(max-width:360px){
+ .nutty-home .wrap{width:calc(100% - 32px)}
+ .nutty-home .quick.group-quick a{padding:23px 20px}
+ .nutty-home .cake-row,.nutty-home .cake-row:last-child{grid-template-columns:30px minmax(0,1fr);column-gap:10px;padding:20px 15px}
+ .nutty-home .cake-row h3{font-size:23px}
+ .nutty-home .cake-row .price strong{font-size:22px}
+ .nutty-home .cake-row .price del{font-size:13px}
+ .nutty-home .mobile-cta{padding-inline:16px;gap:12px}
+ .nutty-home .mobile-cta a{padding-inline:18px}
+}
+
+</style>
 <style id="cake-reservation-guide-20261023">
 .nutty-home #form .cake-booking-guide{grid-column:1/-1;min-width:0;background:var(--paper);border:1px solid #e5d9c9;border-radius:16px;padding:24px;margin-top:2px}
 .nutty-home #form .cake-booking-guide h3{font-size:20px;line-height:1.5;letter-spacing:-.03em;margin:0 0 20px;color:var(--ink)}
@@ -176,6 +685,36 @@
 .nutty-home .nutty-booking-modal .booking-modal-icon{width:64px;height:64px;margin-bottom:16px}
 }
 </style>
+<script id="image-load-recovery">
+
+// Retry only failed same-origin images, without reloading the page or losing form input.
+(function () {
+ const attempts = new WeakMap();
+ function retry(image) {
+  if (!(image instanceof HTMLImageElement)) return;
+  const source = image.getAttribute('src');
+  if (!source) return;
+  const url = new URL(source, document.baseURI);
+  if (url.origin !== location.origin) return;
+  const key = url.pathname;
+  const previous = attempts.get(image);
+  const count = previous && previous.key === key ? previous.count : 0;
+  if (count >= 2) return;
+  attempts.set(image, {key, count: count + 1});
+  setTimeout(function () {
+   if (image.getAttribute('src') !== source || !image.isConnected) return;
+   url.searchParams.set('image_retry', String(count + 1));
+   image.src = url.href;
+  }, count === 0 ? 300 : 1200);
+ }
+ document.addEventListener('error', function (event) { retry(event.target); }, true);
+ document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('img[src]').forEach(function (image) {
+   if (image.complete && image.naturalWidth === 0) retry(image);
+  });
+ });
+})();
+</script>
 </head><body class="nutty-home"><a class="skip" href="#main">본문으로 이동</a><div class="notice">홀케이크 · 하루 전 예약 10% 할인</div><header class="header wrap"><a href="#main" aria-label="너티프레소 홈"><img class="wordmark" src="assets/nutty-wordmark.svg" alt="Nutty Presso" width="210" height="75"></a><nav aria-label="주 메뉴"><a href="#cakes">홀케이크</a><a href="#gifts">선물세트</a><a href="#brand">우리의 커피</a><a href="group-order/">그룹오더</a></nav><a href="#reserve" class="button small">케이크 예약 ↗</a><button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">☰</button></header><nav id="mobile-menu" class="mobile-menu" hidden aria-label="모바일 메뉴"><a href="#cakes">홀케이크</a><a href="#gifts">선물세트</a><a href="#brand">우리의 커피</a><a href="group-order/">그룹오더</a></nav><main id="main"><section class="hero wrap"><div class="hero-copy"><span class="eyebrow">NUTTY PRESSO · WHOLE CAKE RESERVATION</span><h1>너티프레소<br>홀케이크 예약</h1><p>바스크 치즈케이크 3종을<br>미리 예약하고 매장에서 픽업하세요.</p><p class="hero-benefits">전문 파티셰 직접 제조 · 하루 전 예약 10% 할인</p><div class="actions"><a class="button" href="#cakes">홀케이크 고르기 ↗</a><a class="text-link" href="#gifts">가볍게 선물하기 →</a></div></div><figure class="hero-photo"><span class="photo-heading">BASQUE CHEESECAKE · 3 FLAVORS</span><img class="hero-3flavors" src="assets/basque-three-slices.webp" alt="딥·말차·딸기 바스크 치즈케이크 3종의 단면을 보여주는 연출 이미지" width="1254" height="1254" fetchpriority="high"><figcaption><span>3가지 맛의 단면 연출 이미지</span><span>하루 전 예약 <b>−10%</b></span></figcaption></figure></section>
 <nav class="quick wrap group-quick" aria-label="원하는 메뉴 바로가기"><a href="#cakes"><small>01 / WHOLE CAKES</small><span>기념일을 준비해요 <b>↗</b></span></a><a href="#gifts"><small>02 / SMALL GIFTS</small><span>고마움을 전해요 <b>↗</b></span></a><a href="#brand"><small>03 / OUR COFFEE</small><span>커피가 궁금해요 <b>↗</b></span></a><a href="group-order/"><small>04 / GROUP ORDER</small><span>단체 커피를 준비해요 <b>↗</b></span></a></nav>
 <section class="cakes wrap section" id="cakes"><div class="section-heading"><div><span class="eyebrow">WHOLE CAKES</span><h2>바스크 홀케이크<br>3가지 맛</h2></div><p>바스크 홀케이크 3종.<br><strong>하루 전 예약하면 10% 할인.</strong></p></div><div class="cake-selection"><div class="cake-feature"><div class="cake-image-stage" aria-live="polite" aria-atomic="true"><img id="cake-main-image" src="assets/deep-basque-box-20261022.webp" alt="너티프레소 전용 박스 위에 놓인 딥 바스크 홀케이크" width="1080" height="1080" loading="lazy" decoding="async"><div class="cake-image-placeholder" id="cake-image-placeholder" hidden role="img" aria-label="딥 바스크 홀케이크 실사 사진 준비 중"><span class="cake-photo-label">NUTTY PRESSO · WHOLE CAKE</span><strong id="cake-placeholder-name">딥 바스크</strong><span class="cake-photo-status">홀케이크 실사 사진 준비 중</span></div></div><p class="cake-photo-name" id="cake-photo-name" aria-live="polite">딥 바스크 · 홀케이크</p><p class="cake-ingredients"><span>필라델피아 크림치즈 사용</span><span>밀가루 · 오일 무첨가 레시피</span></p>
@@ -239,4 +778,180 @@
     <button type="button" id="reservation-success-close" class="booking-modal-close">확인</button>
   </div>
 </dialog>
-<footer class="footer wrap"><img src="assets/nutty-wordmark.svg" alt="Nutty Presso" width="210" height="75" loading="lazy"><p>COFFEE & DESSERTS<br>© 2026 NUTTY PRESSO</p><a class="text-link" href="#reserve">케이크 예약 ↗</a></footer><aside class="mobile-cta" aria-label="케이크 예약 바로가기"><a href="#form" aria-label="케이크 예약 신청서로 바로 이동">케이크 예약</a></aside><script src="reservation.js?v=20261023-4" defer></script></body></html>
+<footer class="footer wrap"><img src="assets/nutty-wordmark.svg" alt="Nutty Presso" width="210" height="75" loading="lazy"><p>COFFEE & DESSERTS<br>© 2026 NUTTY PRESSO</p><a class="text-link" href="#reserve">케이크 예약 ↗</a></footer><aside class="mobile-cta" aria-label="케이크 예약 바로가기"><a href="#form" aria-label="케이크 예약 신청서로 바로 이동">케이크 예약</a></aside><script data-source="reservation.js">
+
+'use strict';
+const API='https://hpexprhlyikznqaptqww.supabase.co/rest/v1/cake_reservations';
+const KEY='sb_publishable_fJzGi38yo76T3kGgjBuvUg_BVb0RwGD';
+const PRODUCTS={deep_basque:{price:37800,name:'딥 바스크 치즈케이크'},matcha:{price:40500,name:'말차 바스크 치즈케이크'},strawberry:{price:45000,name:'딸기 바스크 치즈케이크'}};
+const form=document.getElementById('form'),product=document.getElementById('product'),qty=document.getElementById('qty'),total=document.getElementById('total'),date=document.getElementById('date'),time=document.getElementById('time'),phone=document.getElementById('phone'),statusBox=document.getElementById('status'),submit=document.getElementById('submit');
+const won=value=>value.toLocaleString('ko-KR')+'원';
+function tomorrowKST(){return new Date(Date.now()+9*3600000+86400000).toISOString().slice(0,10)}
+function isWeekdayISO(value){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+ const d=new Date(value+'T00:00:00Z');
+ if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==value)return false;
+ return d.getUTCDay()!==0&&d.getUTCDay()!==6;
+}
+function shiftToWeekday(value,direction=1){
+ const d=new Date(value+'T00:00:00Z');
+ while(d.getUTCDay()===0||d.getUTCDay()===6)d.setUTCDate(d.getUTCDate()+direction);
+ return d.toISOString().slice(0,10);
+}
+function isPickupTime(value){
+ if(!/^\d{2}:\d{2}$/.test(value))return false;
+ const [hour,minute]=value.split(':').map(Number);
+ if(hour>23||minute>59)return false;
+ const minutes=hour*60+minute;
+ return minutes>=8*60&&minutes<=16*60+30&&minutes%10===0;
+}
+function strawberrySeasonWindow(earliest){
+ const year=Number(earliest.slice(0,4));
+ const month=Number(earliest.slice(5,7));
+ let first=month===1||month>=11?earliest:year+'-11-01';
+ let last=month===1?year+'-01-31':(year+1)+'-01-31';
+ first=shiftToWeekday(first);
+ last=shiftToWeekday(last,-1);
+ if(first>last){
+  first=shiftToWeekday(year+'-11-01');
+  last=shiftToWeekday((year+1)+'-01-31',-1);
+ }
+ return{first,last};
+}
+function updateMinimum(){
+ const earliest=shiftToWeekday(tomorrowKST());
+ if(product.value==='strawberry'){
+  const season=strawberrySeasonWindow(earliest);
+  date.min=season.first;date.max=season.last;
+ }else{date.min=earliest;date.removeAttribute('max')}
+}
+function calc(){const n=Number(qty.value);total.textContent=Number.isInteger(n)&&n>=1&&n<=10?won(PRODUCTS[product.value].price*n):'수량을 확인해주세요'}
+function showStatus(message,error=false){statusBox.hidden=false;statusBox.classList.toggle('error',error);statusBox.textContent=message}
+function validatePickupDate(){
+ let message='';
+ if(date.value){
+  if(date.value<date.min||(date.max&&date.value>date.max))
+   message=product.value==='strawberry'?'딸기 바스크는 11월~1월의 평일에만 픽업할 수 있어요.':'한국 시간 기준 다음 픽업 가능일 이후를 선택해주세요.';
+  else if(!isWeekdayISO(date.value))
+   message='주말에는 픽업할 수 없어요. 월~금요일 날짜를 선택해주세요.';
+ }
+ date.setCustomValidity(message);
+ const help=document.getElementById('pickup-date-help');
+ if(help){help.textContent=message||'월~금요일만 픽업 가능 · 한국 시간 기준 다음 날부터 선택 · 딸기 바스크는 11월~1월 한정';help.classList.toggle('field-help-error',Boolean(message))}
+ return !message;
+}
+function validatePickupTime(){
+ const message=time.value&&!isPickupTime(time.value)?'픽업 시간은 평일 08:00~16:30 사이 10분 간격으로 선택해주세요.':'';
+ time.setCustomValidity(message);
+ const help=document.getElementById('pickup-time-help');
+ if(help){help.textContent=message||'월~금요일 08:00~16:30 · 10분 간격으로 선택할 수 있어요.';help.classList.toggle('field-help-error',Boolean(message))}
+ return !message;
+}
+updateMinimum();calc();
+product.addEventListener('change',()=>{
+ updateMinimum();
+ if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';
+ validatePickupDate();calc();previewCake(product.value,{syncForm:false});
+});
+qty.addEventListener('input',calc);
+date.addEventListener('focus',()=>{updateMinimum();validatePickupDate()});
+window.addEventListener('focus',()=>{updateMinimum();validatePickupDate()});
+date.addEventListener('input',validatePickupDate);
+date.addEventListener('change',validatePickupDate);
+time.addEventListener('input',validatePickupTime);
+time.addEventListener('change',validatePickupTime);
+phone.addEventListener('input',()=>phone.setCustomValidity(''));
+document.getElementById('name').addEventListener('input',e=>e.target.setCustomValidity(''));
+// The image, highlighted flavor and reservation selector always refer to the same cake.
+// User-supplied whole-cake-on-box photographs, matched to each flavor.
+const CAKE_PREVIEWS={
+ deep_basque:{name:'딥 바스크',src:'assets/deep-basque-box-20261022.webp'},
+ matcha:{name:'말차 바스크',src:'assets/matcha-basque-box-20261022.webp'},
+ strawberry:{name:'딸기 바스크',src:'assets/strawberry-basque-box-20261022.webp'}
+};
+const mainCakeImage=document.getElementById('cake-main-image');
+const cakePhotoPlaceholder=document.getElementById('cake-image-placeholder');
+const placeholderName=document.getElementById('cake-placeholder-name');
+function previewCake(flavor,{syncForm=true}={}){
+ const selected=CAKE_PREVIEWS[flavor];
+ if(!selected||!mainCakeImage)return;
+ if(syncForm&&product.value!==flavor){
+  product.value=flavor;updateMinimum();
+  if(date.value&&(date.value<date.min||(date.max&&date.value>date.max)))date.value='';
+  validatePickupDate();calc();
+ }
+ if(selected.src){
+  if(mainCakeImage.getAttribute('src')!==selected.src)mainCakeImage.src=selected.src;
+  mainCakeImage.alt='너티프레소 전용 박스 위에 놓인 '+selected.name+' 홀케이크';
+  mainCakeImage.hidden=false;
+  if(cakePhotoPlaceholder)cakePhotoPlaceholder.hidden=true;
+ }else{
+  mainCakeImage.hidden=true;
+  mainCakeImage.removeAttribute('src');
+  mainCakeImage.alt='';
+  if(cakePhotoPlaceholder){
+   cakePhotoPlaceholder.hidden=false;
+   cakePhotoPlaceholder.setAttribute('aria-label',selected.name+' 홀케이크 실사 사진 준비 중');
+  }
+  if(placeholderName)placeholderName.textContent=selected.name;
+ }
+ const photoName=document.getElementById('cake-photo-name');
+ if(photoName)photoName.textContent=selected.name+' · 홀케이크';
+ document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.classList.toggle('is-active',row.dataset.preview===flavor));
+ document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>{
+  const active=button.dataset.preview===flavor;
+  button.classList.toggle('is-active',active);
+  button.setAttribute('aria-pressed',String(active));
+ });
+}
+document.querySelectorAll('.slice-choice[data-preview]').forEach(button=>button.addEventListener('click',()=>previewCake(button.dataset.preview)));
+document.querySelectorAll('.cake-row[data-preview]').forEach(row=>row.addEventListener('click',event=>{
+ if(event.target.closest('a[data-cake]'))return;
+ previewCake(row.dataset.preview);
+}));
+document.querySelectorAll('[data-cake]').forEach(link=>link.addEventListener('click',()=>previewCake(link.dataset.cake)));
+previewCake(product.value,{syncForm:false});
+const successDialog=document.getElementById('reservation-success-modal');
+const successClose=document.getElementById('reservation-success-close');
+if(successDialog&&successClose){
+ successClose.addEventListener('click',()=>successDialog.close());
+ successDialog.addEventListener('click',event=>{if(event.target===successDialog)successDialog.close()});
+}
+function showReservationSuccess(summary){
+ const details=document.getElementById('reservation-success-summary');
+ if(details)details.textContent=summary;
+ if(successDialog&&typeof successDialog.showModal==='function'){
+  if(!successDialog.open)successDialog.showModal();
+ }else{
+  window.alert('예약 신청이 완료되었습니다.\n매장에서 연락이 갈 예정입니다!\n감사합니다.');
+ }
+}
+let sending=false;
+form.addEventListener('submit',async event=>{
+ event.preventDefault();if(sending)return;updateMinimum();
+ const name=document.getElementById('name'),digits=phone.value.replace(/\D/g,'');
+ name.setCustomValidity(name.value.trim()?'':'예약자 성함을 입력해주세요.');
+ phone.setCustomValidity(digits.length>=9&&digits.length<=15?'':'연락 가능한 전화번호를 확인해주세요.');
+ validatePickupDate();validatePickupTime();
+ if(!form.reportValidity())return;
+ const n=Number(qty.value),choice=PRODUCTS[product.value];
+ if(!choice||!Number.isInteger(n)||n<1||n>10){showStatus('케이크 종류와 수량을 확인해주세요.',true);return}
+ const data={customer_name:name.value.trim(),phone:phone.value.trim(),pickup_date:date.value,pickup_time:time.value,product:product.value,quantity:n,unit_price:choice.price,total_price:choice.price*n,memo:document.getElementById('memo').value.trim()||null};
+ const summary=choice.name+' '+n+'개 · '+data.pickup_date+' '+data.pickup_time+' 픽업 희망';
+ sending=true;submit.disabled=true;submit.textContent='예약 신청을 접수하고 있습니다…';showStatus('신청 중입니다. 페이지를 닫지 말아주세요.');
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
+ try{
+  const response=await fetch(API,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(data),signal:controller.signal});
+  if(!response.ok){showStatus('예약 신청을 접수하지 못했습니다. 입력 정보를 확인하거나 매장에 문의해주세요.',true);return}
+  form.reset();qty.value=1;calc();updateMinimum();previewCake(product.value,{syncForm:false});
+  showStatus('예약 신청이 완료되었습니다.\n매장에서 연락이 갈 예정입니다!\n감사합니다.');
+  showReservationSuccess(summary+' · '+won(data.total_price));
+ }catch(error){showStatus('접수 여부를 확인하지 못했습니다. 중복 예약을 방지하기 위해, 다시 신청하기 전 매장에 접수 여부를 확인해주세요.',true)}
+ finally{clearTimeout(timer);sending=false;submit.disabled=false;submit.textContent='10% 혜택으로 예약 신청하기 ↗'}
+});
+
+const menuButton=document.querySelector('.nav-toggle'); const menu=document.querySelector('#mobile-menu'); menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menu.hidden=!open;}); menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.hidden=true;menuButton.setAttribute('aria-expanded','false')})); document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.hidden=true;menuButton.setAttribute('aria-expanded','false')}});
+document.querySelectorAll('a[href="#gift-guide"]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('gift-guide').open=true}));
+// The floating cake reservation link stays available even while viewing the booking form.
+
+</script></body></html>
