@@ -16,7 +16,7 @@
   } else {
     document.querySelector('[data-stamp-state]').textContent=today>='2026-11-01'?'11월 스탬프 이벤트':'11월 1일 시작';
     document.querySelector('[data-popup-state]').textContent=today>'2026-11-26'?'팝업 종료':today>='2026-11-06'?'판교 팝업 진행 중':'COMING SOON';
-    if(today>'2026-11-26') document.querySelector('.mochi-note').hidden=true;
+
   }
   const popupRibbon=document.querySelector('[data-popup-banner]');
   if(popupRibbon && today>'2026-11-26') popupRibbon.hidden=true;

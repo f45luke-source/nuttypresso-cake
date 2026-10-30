@@ -13,7 +13,7 @@
   const main = document.getElementById('hero-main-img');
   const pause = document.getElementById('hero-pause');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let index = 0, playing = !reduced.matches, timer, visible = true, hovering = false, request = 0;
+  let index = 0, playing = false, timer, visible = true, hovering = false, request = 0;
   const tabs = [...tour.querySelectorAll('[data-hero-index]')];
   const previews = [...tour.querySelectorAll('[data-hero-preview]')];
   function syncTimer(){

@@ -59,3 +59,14 @@ Release validation covers responsive widths, local image integrity, menu and gal
 - Owner-requested expansion of hero and space photographs only. Six-view hero opens with second-floor wide view (samul-17), seating (16), and view down to first-floor coffee bar (22).
 - Added six zoomable space images: window seats (19), lounge (20), downstairs view (22), first-floor bakery (26), outdoor tables (33), entrance (31). All come from owner-provided HALF HOUSE Drive > 매장 내외부 사진 > 고화질, folder 1JPbNwZNWfAjqr2n8ZGoWqsC2-NFYUKS_.
 - Original filename pattern: halfhouse_samul-N.jpg; published assets: hero-N.webp with 640px variants. No third-party review photos downloaded or republished. No claim that seats are reservable; capacity remains unverified and unpublished.
+
+
+## Release — 2026-10-30 (November news and floor galleries)
+
+- Homepage news now follows the hero: the supplied November stamp poster and a concise Pangyo teaser. Stamp details follow the supplied poster (10,000 KRW per stamp; 10 baguette choice, 20 signature bag, 30 Basque whole cake choice).
+- Pangyo has a separate `pangyo.html` page with three manually controlled menu sheets, hours, B1 glass-wall popup location opposite Paris Croissant, and Nov 16 closure.
+- Current menu posters supersede the earlier popup price table. Selected panini and soup sheets consistently state 3,000 KRW soup bundle discount; the alternative supplied soup sheet states 1,000 KRW and is not published. No additional discount promise is added to page copy.
+- Removed old unconfirmed chocolate-mochi giveaway and old popup price tables from the homepage.
+- Space sections: 1F three photos, 2F six distinct photos, outdoor/entrance two photos. New Drive originals samul-12, -13 and -21 come from the same verified original photo folder documented above. Each has a 640px thumbnail and 1600px WebP.
+- Existing hero tour starts paused. Existing main menu, reservation/inquiry pages, API/data and unrelated root NUTTY PRESSO files remain unchanged.
+- Checked local asset/anchor integrity, JavaScript syntax, desktop news layout, mobile-width overflow, stamp and new-space image dialogs, and all three popup menu tabs.
