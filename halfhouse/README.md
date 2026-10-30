@@ -31,13 +31,13 @@ Local dataLayer events provide an integration point, **not an installed analytic
 
 Real space, bakery and event photographs are supplied by HALF HOUSE in its Drive archive. New WebP assets have 640px and up-to-1600px variants, with metadata removed. Event labels are based on the actual corresponding source folders and images. Do not substitute an unrelated event picture or a generated product image.
 
-Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Review links go to Naver/Google Maps to find the business's reviews; **no review text, stars or count was verifiable for republishing**, and none is invented.
+Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Ten visitor reviews were verified in Naver’s recommended order on 2026-10-30. Short paraphrases are explicitly labelled as summaries, with author/date and a direct Naver visitor-review link. Recommendation order can change; stars and aggregate ratings are not republished.
 
 Brand artwork and the existing Josefin font remain in place; the Korean Happiness webfont is loaded from the existing public CDN with system fallbacks. The bakery character is an illustration, not a cake photo.
 
 November campaign values follow the owner's latest instructions: Nov 1–30 store stamp event; 10,000 KRW per stamp; rewards at 10/20/30 are a choice of three baguettes / HALF HOUSE BAG / whole Basque cake. Do not imply combined or popup stamp redemption conditions that were not confirmed.
-Pangyo popup: Nov 6–26; daily 11:00 first 100 purchasing customers receive one chocolate mochi, while supply lasts. Prices in its accordion are **Pangyo popup prices only**, not main-store prices. Precise popup counter location is not claimed. The homepage hides expired November promotion links after Nov 30 KST.
-Cake 10% prebooking discount is still described as planned, not currently guaranteed.
+Pangyo popup: Nov 6–26, Hyundai Pangyo B1 glass-wall popup zone opposite Paris Croissant, closed Nov 16. The separate popup page uses the owner’s three menu sheets. Popup prices are not main-store prices. The homepage hides expired November promotion links after Nov 30 KST.
+Owner-confirmed whole cakes receive 10% off when reserved by the day before pickup. Deep Basque 42,000 → 37,800 KRW; matcha 45,000 → 40,500; strawberry 50,000 → 45,000 (November–February only); blueberry scone 60,000 → 54,000. Basque flour/oil/gluten statements are owner supplied. Clear box, BI ribbon, knife and one candle are included.
 
 ## Validation
 
@@ -70,3 +70,13 @@ Release validation covers responsive widths, local image integrity, menu and gal
 - Space sections: 1F three photos, 2F six distinct photos, outdoor/entrance two photos. New Drive originals samul-12, -13 and -21 come from the same verified original photo folder documented above. Each has a 640px thumbnail and 1600px WebP.
 - Existing hero tour starts paused. Existing main menu, reservation/inquiry pages, API/data and unrelated root NUTTY PRESSO files remain unchanged.
 - Checked local asset/anchor integrity, JavaScript syntax, desktop news layout, mobile-width overflow, stamp and new-space image dialogs, and all three popup menu tabs.
+
+
+## Release — 2026-10-30 (sections 3–9)
+
+- Four owner-supplied panini cutaways; the supplied checkerboard is baked into the originals and retained. Salt breads, egg tart, three baguettes, B2 lab, whole cakes and pound cake have deliberately empty photo areas pending approved photographs.
+- Dedicated B2 production story, ten verified Naver review summaries, four cake cards with current prebooking prices, financier six-pack at 22,800 KRW and pound cake at 36,000 KRW. Pound cake lists only the four supplied flavors; the earlier “five” description remains unresolved.
+- Separate manual photo rails: ten distinct Toss event photos and five F45 Gangnam photos. The Toss article links to the verified report at cstimes.com, idxno 717573. Asset and review provenance is in collection-sources.json.
+- Directions include the verified Gangnam Station exit 3 distance (142 m), address, phone and map links.
+- Inquiry frontend and existing Edge function support all four cakes, next-day pickup minimum and strawberry season validation. Existing consent, idempotency, receipt-only success and rate limits remain. Exact existing custom-domain origins were added to CORS. No payment or staff notification service was added.
+- Validation: JavaScript syntax and local references; desktop/mobile layout; galleries and manual rails; cake preselection; 12 meaningful mocked server cases; live endpoint GET 200 and CORS OPTIONS 204. No real customer inquiry was submitted during this update.

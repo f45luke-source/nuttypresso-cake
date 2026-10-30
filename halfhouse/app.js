@@ -9,7 +9,7 @@
     gifts: '누구에게 전하는 선물인가요? 제품 구성과 포장 방향을 함께 상담합니다.',
     popup: '브랜드와 프로젝트의 방향을 알려주세요. 공간 또는 제품 협업을 제안할 수 있어요.',
     group: '매장 내 단체 이용 문의입니다. 공간을 전용으로 사용하려면 대관을 선택해주세요.',
-    cake: '홀케이크 종류·수량·픽업 희망일을 남겨주세요. 10% 할인은 진행 예정이며, 적용 여부와 최종 가격은 상담 시 안내합니다.'
+    cake: '픽업 전날까지 예약하면 홀케이크 10% 할인. 종류·수량·픽업 희망일을 남겨주세요. 딸기 바스크는 11~2월에만 준비합니다.'
   };
   const form = document.querySelector('#inquiry-form');
   const fields = document.querySelector('#form-fields');
@@ -27,8 +27,9 @@
   window.dataLayer = window.dataLayer || [];
   function event(name, service) { window.dataLayer.push({ event: name, inquiry_type: service }); }
   const kstToday = () => new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
-  dateInput.min = kstToday();
-  dateInput.addEventListener('focus', () => { dateInput.min = kstToday(); });
+  const minimumDate = () => new Date(Date.now() + 9*3600000 + (form.querySelector('input[name=service]:checked')?.value==='cake'?86400000:0)).toISOString().slice(0,10);
+  dateInput.min = minimumDate();
+  dateInput.addEventListener('focus', () => { dateInput.min = minimumDate(); });
   document.querySelector('#year').textContent = String(new Date().getFullYear());
   const upcoming=document.querySelector('#upcoming'); if (upcoming && kstToday() >= '2026-12-01') upcoming.hidden = true;
   function selectType(type, scroll = false) {
@@ -48,9 +49,10 @@
         input.required = active && input.hasAttribute('data-cake-required');
       });
     });
+    dateInput.min = minimumDate();
     dateInput.required = type === 'cake'; quantityInput.required = type === 'cake';
     document.querySelector('#date-label').textContent = type === 'cake' ? '픽업 희망 날짜 *' : '희망 날짜';
-    document.querySelector('#date-help').textContent = type === 'cake' ? '준비 가능 여부는 상담 후 확정됩니다.' : '미정이면 비워두셔도 됩니다.';
+    document.querySelector('#date-help').textContent = type === 'cake' ? '픽업 하루 전날까지 예약 가능 · 딸기 바스크는 11~2월 픽업만 가능합니다.' : '미정이면 비워두셔도 됩니다.';
     document.querySelector('#quantity-label').textContent = ['venue', 'group', 'popup'].includes(type) ? '예상 인원' : type === 'cake' ? '케이크 수량 *' : '예상 수량';
     if (type === 'cake' && !quantityInput.value) quantityInput.value = '1';
     if (scroll) event('inquiry_cta_click', type);
@@ -60,10 +62,10 @@
   // Only known menu and occasion keys may prefill the form; never inject URL text as HTML.
   const seed = params.get('product');
   const selected = form.querySelector('input[name="service"]:checked').value;
-  const products = {panini:'수제 사워도우 파니니 · 구성 상담',bakery:'베이커리 단체주문 · 구성 상담',giftbox:'베이커리 선물세트 · 구성 및 포장 상담'};
+  const products = {panini:'수제 사워도우 파니니 · 구성 상담',bakery:'베이커리 단체주문 · 구성 상담',giftbox:'베이커리 선물세트 · 구성 및 포장 상담',financier:'피낭시에 6구 세트 · 22,800원',pound:'파운드 케이크 · 36,000원 · 레몬/초콜릿/바닐라/시나몬 상담'};
   const activeProduct = form.querySelector('[name="product"]:not(:disabled)');
   if(activeProduct && ['bulk','gifts'].includes(selected) && products[seed]) activeProduct.value=products[seed];
-  if(activeProduct && selected==='cake' && ['basque','matcha','consult'].includes(seed)) activeProduct.value=seed;
+  if(activeProduct && selected==='cake' && ['basque','matcha','strawberry','blueberry','consult'].includes(seed)) activeProduct.value=seed;
   const occasions = {networking:'기업 간담회·네트워킹',community:'커뮤니티·단체모임','brand-pop-up':'브랜드 팝업·제품 협업','outdoor-event':'외부 행사·F&B 운영'};
   const occasion = form.querySelector('[name="occasion"]:not(:disabled)');
   if(occasion && occasions[params.get('occasion')]) occasion.value=occasions[params.get('occasion')];
@@ -87,12 +89,13 @@
     if (get('contact_name').length < 2) throw new Error('성함을 두 글자 이상 입력해주세요.');
     const details = {};
     ['occasion', 'time', 'fulfilment', 'product', 'packaging', 'space', 'need_food'].forEach(key => { if (fd.has(key)) details[key] = get(key); });
+    if (service==='cake' && details.product==='strawberry' && ![1,2,11,12].includes(Number(get('requested_date').slice(5,7)))) throw new Error('딸기 바스크 치즈케이크는 11월부터 2월까지 픽업할 수 있어요.');
     return { service, contact_name: get('contact_name'), phone, email: get('email'), company: get('company'), requested_date: get('requested_date'), quantity: get('quantity') ? Number(get('quantity')) : null, budget: get('budget'), message: get('message'), details, attribution, consent: fd.get('consent') === 'on', website: get('website') };
   }
   function showError(message) { errorBox.textContent = message; errorBox.hidden = false; errorBox.scrollIntoView({ block: 'nearest' }); }
   form.addEventListener('submit', async e => {
     e.preventDefault(); if (sending) return;
-    errorBox.hidden = true; dateInput.min = kstToday(); if (!form.reportValidity()) return;
+    errorBox.hidden = true; dateInput.min = minimumDate(); if (!form.reportValidity()) return;
     let payload;
     try { payload = getPayload(); const fingerprint = JSON.stringify(payload); if (!pending || pending.fingerprint !== fingerprint) pending = { fingerprint, token: crypto.randomUUID() }; payload.request_token = pending.token; }
     catch (error) { showError(error.message || '입력 내용을 확인해주세요.'); return; }
