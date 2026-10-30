@@ -29,6 +29,22 @@
     prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
     rail.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();
   });
+  // Explicitly controlled single-photo panini carousel; never auto-advances.
+  const paniniSlides=[...document.querySelectorAll('[data-panini-group]')];
+  if(paniniSlides.length){
+    let activePanini=0;
+    const choices=[...document.querySelectorAll('[data-panini-select]')];
+    const setPanini=n=>{
+      activePanini=(n+paniniSlides.length)%paniniSlides.length;
+      paniniSlides.forEach((slide,i)=>{slide.hidden=i!==activePanini;});
+      choices.forEach(button=>button.setAttribute('aria-pressed',String(paniniSlides[Number(button.dataset.paniniSelect)].dataset.paniniGroup===paniniSlides[activePanini].dataset.paniniGroup)));
+      const status=document.querySelector('#panini-status');status.innerHTML='<span>'+String(activePanini+1).padStart(2,'0')+'</span> / '+paniniSlides.length;
+    };
+    document.querySelector('#panini-prev').addEventListener('click',()=>setPanini(activePanini-1));
+    document.querySelector('#panini-next').addEventListener('click',()=>setPanini(activePanini+1));
+    choices.forEach(button=>button.addEventListener('click',()=>setPanini(Number(button.dataset.paniniSelect))));
+    document.querySelector('.panini-carousel').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();setPanini(activePanini+(e.key==='ArrowRight'?1:-1));}});
+  }
   const dialog=document.querySelector('#photo-viewer'),image=document.querySelector('#viewer-image'),caption=document.querySelector('#viewer-caption'),count=document.querySelector('#viewer-count');
   const allTiles=[...document.querySelectorAll('[data-photo]')];
   let tiles=allTiles;

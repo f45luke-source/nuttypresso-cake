@@ -1,0 +1,77 @@
+/* Owner-provided HALF HOUSE fonts. Regular headings let the photography breathe. */
+@font-face{font-family:HouseHappiness;src:url('assets/fonts/happiness-regular.woff2') format('woff2');font-style:normal;font-weight:400 500;font-display:swap}
+@font-face{font-family:HouseHappiness;src:url('assets/fonts/happiness-bold.woff2') format('woff2');font-style:normal;font-weight:600 900;font-display:swap}
+@font-face{font-family:Josefin;src:url('assets/JosefinSans.ttf') format('truetype');font-weight:100 700;font-display:swap}
+:root{--eng:Josefin,'Josefin Sans',sans-serif;--house-font:HouseHappiness,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+body,button,input,textarea,select{font-family:var(--house-font)}
+body{font-weight:400;line-height:1.85}
+h1,h2,h3{font-family:var(--house-font);font-weight:400;letter-spacing:-.025em;line-height:1.4}
+.hero-home h1{font-size:clamp(40px,4vw,58px);font-weight:400;line-height:1.35;letter-spacing:-.035em}
+.section-heading h2,.visit-copy h2,.bakery-words h2{font-size:clamp(29px,3vw,40px);font-weight:400;line-height:1.45}
+#space .section-heading h2{font-size:32px;line-height:1.45}
+.floor-heading h3{font-size:23px;line-height:1.5;font-weight:400}
+.news-copy h3{font-size:24px;font-weight:400}
+.product-copy h3,.cake-copy h3,.gift-card h3{font-size:24px;font-weight:400}
+.cake-package h3,.gift-business h3,.venue-cta h3,.outside-cases h3{font-size:22px;font-weight:400}
+.event-heading h3{font-size:27px;font-weight:400}
+.hero-capacity strong,.topbar a{font-family:var(--house-font)}
+.hero-capacity strong{font-weight:400;letter-spacing:-.025em}
+.eyebrow{font-weight:500;letter-spacing:.09em}
+.text-link,.button,.header-cta,.nav-toggle{font-weight:400}
+.hero-home .hero-description{font-size:15px;line-height:1.9}
+.section-heading>p{font-size:15px;line-height:1.9}
+.space-gallery-tile strong{font-weight:400}
+.inquiry-page .contact-copy h1,.inquiry-page .contact-copy h2{font-size:36px;font-weight:400}
+.popup-intro h1{font-size:clamp(40px,5vw,66px);font-weight:400;line-height:1.4}
+.panini-carousel{max-width:1040px;margin:0 auto}
+.panini-choices{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.panini-choices button{padding:9px 17px;min-height:44px;border:1px solid #ceccc4;border-radius:25px;background:transparent;color:var(--muted);font-size:14px;line-height:1.5}
+.panini-choices button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:white}
+.panini-carousel .panini-grid{display:block}
+.panini-carousel .panini-card{display:grid;grid-template-columns:1.45fr 1fr;gap:36px;align-items:center}
+.panini-carousel .product-photo{border-radius:5px}
+.panini-carousel .product-copy{padding:20px 0}
+.panini-carousel .product-copy .eyebrow{font:500 12px/1.5 var(--eng);margin-bottom:15px}
+.panini-carousel .product-copy p:not(.eyebrow){font-size:15px;line-height:1.9;margin-top:15px}
+.panini-carousel .product-copy small{display:block;color:var(--muted);font-size:12px;margin-top:24px}
+.panini-controls{display:flex;align-items:center;justify-content:flex-end;gap:15px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.panini-controls>span{font-size:13px;color:var(--muted);margin-right:auto}
+.panini-controls button{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:22px}
+.panini-controls button:hover{color:white;background:var(--blue)}
+#panini-status{font:400 14px/1.5 var(--eng);white-space:nowrap;color:var(--muted);min-width:48px;text-align:center}
+#panini-status span{color:var(--blue)}
+.real-reviews{background:#f3f3ed}
+.naver-review-list{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;border-top:1px solid #d8dbd3}
+.naver-review{display:flex;flex-direction:column;padding:26px 0 24px;border-bottom:1px solid #d8dbd3;min-width:0}
+.naver-review:hover blockquote{color:var(--blue)}
+.naver-review-top,.naver-review-person{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.naver-source{font-size:12px;color:#267746}
+.naver-review-index{font:400 13px var(--eng);color:#777}
+.naver-review blockquote{font-size:17px;line-height:1.95;font-weight:400;margin:18px 0 24px;color:var(--ink);flex:1}
+.naver-review-person{font-size:13px;color:var(--muted)}
+.naver-review-person strong{font-weight:400;color:var(--ink)}
+.naver-review-open{font-size:12px;color:#267746;display:block;margin-top:10px}
+.real-reviews .source-note{margin-top:24px;font-size:11px!important}
+@media(max-width:720px){
+.hero-home h1{font-size:38px;line-height:1.4;letter-spacing:-.025em}
+.section-heading h2,.visit-copy h2,.bakery-words h2{font-size:28px;line-height:1.5}
+#space .section-heading h2{font-size:26px}
+.floor-heading h3{font-size:20px;line-height:1.6;margin-bottom:10px}
+.news-copy h3{font-size:21px}
+.product-copy h3,.cake-copy h3,.gift-card h3{font-size:22px}
+.event-heading h3{font-size:23px}
+.hero-home .hero-description,.section-heading>p{font-size:14px}
+.panini-choices{gap:8px;margin-bottom:20px}
+.panini-choices button{padding:8px 12px;font-size:12px;flex:1 0 calc(50% - 8px)}
+.panini-carousel .panini-card{grid-template-columns:1fr;gap:0}
+.panini-carousel .product-copy{padding-top:22px;padding-bottom:0}
+.panini-carousel .product-copy .eyebrow{margin-bottom:10px;font-size:11px}
+.panini-carousel .product-copy p:not(.eyebrow){margin-top:9px;font-size:14px}
+.panini-carousel .product-copy small{margin-top:14px}
+.panini-controls{gap:10px;margin-top:20px}
+.panini-controls>span{font-size:11px;max-width:135px}
+.naver-review-list{grid-template-columns:1fr;gap:0}
+.naver-review{padding:23px 0}
+.naver-review blockquote{font-size:16px;line-height:1.95}
+.inquiry-page .contact-copy h1,.inquiry-page .contact-copy h2{font-size:29px}
+}
