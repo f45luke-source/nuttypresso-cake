@@ -31,7 +31,7 @@ Local dataLayer events provide an integration point, **not an installed analytic
 
 Real space, bakery and event photographs are supplied by HALF HOUSE in its Drive archive. New WebP assets have 640px and up-to-1600px variants, with metadata removed. Event labels are based on the actual corresponding source folders and images. Do not substitute an unrelated event picture or a generated product image.
 
-Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Ten visitor reviews were verified in Naver’s recommended order on 2026-10-30. Short verbatim excerpts are explicitly labelled as excerpts, with author/date and individually verified selectedReview links to each original Naver review. Recommendation order can change; stars and aggregate ratings are not republished.
+Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Ten visitor reviews were verified in Naver’s recommended order on 2026-10-30. Short verbatim excerpts are explicitly labelled as excerpts, with author/date and individually verified selectedReview links to each original Naver review. Recommendation order can change; stars and aggregate ratings are not republished. At the owner’s request, two actual photographs per review (20 total) were verified from the corresponding public Naver review on 2026-11-02 KST and optimized as local WebP files. Each photo-to-review source mapping is recorded in collection-sources.json. The selected example by 빛나는밤97 opens first; the remaining reviews retain their prior relative order. This is a curated static collection, not a live Naver embed.
 
 Brand artwork and the existing Josefin font remain in place. Owner-provided Happiness Sans Print Regular/Bold from Drive B.I/Fonts are self-hosted as WOFF2; headings use Regular with reduced sizes. The bakery character is an illustration, not a cake photo.
 
@@ -88,3 +88,11 @@ Release validation covers responsive widths, local image integrity, menu and gal
 - Twelve owner-supplied panini photos now appear one at a time, with four product selectors, previous/next buttons, keyboard arrows and an enlarged 12-photo viewer. There is no automatic rotation.
 - Replaced paraphrased review cards with ten short verbatim excerpts and author/date. Each whole card opens its own verified original Naver review, where the complete text and photos can be viewed. No third-party review photos are republished.
 - Verified desktop/mobile layouts, font loading, one-visible-slide behavior, next/category controls, enlarged gallery, ten unique review URLs, local asset references and JavaScript syntax. Inquiry behavior and root NUTTY PRESSO site are unchanged.
+
+
+## Release — 2026-11-02 (rounded surfaces, photo reviews and booking dock)
+
+- Rounded primary buttons, photo edges, news/gift panels and form controls while preserving the original blue identity and supplied B.I typography.
+- Replaced the long text-only review list with one compact, manually controlled review area: ten real Naver reviews, two matching photos each, attributed short excerpts and direct original links. Photos enlarge within the page. No autoplay. This supersedes the earlier text-only review publication approach.
+- Added a persistent six-service booking dock on the homepage and Pangyo page: cake, venue, bulk orders, gifts, popup/collaboration and group visits. Mobile shows all six in two rows. Each opens the existing form with its service preselected.
+- Verified desktop and 390px mobile layouts, no horizontal overflow, all ten review slides, enlarged review photos, and cake inquiry preselection. Existing form backend and unrelated root site are unchanged.

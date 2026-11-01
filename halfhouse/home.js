@@ -45,6 +45,21 @@
     choices.forEach(button=>button.addEventListener('click',()=>setPanini(Number(button.dataset.paniniSelect))));
     document.querySelector('.panini-carousel').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();setPanini(activePanini+(e.key==='ArrowRight'?1:-1));}});
   }
+  // Keep all ten photo reviews within one compact, manually controlled area.
+  const reviewSlides=[...document.querySelectorAll('[data-review-slide]')];
+  if(reviewSlides.length){
+    let reviewIndex=0;
+    const showReview=n=>{
+      reviewIndex=(n+reviewSlides.length)%reviewSlides.length;
+      reviewSlides.forEach((slide,i)=>{slide.hidden=i!==reviewIndex;});
+      document.querySelector('#review-count').textContent=String(reviewIndex+1).padStart(2,'0')+' / '+reviewSlides.length;
+    };
+    document.querySelector('#review-prev').addEventListener('click',()=>showReview(reviewIndex-1));
+    document.querySelector('#review-next').addEventListener('click',()=>showReview(reviewIndex+1));
+    document.querySelector('.guest-book').addEventListener('keydown',e=>{
+      if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();showReview(reviewIndex+(e.key==='ArrowRight'?1:-1));}
+    });
+  }
   const dialog=document.querySelector('#photo-viewer'),image=document.querySelector('#viewer-image'),caption=document.querySelector('#viewer-caption'),count=document.querySelector('#viewer-count');
   const allTiles=[...document.querySelectorAll('[data-photo]')];
   let tiles=allTiles;
