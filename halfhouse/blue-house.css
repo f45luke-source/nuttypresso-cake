@@ -1,0 +1,113 @@
+/* HALF HOUSE B.I: source web blue RGB 51/45/229; original supplied display faces. */
+@font-face{font-family:HouseTitle;src:url('assets/fonts/happiness-title.woff2') format('woff2');font-display:swap;font-weight:400 900}
+@font-face{font-family:HouseCalder;src:url('assets/fonts/calder-lc.woff2') format('woff2');font-display:swap;font-weight:400 900}
+:root{--blue:#332de5;--cream:#fffaf0;--eng:HouseCalder,Josefin,sans-serif}
+h1,h2,h3,.hero-home h1,.section-heading h2,#space .section-heading h2,.floor-heading h3,.news-copy h3,.product-copy h3,.cake-copy h3,.gift-card h3,.review-heading h2,.event-heading h3,.visit-copy h2,.inquiry-page .contact-copy h1,.popup-intro h1{font-family:HouseTitle,var(--house-font);font-weight:400;letter-spacing:-.035em}
+.button,.header-cta,.panini-choices button,.floor-links a,.house-booking-dock a,.service-picker span{font-family:HouseTitle,var(--house-font);font-weight:400}
+.eyebrow{font-family:HouseCalder,Josefin,sans-serif;font-size:13px;letter-spacing:.045em}
+body.brand-renewal{background:var(--blue)}
+.brand-renewal .topbar{background:var(--cream);color:var(--blue)}
+.brand-renewal .site-header{background:var(--blue);color:var(--cream);border-color:#ffffff30}
+.brand-renewal .site-logo,.brand-renewal .nav-toggle,.brand-renewal .desktop-nav a{color:var(--cream)}
+.brand-renewal .header-cta{background:var(--cream);color:var(--blue);border-color:var(--cream)}
+.brand-renewal .site-header a:hover{color:var(--cyan)}
+.brand-renewal .site-header .header-cta:hover{color:var(--blue);background:#e6fffb}
+.brand-renewal #mobile-nav{background:var(--cream);color:var(--blue)}
+.blue-surface{--ink:var(--cream);--muted:#e2dfff;--line:#ffffff40;color:var(--cream)}
+.blue-surface>.section-heading .eyebrow,.blue-surface>.section-heading h2,.blue-surface>.wrap>.section-heading .eyebrow,.blue-surface>.wrap>.section-heading h2,.blue-surface .floor-heading .eyebrow,.blue-surface .review-heading .eyebrow,.blue-surface .visit-copy>.eyebrow{color:var(--cream)}
+.blue-surface>.section-heading>p,.blue-surface>.wrap>.section-heading>p{color:#e2dfff}
+.blue-surface .text-link,.blue-surface .space-inquiry a{color:var(--cream)}
+.paper-panel{--ink:#26253d;--muted:#64616f;--line:#d9d5ce;color:var(--ink);background:var(--cream)}
+.blue-surface .paper-panel .text-link{color:var(--blue)}
+.brand-renewal .hero-home{display:grid;grid-template-columns:1fr 1.1fr;gap:65px;max-width:1440px;min-height:0;margin:0 auto;padding:65px 55px 85px;background:var(--blue);border:0;align-items:center}
+.welcome-copy{position:relative;min-width:0;padding-bottom:15px}
+.welcome-tag{display:inline-block;font:400 16px HouseCalder,sans-serif;letter-spacing:.035em;color:var(--cream);border:1px solid #fff9;border-radius:999px;padding:10px 17px;transform:rotate(-3deg);margin-bottom:27px}
+.brand-renewal .hero-home h1{font-size:clamp(34px,3.75vw,54px);line-height:1.47;letter-spacing:-.055em;color:var(--cream);margin-bottom:25px}
+.brand-renewal .hero-home h1>span{color:var(--cream);font-size:.69em}
+.brand-renewal .hero-home h1 em{font-style:normal;color:var(--cream);text-decoration:underline;text-decoration-color:var(--cyan);text-decoration-thickness:5px;text-underline-offset:9px}
+.welcome-description{color:var(--cream);font-size:16px;line-height:1.9}
+.welcome-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:23px;color:#e2dfff;font-size:12px}
+.welcome-meta span+span:before{content:'·';margin-right:14px}
+.welcome-space{display:inline-flex;align-items:center;gap:24px;margin-top:32px;font-size:14px;border-bottom:1px solid #fff8;padding-bottom:6px;color:var(--cream)}
+.welcome-space:hover{color:var(--cyan)}
+.welcome-stamp{position:absolute;right:0;bottom:12px;width:95px;height:95px;display:grid;place-content:center;text-align:center;border:2px dashed #fff9;border-radius:50%;transform:rotate(12deg);font:400 13px/1.25 HouseCalder,sans-serif;color:var(--cream)}
+.welcome-services{min-width:0}
+.services-note{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;color:var(--cream)}
+.services-note>span{font:400 14px HouseCalder,sans-serif;letter-spacing:.03em}
+.services-note p{font-size:12px;color:#e2dfff}
+.service-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.welcome-service{display:block;padding:22px 23px 21px;background:var(--cream);color:var(--blue);border:1px solid var(--cream);border-radius:26px;box-shadow:0 5px 0 #211bbf;transition:transform .18s,background .18s;min-width:0}
+.welcome-service:nth-child(3n+2){background:#dedaff;border-color:#dedaff}
+.welcome-service:nth-child(6){background:#d3fff3;border-color:#d3fff3}
+.welcome-service:hover{transform:translateY(-4px) rotate(-1deg);background:#fff;color:var(--blue)}
+.service-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:21px;font:400 12px HouseCalder,sans-serif;letter-spacing:.035em}
+.service-card-top b{font-family:var(--house-font);font-size:24px;line-height:1;font-weight:400}
+.welcome-service h2{font-size:25px;line-height:1.4;color:var(--blue);margin-bottom:5px;letter-spacing:-.04em}
+.welcome-service p{font-size:12px;color:#524d83;line-height:1.6}
+.services-footnote{font-size:11px;text-align:center;color:#e2dfff;margin-top:20px}
+.brand-renewal .house-news{background:var(--cream);border:0;border-radius:42px 42px 0 0}
+.brand-renewal .news-pair{gap:28px}
+.brand-renewal .news-item,.brand-renewal .news-item+.news-item{padding:22px;border:1px solid #dcd7f3;border-radius:28px;background:#f1efff;gap:22px;grid-template-columns:minmax(130px,.85fr) minmax(0,1.15fr)}
+.brand-renewal .news-poster{overflow:visible;border-radius:0;background:transparent}
+.brand-renewal .news-poster img{border-radius:17px;overflow:hidden}
+.brand-renewal .news-poster>span{position:static;display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;height:auto;padding:10px 7px;margin-top:12px;border:1px solid #c8c3ec;border-radius:14px;line-height:1.65;font-size:12px;white-space:normal;background:var(--cream);color:var(--blue);overflow:visible}
+.brand-renewal .news-copy h3{font-size:24px}
+.brand-renewal #space{padding-top:70px;padding-bottom:70px}
+.brand-renewal #space .floor-links a{color:var(--cream);border-color:#fff8}
+.brand-renewal #space .floor-links a:hover{background:var(--cream);color:var(--blue)}
+.brand-renewal .space-gallery-tile:hover strong,.brand-renewal .space-gallery-tile b{color:var(--cyan)}
+.brand-renewal .space-gallery-tile img{border:1px solid #fff3}
+.brand-renewal .signature-section{background:var(--cream);border-radius:42px 42px 0 0}
+.brand-renewal .signature-section .section-heading h2{font-size:clamp(27px,3vw,39px);line-height:1.55}
+.brand-renewal .panini-carousel{background:#eeebff;padding:30px;border:1px solid #d8d3f4;border-radius:30px}
+.brand-renewal .menu-subheading h3{font-size:clamp(22px,2.4vw,29px);line-height:1.65}
+.brand-renewal .bread-card .awaiting-photo{background:#e5dfff;border-color:#d2c9f5}
+.brand-renewal .lab-section{background:var(--cream);max-width:none;padding-left:max(40px,calc((100vw - 1200px)/2));padding-right:max(40px,calc((100vw - 1200px)/2));border-radius:0 0 42px 42px;padding-top:35px}
+.brand-renewal .lab-photo{background:#e5dfff;border-color:#d2c9f5}
+.brand-renewal .real-reviews{background:var(--blue);padding:75px 0}
+.brand-renewal .review-heading h2{font-size:clamp(23px,3vw,34px);color:var(--cream);line-height:1.55}
+.brand-renewal .review-heading>p:last-child,.brand-renewal .review-credit{color:#e2dfff}
+.brand-renewal .guest-book{background:var(--cream);border-color:var(--cream)}
+.brand-renewal .guest-author h3{font-family:var(--house-font);font-weight:700;color:#26253d}
+.brand-renewal .whole-cakes{background:var(--cream);border-radius:38px;padding:55px 40px;margin-bottom:55px;width:calc(100% - 80px)}
+.brand-renewal .cake-benefit p{color:var(--cream)}
+.brand-renewal .cake-product{padding:20px;background:#f0edff;border:1px solid #ded9f7;border-radius:26px}
+.brand-renewal .cake-photo{background:#ddd5fa}
+.brand-renewal .gifts-section{background:var(--blue);padding-top:25px;padding-bottom:70px}
+.brand-renewal .gift-card,.brand-renewal .gift-business{background:var(--cream);border-color:var(--cream)}
+.brand-renewal .gift-photo{background:#e5dfff;border-color:#d2c9f5}
+.brand-renewal .together-section{background:var(--cream);border-radius:42px 42px 0 0}
+.brand-renewal .event-image img{border-radius:22px}
+.brand-renewal .outside-cases article{padding:25px;background:#eeebff;border:1px solid #d8d2f1}
+.brand-renewal .venue-cta{background:var(--blue);border-color:var(--blue);color:var(--cream);border-radius:27px}
+.brand-renewal .venue-cta h3,.brand-renewal .venue-cta p{color:var(--cream)}
+.brand-renewal .venue-cta .button{background:var(--cream);color:var(--blue);border-color:var(--cream)}
+.brand-renewal .visit-section{padding-top:75px;padding-bottom:65px;grid-template-columns:1.05fr 1fr;gap:55px}
+.brand-renewal .visit-copy h2,.brand-renewal .station-note,.brand-renewal .visit-copy .phone-link,.brand-renewal .english-guide summary{color:var(--cream)}
+.brand-renewal .visit-copy address span,.brand-renewal .visit-note,.brand-renewal .english-guide p{color:#e2dfff}
+.brand-renewal .visit-copy .button{background:var(--cream);color:var(--blue);border-color:var(--cream)}
+.brand-renewal .visit-copy .button.outline{background:transparent;color:var(--cream)}
+.place-card{border-radius:30px;overflow:hidden;border:7px solid var(--cream)}
+.place-map{height:340px;background:#e7e8e3;overflow:hidden;border-radius:23px 23px 0 0}
+.place-map iframe{width:100%;height:100%;display:block;border:0}
+.place-summary{display:flex;align-items:center;gap:18px;padding:22px 18px}
+.place-summary>img{width:80px;height:80px;object-fit:cover;border-radius:19px}
+.place-category{color:#676375;font-size:11px}
+.place-summary h3{font-size:25px;line-height:1.45;color:var(--blue);margin:3px 0}
+.place-summary p{font-size:12px;line-height:1.8;color:#595568}
+.place-map-links{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:0 16px 18px}
+.place-map-links a{display:flex;align-items:center;justify-content:center;background:var(--blue);color:var(--cream);min-height:46px;border-radius:999px;font-size:12px}
+.place-map-links a:first-child{background:#147b42}
+.brand-renewal .site-footer{border-top:1px solid #ffffff40}
+.brand-renewal .house-booking-dock{background:var(--cream);border-color:var(--cream)}
+.brand-renewal .house-booking-dock a{font-size:13px}
+.brand-renewal a:focus-visible,.brand-renewal button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+@media(max-width:1100px){
+.brand-renewal .hero-home{gap:30px;padding:45px 30px 65px}.welcome-stamp{display:none}.services-note{display:block}.services-note p{margin-top:5px}.welcome-service{padding:18px}.welcome-service h2{font-size:22px}.brand-renewal .news-pair{grid-template-columns:1fr}.brand-renewal .news-item,.brand-renewal .news-item+.news-item{grid-template-columns:180px 1fr}.brand-renewal .visit-section{gap:30px}
+}
+@media(max-width:720px){
+.brand-renewal .hero-home{display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:30px 22px 45px}.welcome-tag{font-size:12px;margin-bottom:18px;padding:9px 14px}.brand-renewal .hero-home h1{font-size:clamp(30px,8.5vw,43px);line-height:1.5;margin-bottom:18px}.brand-renewal .hero-home h1 br{display:block}.brand-renewal .hero-home h1 em{text-decoration-thickness:3px;text-underline-offset:7px}.welcome-description{font-size:14px}.welcome-meta{font-size:11px;gap:8px 12px;margin-top:18px}.welcome-meta span+span:before{margin-right:10px}.welcome-space{margin-top:23px;font-size:13px}.welcome-copy{padding:0}.services-note{display:flex;align-items:baseline}.services-note>span{font-size:11px}.services-note p{font-size:10px}.service-card-grid{gap:11px}.welcome-service{padding:17px 15px;border-radius:23px}.service-card-top{font-size:10px;margin-bottom:15px}.service-card-top b{font-size:21px}.welcome-service h2{font-size:22px}.welcome-service p{font-size:11px;min-height:35px}.services-footnote{font-size:10px;margin-top:18px}
+.brand-renewal .house-news,.brand-renewal .signature-section,.brand-renewal .together-section{border-radius:28px 28px 0 0}.brand-renewal .news-item,.brand-renewal .news-item+.news-item{grid-template-columns:112px minmax(0,1fr);padding:16px;gap:15px;border-radius:23px}.brand-renewal .news-copy h3{font-size:20px}.brand-renewal .news-poster>span{font-size:10px;padding:9px 5px;min-height:39px;border-radius:12px}.brand-renewal .news-poster img{border-radius:12px}.brand-renewal #space{padding-top:48px;padding-bottom:48px}.brand-renewal .signature-section .section-heading h2{font-size:26px;line-height:1.6}.brand-renewal .panini-carousel{padding:16px;border-radius:24px}.brand-renewal .panini-choices{gap:7px}.brand-renewal .panini-choices button{font-size:11px;padding:8px}.brand-renewal .menu-subheading h3{font-size:22px;line-height:1.65}.brand-renewal .lab-section{padding-left:22px;padding-right:22px;border-radius:0 0 28px 28px;padding-bottom:45px}.brand-renewal .real-reviews{padding:45px 0}.brand-renewal .review-heading h2{font-size:24px}.brand-renewal .whole-cakes{width:calc(100% - 28px);padding:36px 18px;border-radius:28px;margin-bottom:40px}.brand-renewal .whole-cakes .section-heading h2{font-size:27px}.brand-renewal .cake-product{padding:16px;border-radius:23px}.brand-renewal .gifts-section{padding-bottom:45px}.brand-renewal .visit-section{padding-top:45px;padding-bottom:40px;gap:30px;grid-template-columns:1fr}.place-map{height:290px}.place-card{border-radius:25px;border-width:5px}.place-summary{padding:17px 12px;gap:13px}.place-summary>img{width:65px;height:75px}.place-summary h3{font-size:22px}.place-map-links{padding:0 10px 13px;gap:7px}.place-map-links a{font-size:11px}.brand-renewal .house-booking-dock a{font-size:12px}.brand-renewal .outside-cases article{padding:22px}
+}
+@media(max-width:360px){.brand-renewal .news-item,.brand-renewal .news-item+.news-item{grid-template-columns:95px minmax(0,1fr);gap:12px;padding:12px}.welcome-service{padding:16px 12px}.welcome-service h2{font-size:20px}.services-note{display:block}.brand-renewal .hero-home{padding-left:18px;padding-right:18px}}
+@media(prefers-reduced-motion:reduce){.welcome-service{transition:none}.welcome-service:hover{transform:none}}

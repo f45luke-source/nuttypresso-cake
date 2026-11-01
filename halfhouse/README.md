@@ -33,7 +33,7 @@ Real space, bakery and event photographs are supplied by HALF HOUSE in its Drive
 
 Toss and F45 cases show original event photographs. TOLAGEL and FRESH SQUEEZE use text case records and the brand's Instagram link: their specific photo folders were empty at this update. Ten visitor reviews were verified in Naver’s recommended order on 2026-10-30. Short verbatim excerpts are explicitly labelled as excerpts, with author/date and individually verified selectedReview links to each original Naver review. Recommendation order can change; stars and aggregate ratings are not republished. At the owner’s request, two actual photographs per review (20 total) were verified from the corresponding public Naver review on 2026-11-02 KST and optimized as local WebP files. Each photo-to-review source mapping is recorded in collection-sources.json. The selected example by 빛나는밤97 opens first; the remaining reviews retain their prior relative order. This is a curated static collection, not a live Naver embed.
 
-Brand artwork and the existing Josefin font remain in place. Owner-provided Happiness Sans Print Regular/Bold from Drive B.I/Fonts are self-hosted as WOFF2; headings use Regular with reduced sizes. The bakery character is an illustration, not a cake photo.
+Brand artwork remains in place. Owner-provided Happiness Sans Print Title and Calder-LC from Drive B.I/Fonts are self-hosted as WOFF2 for Korean headings and expressive English labels. Body text keeps Happiness Regular/Bold for readability. The web logo confirms RGB 51/45/229 (#332DE5); no specific Pantone number was verified. The bakery character is an illustration, not a cake photo.
 
 November campaign values follow the owner's latest instructions: Nov 1–30 store stamp event; 10,000 KRW per stamp; rewards at 10/20/30 are a choice of three baguettes / HALF HOUSE BAG / whole Basque cake. Do not imply combined or popup stamp redemption conditions that were not confirmed.
 Pangyo popup: Nov 6–26, Hyundai Pangyo B1 glass-wall popup zone opposite Paris Croissant, closed Nov 16. The separate popup page uses the owner’s three menu sheets. Popup prices are not main-store prices. The homepage hides expired November promotion links after Nov 30 KST.
@@ -96,3 +96,13 @@ Release validation covers responsive widths, local image integrity, menu and gal
 - Replaced the long text-only review list with one compact, manually controlled review area: ten real Naver reviews, two matching photos each, attributed short excerpts and direct original links. Photos enlarge within the page. No autoplay. This supersedes the earlier text-only review publication approach.
 - Added a persistent six-service booking dock on the homepage and Pangyo page: cake, venue, bulk orders, gifts, popup/collaboration and group visits. Mobile shows all six in two rows. Each opens the existing form with its service preselected.
 - Verified desktop and 390px mobile layouts, no horizontal overflow, all ten review slides, enlarged review photos, and cake inquiry preselection. Existing form backend and unrelated root site are unchanged.
+
+
+## Release — 2026-11-02 (blue house identity and service-first welcome)
+
+- Replaced the homepage hero photo tour with the owner’s second-home greeting and six direct service cards: venue, bulk, gifts, popup/collaboration, groups and whole cakes. Removed the redundant Visit/Order/Together strip. Existing space galleries remain.
+- Made original B.I web blue #332DE5 the main background, balanced with rounded cream panels. Applied supplied Happiness Title / Calder-LC display fonts and kept readable body typography. Updated the requested sourdough, basic-bread and real-review copy.
+- Rebuilt poster captions as fully visible buttons, renamed them to 이벤트 자세히 / 판교 팝업 보기, and fixed the white-on-white venue CTA.
+- Replaced the large final exterior photo with a live Google location map and a place card linking directly to Naver Place and Google Maps. The small supplied exterior photo identifies the venue. Google map iframe is the only new allowed frame origin.
+- Preserved the ten genuine photo reviews, twelve panini photos, intentional missing-photo areas, six-service booking dock and existing inquiry backend.
+- Checked desktop and narrow mobile layouts (305px / 375px content widths), no horizontal overflow, exact revised copy, local asset references, JSON/JS validity, Google venue marker, service preselection, panini category selection and venue CTA text contrast. No customer inquiry was submitted.

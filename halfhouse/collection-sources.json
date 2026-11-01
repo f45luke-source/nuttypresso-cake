@@ -202,5 +202,12 @@
     "family": "Happiness Sans Print Regular / Bold; self hosted from owner files",
     "bi_reference": "1Kvzkg1KnWhNyX7wCH3bArcXj104_-bJE"
   },
-  "review_photo_basis": "Two photographs from each matched original Naver review, verified 2026-11-02 KST. Author and individual original review link retained."
+  "review_photo_basis": "Two photographs from each matched original Naver review, verified 2026-11-02 KST. Author and individual original review link retained.",
+  "brand_refresh": {
+    "verified": "2026-11-02 KST",
+    "web_blue": "#332DE5",
+    "color_basis": "RGB 51/45/229 in owner B.I halfhouse_logo_web-01.png. Pantone identifier not present in inspected web assets.",
+    "title_font": "Owner Happiness Sans Print Title, 1_ysHdkUT_GQMCcZL7ZoTOohVnxy5ofO1",
+    "english_font": "Owner Calder-LC, 1QrLEFU9fw5w5W11pwq2OAs1m3Eii0JKd"
+  }
 }
