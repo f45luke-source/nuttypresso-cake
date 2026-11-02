@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-03",
+  "assets": [
+    {
+      "slug": "salt-bread",
+      "index": 9,
+      "source_file_id": "1UeZkfvMzh6iZ4kqZ6aohQpajX3S9flkd",
+      "source_name": "3CCC60CF-08DF-431B-8E31-9A9BD457226C.png",
+      "background_extraction": true
+    },
+    {
+      "slug": "chocolate-salt-bread",
+      "index": 10,
+      "source_file_id": "17II-wHaxGTBOIKQPEe4JFOqxHY4B_drn",
+      "source_name": "67D7BBC0-3BDF-42D6-ADAB-60A6008CC1C7.png",
+      "background_extraction": true
+    },
+    {
+      "slug": "egg-tart",
+      "index": 12,
+      "source_file_id": "1pfy3_RXP4aTlZ7fAH-wN90X4RP21dGBP",
+      "source_name": "EC78C9CF-E544-4D74-AABA-841D29701FE8.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "chocolate-baguette",
+      "index": 13,
+      "source_file_id": "15PP2HBy0Z295AXakQboHECSuX7jFyysA",
+      "source_name": "44827FE1-BDE4-4BDD-88D5-1A57D9A7A761.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "pistachio-baguette",
+      "index": 16,
+      "source_file_id": "1ktsRyBv00x7QuTpSi6R0dEC6etrc5RRB",
+      "source_name": "1F17DAFF-631C-4130-AD04-90A51FB56071.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "chestnut-baguette",
+      "index": 14,
+      "source_file_id": "1617-aTKTwn9oMoLfbe8MicHYmHSzb11I",
+      "source_name": "IMG_3816.PNG",
+      "background_extraction": false
+    },
+    {
+      "slug": "basque-whole",
+      "index": 6,
+      "source_file_id": "1bOdbltk5gS1iWZ4FRVbLb0Iz-1ERfFsp",
+      "source_name": "7E895538-179F-47D3-AB1F-7004F1E04ECB.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "matcha-whole",
+      "index": 5,
+      "source_file_id": "1LIfk5J8jPNVWfSHHGG-RBLUMUAfiHl0m",
+      "source_name": "81855550-F536-471E-A743-D3FA916D9E1C.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "strawberry-whole",
+      "index": 7,
+      "source_file_id": "1muQC5_i8UuY8KkPKK654cvHwxSSbnooz",
+      "source_name": "A25DB190-F540-4B8D-91F4-931166B5369A.png",
+      "background_extraction": false
+    },
+    {
+      "slug": "financier-six",
+      "index": 8,
+      "source_file_id": "1JA7v-L1ASZbtpWS6rIgQmjp-l94iLdvH",
+      "source_name": "D3658659-08B4-4593-8302-63A5E2E4754C.png",
+      "background_extraction": true
+    },
+    {
+      "slug": "chocolate-pound-whole",
+      "index": 4,
+      "source_file_id": "15uI584saeT7EoYkwc7AaEw3deh40FMwW",
+      "source_name": "309A4873-0620-4B7C-AFEC-962C89AF4EF1.png",
+      "background_extraction": true
+    }
+  ],
+  "pending": [
+    "blueberry-scone-whole",
+    "lemon-pound-whole",
+    "vanilla-pound-whole",
+    "cinnamon-pound-whole"
+  ],
+  "notes": "User approved publishing confirmed photos first. Product text, prices, booking links and B2 unchanged."
+}
