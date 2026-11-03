@@ -37,9 +37,16 @@
     form.querySelector('input[name="service"][value="' + type + '"]').checked = true;
     document.querySelector('#service-hint').textContent = hints[type];
     const titles = {venue:'좋은 만남을 위한 대관',bulk:'함께 먹을 빵, 단체주문',gifts:'마음을 전하는 선물',popup:'브랜드의 다음 만남',group:'여럿이 함께하는 시간',cake:'특별한 날의 홀케이크'};
-    const previews = {venue:['assets/photos/toss-conversation.webp','하프하우스에서 열린 토스플레이스 간담회'],bulk:['assets/photos/space-39.webp','하프하우스의 빵과 커피'],gifts:['assets/photos/archive-011.webp','하프하우스의 매장 굿즈'],popup:['assets/photos/space-35.webp','하프하우스의 매장 공간'],group:['assets/photos/archive-014.webp','함께 앉기 좋은 하프하우스의 좌석'],cake:['assets/bakery.webp','하프하우스 베이커리 진열']};
+    const previews = {
+      venue:['assets/photos/toss-conversation.webp','하프하우스에서 열린 토스플레이스 간담회'],
+      bulk:['assets/collection/toss-09.webp','기업 행사에 준비한 하프하우스 베이커리 테이블'],
+      gifts:['assets/products-20261103/financier-six.webp','하프하우스 피낭시에 6구 선물세트'],
+      popup:['assets/november/pangyo.webp','11월 6–26일 현대백화점 판교점 팝업 · 11월 16일 휴무'],
+      group:['assets/collection/f45-01.webp','여럿이 함께 음식을 나누는 F45 강남 커뮤니티 모임'],
+      cake:['assets/products-20261103/strawberry-whole.webp','하프하우스 딸기 바스크 치즈케이크 홀사이즈']
+    };
     const title = document.querySelector('#request-title'); if(title) title.textContent=titles[type];
-    const preview = document.querySelector('#request-photo'); if(preview){preview.src=previews[type][0];preview.alt=previews[type][1];}
+    const preview = document.querySelector('#request-photo'); if(preview){preview.src=previews[type][0];preview.alt=previews[type][1];preview.closest('.request-preview').dataset.service=type;}
     const caption = document.querySelector('#request-caption'); if(caption) caption.textContent=previews[type][1];
     document.querySelectorAll('[data-fields]').forEach(group => {
       const active = group.dataset.fields.split(' ').includes(type);
