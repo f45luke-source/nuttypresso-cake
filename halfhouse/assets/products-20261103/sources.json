@@ -77,13 +77,34 @@
       "source_file_id": "15uI584saeT7EoYkwc7AaEw3deh40FMwW",
       "source_name": "309A4873-0620-4B7C-AFEC-962C89AF4EF1.png",
       "background_extraction": true
+    },
+    {
+      "slug": "vanilla-pound-whole",
+      "index": 0,
+      "source_file_id": "10K4lq93nYnKWLDxt3SQOGCJPSEH7Tf_u",
+      "source_name": "22545DCA-F628-4BDC-AECE-AF934B304B14.png",
+      "background_extraction": true,
+      "identification": "Owner confirmed candidate number 1"
+    },
+    {
+      "slug": "cinnamon-pound-whole",
+      "index": 1,
+      "source_file_id": "1xDIqNjKj-hqgYoxURpRfxrTLbPT9NYwS",
+      "source_name": "39463842-6BD4-4B72-98B1-D7AD9BFBE71A.png",
+      "background_extraction": true,
+      "identification": "Owner confirmed candidate number 2"
+    },
+    {
+      "slug": "lemon-pound-whole",
+      "index": 2,
+      "source_file_id": "1wUoeLMV3rqPM7Aqa12T3LCWyEPQvBl0C",
+      "source_name": "E95672FD-A861-4A0A-B41A-CB6C0CFF71D6.png",
+      "background_extraction": true,
+      "identification": "Owner confirmed candidate number 3"
     }
   ],
   "pending": [
-    "blueberry-scone-whole",
-    "lemon-pound-whole",
-    "vanilla-pound-whole",
-    "cinnamon-pound-whole"
+    "blueberry-scone-whole"
   ],
   "notes": "User approved publishing confirmed photos first. Product text, prices, booking links and B2 unchanged."
 }

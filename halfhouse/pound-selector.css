@@ -1,0 +1,7 @@
+.pound-selector{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 16px}
+.pound-selector button{min-height:44px;padding:9px 5px;border:1px solid #d8d2f1;border-radius:999px;background:#eeebff;color:var(--blue,#332de5);font:inherit;font-size:14px;line-height:1.4;white-space:nowrap}
+.pound-selector button[aria-pressed="true"]{background:var(--blue,#332de5);border-color:var(--blue,#332de5);color:#fff}
+.pound-selector button:focus-visible{outline:3px solid var(--blue,#332de5);outline-offset:3px}
+.pound-selector button:disabled{opacity:.5;cursor:default}
+.pound-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:420px){.pound-selector{gap:5px}.pound-selector button{font-size:12px}}
