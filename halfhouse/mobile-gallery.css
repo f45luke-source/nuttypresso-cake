@@ -1,0 +1,32 @@
+/* Six service shades progress from light to dark in reading order. */
+.brand-renewal .welcome-service:nth-child(1){--card-bg:#fff9ee;--card-ink:#332b83}
+.brand-renewal .welcome-service:nth-child(2){--card-bg:#e5f4fa;--card-ink:#332b83}
+.brand-renewal .welcome-service:nth-child(3){--card-bg:#d6ddfa;--card-ink:#332b83}
+.brand-renewal .welcome-service:nth-child(4){--card-bg:#b5bdeb;--card-ink:#332b83}
+.brand-renewal .welcome-service:nth-child(5){--card-bg:#606cad;--card-ink:#fff}
+.brand-renewal .welcome-service:nth-child(6){--card-bg:#424e94;--card-ink:#fff}
+.brand-renewal .welcome-service{background:var(--card-bg);border-color:var(--card-bg);color:var(--card-ink)}
+.brand-renewal .welcome-service h2,.brand-renewal .welcome-service p{color:var(--card-ink)}
+.brand-renewal .welcome-service:hover{background:var(--card-bg);color:var(--card-ink)}
+.brand-renewal .photo-pending{display:flex;align-items:center;justify-content:center;color:#59518e;text-align:center;font-size:18px;letter-spacing:.03em;padding:24px}
+.brand-renewal .floor-block{min-width:0}
+.brand-renewal .space-gallery{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#a9a1ff transparent;padding:0 0 14px;max-width:100%}
+.brand-renewal .space-gallery-tile{flex:0 0 calc((100% - 40px)/2.1);scroll-snap-align:start;scroll-snap-stop:always;align-self:flex-start}
+.space-gallery:focus-visible{outline:2px solid #fff;outline-offset:5px}
+.space-gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px}
+.space-gallery-controls p{font-size:13px;color:#fff}
+.space-gallery-controls>div{display:flex;align-items:center;gap:12px}
+.space-gallery-count{font:14px var(--eng,sans-serif);color:#fff;white-space:nowrap;min-width:54px;text-align:center}
+.space-gallery-controls button{display:grid;place-items:center;width:44px;height:44px;border:1px solid #fff9;border-radius:50%;background:transparent;color:#fff;font-size:23px;line-height:1;cursor:pointer}
+.space-gallery-controls button:hover{background:#ffffff20}
+.space-gallery-controls button:disabled{opacity:.35;cursor:default}
+.space-gallery-controls button:focus-visible{outline:3px solid #b8fff0;outline-offset:3px}
+@media(max-width:600px){
+  .brand-renewal .space-gallery{gap:14px}
+  .brand-renewal .space-gallery-tile{flex-basis:88%}
+  .space-gallery-controls{gap:8px;margin-top:8px}
+  .space-gallery-controls p{font-size:11px}
+  .space-gallery-controls>div{gap:6px}
+  .space-gallery-count{font-size:12px;min-width:42px}
+  .brand-renewal .lab-photo.photo-pending{aspect-ratio:16/9;min-height:0}
+}
